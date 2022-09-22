@@ -87,34 +87,49 @@
 
                     <!-- /.col -->
                     <div class="col-md-12">
-                      <div class="form-group">
-                        <label>Profit Center</label>
-                        <input type="text" class="form-control" name="prfc" placeholder="Masukkan Profit Center">
-                      </div>
-                      <div class="form-group">
-                        <label>Person In Charge (PIC) Sales</label>
-                        <input type="text" class="form-control" name="pic" placeholder="Masukkan PIC Sales">
-                      </div>
-                      <div class="form-group">
-                        <label>Nomor Reservasi</label>
-                        <input type="text" class="form-control" name="rsv" placeholder="Masukkan Reservasi ID">
-                      </div>
-                      <div class="form-group">
-                        <label>Nama Customer Master Data (CMD)</label>
-                        <input type="text" class="form-control" name="nama_cmd"
-                          placeholder="Masukkan nama Customer Master Data">
-                      </div>
-                      <div class="form-group">
-                        <label>Nama Instansi/Perusahaan</label>
-                        <input type="text" class="form-control" name="ins"
-                          placeholder="Masukkan nama Instansi Perusahaan, Sekolah, Tour & Travel, dll">
-                      </div>
-                      <div class="form-group">
-                        <label>Booking Order</label>
-                        <input type="text" class="form-control" name="bko" placeholder="Masukkan kode Booking Order">
+                      <div class="row">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Booking Order</label>
+                            <input type="text" class="form-control" name="bko"
+                              placeholder="Masukkan kode Booking Order">
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Profit Center</label>
+                            <input type="text" class="form-control" name="prfc" placeholder="Masukkan Profit Center">
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Person In Charge (PIC) Sales</label>
+                            <input type="text" class="form-control" name="pic" placeholder="Masukkan PIC Sales">
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Nomor Reservasi</label>
+                            <input type="text" class="form-control" name="rsv" placeholder="Masukkan Reservasi ID">
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Nama Customer Master Data (CMD)</label>
+                            <input type="text" class="form-control" name="nama_cmd"
+                              placeholder="Masukkan nama Customer Master Data">
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Nama Instansi/Perusahaan</label>
+                            <input type="text" class="form-control" name="ins"
+                              placeholder="Masukkan nama Instansi Perusahaan, Sekolah, Tour & Travel, dll">
+                          </div>
+                        </div>
                       </div>
 
-                      <div class="col border-bottom mb-4 mt-4"></div>
+                      <div class="col border-bottom mb-3 mt-2"></div>
 
                       <div class="row">
                         <div class="col-md-3">
@@ -158,7 +173,6 @@
                           </div>
                         </div>
                       </div>
-
                       <div class="row">
                         <div class="col">
                           <div class="form-group">
@@ -193,23 +207,34 @@
                         </div>
                       </div>
 
-                      <div class="col border-bottom mb-4 mt-3"></div>
+                      <div class="col border-bottom mb-3 mt-2"></div>
 
-                      <div class="form-group">
-                        <label>Customer Master Data</label>
-                        <input type="text" class="form-control" name="cmd" placeholder="Masukkan tipe CMD">
-                      </div>
-                      <div class="form-group">
-                        <label>PIC Customer</label>
-                        <input type="text" class="form-control" name="pcus" placeholder="Masukkan nama customer">
-                      </div>
-                      <div class="form-group">
-                        <label>PIC Contact</label>
-                        <input type="text" class="form-control" name="picc"
-                          placeholder="Masukkan kontak Person In Charge">
-                      </div>
                       <div class="row">
-                        <div class="col-md-4">
+                        <div class="col">
+                          <div class="form-group">
+                            <label>Customer Master Data</label>
+                            <input type="text" class="form-control" name="cmd" placeholder="Masukkan tipe CMD">
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="form-group">
+                            <label>PIC Customer</label>
+                            <input type="text" class="form-control" name="pcus" placeholder="Masukkan nama customer">
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="form-group">
+                            <label>PIC Contact</label>
+                            <input type="text" class="form-control" name="picc"
+                              placeholder="Masukkan kontak Person In Charge">
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col border-bottom mb-3 mt-2"></div>
+
+                      <div class="row">
+                        <div class="col">
                           <div class="form-group">
                             <label>Type Unit</label>
                             <select class="form-control" name="tyunit">
@@ -220,7 +245,7 @@
                             </select>
                           </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col">
                           <div class="form-group">
                             <label>Kategori Unit</label>
                             <select class="select2" style="width: 100%;" name="kg">
@@ -233,9 +258,9 @@
                             </select>
                           </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-2">
                           <div class="form-group">
-                            <label>Jumlah Seat/Bangku</label>
+                            <label>Jumlah Bangku</label>
                             <select class="form-control" name="seat">
                               <option>-- Pilih Jumlah Seat/Bangku --</option>
                               <?php foreach ($seat as $st) : ?>
@@ -246,10 +271,7 @@
                             </select>
                           </div>
                         </div>
-                      </div>
-                      <!-- /.col -->
-                      <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                           <div class="form-group">
                             <label>No. Polisi</label>
                             <select class="select2" style="width: 100%;" name="npl">
@@ -262,7 +284,10 @@
                             </select>
                           </div>
                         </div>
-                        <div class="col-md-6">
+                      </div>
+                      <!-- /.col -->
+                      <div class="row">
+                        <div class="col">
                           <div class="form-group">
                             <label>Driver</label>
                             <div class="input-group-append">
@@ -271,9 +296,7 @@
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-12">
+                        <div class="col">
                           <div class="form-group">
                             <label>Maksud Sewa</label>
                             <select class="select2" style="width: 100%;" name="sw">
@@ -314,7 +337,7 @@
                         </div>
                       </div>
                       <div class="row">
-                        <div class="col-md-4">
+                        <div class="col">
                           <div class="form-group">
                             <label>Tanggal mulai Pemesanan</label>
                             <div class="input-group date">
@@ -326,7 +349,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col">
                           <div class="form-group">
                             <label>Tanggal akhir Pemesanan</label>
                             <div class="input-group date">
@@ -338,7 +361,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col">
                           <div class="form-group">
                             <label>Waktu Sewa</label>
                             <div class="input-group">
@@ -347,17 +370,21 @@
                               </div>
                               <input type="number" class="form-control" autocomplete="off" id="countFromDate" min="0"
                                 name="wkts" placeholder="Masukkan durasi waktu sewa">
-                              <h6 class="col-sm-2 mt-2">Hari</h6>
+                              <span>
+                                <h6 class="col mt-2">Hari</h6>
+                              </span>
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="form-group">
-                        <label>Toll Parkir</label>
-                        <select class="form-control" name="toll">
-                          <option>Exclude</option>
-                          <option>Include</option>
-                        </select>
+                        <div class="col">
+                          <div class="form-group">
+                            <label>Toll Parkir</label>
+                            <select class="form-control" name="toll">
+                              <option>Exclude</option>
+                              <option>Include</option>
+                            </select>
+                          </div>
+                        </div>
                       </div>
 
                       <div class="col border-bottom mb-4 mt-3"></div>
@@ -372,7 +399,8 @@
                                   <h7>Rp. </h7>
                                 </span>
                               </div>
-                              <input type="number" class="form-control" name="rvnu" id="revenueunit">
+                              <input type="number" class="form-control" name="rvnu" id="revenueunit"
+                                onkeyup="updateSummary()">
                             </div>
                           </div>
                         </div>
@@ -385,7 +413,8 @@
                                   <h7>Rp. </h7>
                                 </span>
                               </div>
-                              <input type="number" class="form-control" name="addc" id="addcharge">
+                              <input type="number" class="form-control" name="addc" id="addcharge"
+                                onkeyup="updateSummary()">
                             </div>
                           </div>
                         </div>
@@ -393,17 +422,6 @@
                       <div class="form-group">
                         <label>Keterangan Additional Charge</label>
                         <textarea class="form-control" name="ket_addc" rows="2" placeholder="Enter ..."></textarea>
-                      </div>
-                      <div class="form-group">
-                        <label>Total Revenue (1+2)</label>
-                        <div class="input-group">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">
-                              <h7>Rp. </h7>
-                            </span>
-                          </div>
-                          <input type="number" class="form-control" name="total_rvnu" id="totalrevenue">
-                        </div>
                       </div>
                       <div class="row">
                         <div class="col-md-8">
@@ -434,6 +452,20 @@
                           </div>
                         </div>
                       </div>
+                      <div class="form-group">
+                        <label>Total Revenue (1+2)</label>
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <h7>Rp. </h7>
+                            </span>
+                          </div>
+                          <input type="number" class="form-control" name="total_rvnu" id="totalrevenue">
+                        </div>
+                      </div>
+
+                      <div class="col border-bottom mb-3 mt-4"></div>
+
                       <!-- Payment Form -->
                       <div class="row">
                         <div class="col-md-4">
@@ -562,15 +594,15 @@
                                   <h7>Rp. </h7>
                                 </span>
                               </div>
-                              <input type="number" class="form-control" name="total_py"
-                                placeholder="Masukkan jumlah total pembayaran">
+                              <input type="number" class="form-control" name="total_py" id="totalpayment" placeholder="Masukkan jumlah total pembayaran" onkeyup="subtracPayment()">
                             </div>
                           </div>
                         </div>
                         <div class="col-md-2">
                           <div class="form-group">
                             <label>Collect PPh 23</label>
-                            <select class="form-control" name="colpph23">
+                            <select class="form-control" name="colpph23" id="collectpph23" onchange="summaryPajak()">
+                              <option></option>
                               <option>YA</option>
                               <option>TIDAK</option>
                             </select>
@@ -588,8 +620,7 @@
                         <div class="col-md-8">
                           <div class="form-group">
                             <label>Selisih Pembayaran (Payment-Revenue)</label>
-                            <input type="text" class="form-control" name="slpy"
-                              placeholder="Masukkan selisih pembayaran (Payment - Revenue)">
+                            <input type="text" class="form-control" name="slpy" id="selisih-py" placeholder="Masukkan selisih pembayaran (Payment - Revenue)">
                           </div>
                           <div class="form-group">
                             <label>Catatan Lainnya</label>
@@ -601,7 +632,7 @@
                             <p class="flex-column text-right">
                             <p class="text-muted mr-2 h5">STATUS :</p>
                             <p class="font-weight-bold" style="padding-top: 10px;">
-                              <i class="fa fa-times text-danger"></i> KURANG BAYAR
+                              <!-- <i class="fa fa-times text-danger"></i> KURANG BAYAR -->
                             </p>
                             </p>
                             <!-- <h5 class="mr-2">STATUS :</h5><i class="fa fa-times mr-2"></i><p> KURANG BAYAR</p> -->
@@ -643,6 +674,7 @@
                     </div>
                     <!-- /.col -->
                   </div>
+
                   <!-- /.col -->
                 </div>
                 <!-- /.row -->
@@ -749,6 +781,45 @@
 
     })
 
+    var r = document.getElementById("revenueunit");
+    var a = document.getElementById("addcharge");
+    var tr = document.getElementById("totalrevenue");
+    var p23 = document.getElementById("pph23");
+    var tp = document.getElementById("totalpayment");
+    var spy = document.getElementById('selisih-py');
+
+    function updateSummary() {
+      var revenueResult = parseInt(r.value) + parseInt(a.value);
+      if (!isNaN(revenueResult)) {
+        tr.value = revenueResult;
+      } else {
+        tr.value = 0;
+      }
+    }
+
+    function summaryPajak() {
+      var select = document.getElementById('collectpph23').value;
+      if (select === "YA") {
+        var pphResult = parseInt(tr.value) * 0.02;
+        p23.value = pphResult;
+
+      } else if (select === "TIDAK") {
+        p23.value = 0;
+      } else {
+        p23.value = "";
+      }
+    }
+
+    function subtracPayment() {
+      var selisihResult = parseInt(tr.value) - parseInt(tp.value);
+      if (!isNaN(selisihResult)) {
+        spy.value = selisihResult;
+      } else {
+        spy.value = 0;
+      }
+    }
+
+
     // Calculate Total Revenue from Revenue per Unit & Additional Charge
     /*$(document).ready(function () {
       function compute() {
@@ -760,32 +831,44 @@
       $('#revenueunit, #addcharge').change(compute);
     });*/
 
-    $(document).ready(function () {
+    /*$(document).ready(function () {
       $("#revenueunit, #addcharge").keyup(function () {
         var total = 0;
         var r = parseInt($("#revenueunit").val());
         var a = parseInt($("#addcharge").val());
+        var tr = parseInt($("#totalrevenue").val())
         var total = r + a;
         $("#totalrevenue").val(total);
+        $("pph23").val();
       })
-      $("#revenueunit, #pricelist").keyup(function () {
+      /*$("#revenueunit, #pricelist").keyup(function () {
         var r = parseInt($("#revenueunit").val());
         var p = parseInt($("#pricelist").val());
         var total = isNaN(r / p) ? 0 : (r / p);
         $("#diskon").val(total);
       })
-      let tr = $('#totalrevenue');
-      let updateTotal = () => $('#pph23').val(tr.val() * (0.02));
+    })*/
 
-      updateTotal(); // on page load
-      $('form input').on('input', updateTotal);
+    /*$("#totalrevenue").blur(function() {
+      var tr = parseInt($('#totalrevenue').val());
+      var updateTotal = isNaN(tr * 2) ? 0 : (tr * 2);
+      $("#pph23").val(updateTotal);
+    })*/
+
+    //let tr = $('#totalrevenue');
+    //let updateTotal = () => $('#pph23').val(tr.val() * (0.02));
+
+    //updateTotal(); // on page load
+    //$('form input').on('input', updateTotal);
+
+    $(document).ready(function () {
+
     });
 
     // BS-Stepper Init
     document.addEventListener('DOMContentLoaded', function () {
       window.stepper = new Stepper(document.querySelector('.bs-stepper'))
     })
-
 
 
     var clicks = 1;

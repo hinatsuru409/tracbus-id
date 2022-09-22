@@ -14,7 +14,10 @@ class control_katbus extends CI_Controller{
     }
 
     function view_katbus(){
+		$this->load->view('template/header');
+		$this->load->view('template/sidebar');
         $this->load->view('v_datakategori_bus');
+		$this->load->view('template/footer');
     }
 
     function jsonBus(){

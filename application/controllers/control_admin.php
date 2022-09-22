@@ -11,17 +11,26 @@ class control_admin extends CI_Controller
 
     public function dashboard()
     {
+        $this->load->view('template/header');
+        $this->load->view('template/sidebar');
         $this->load->view('v_index');
+        $this->load->view('template/footer');
     }
 
     public function view_billing()
     {
+        $this->load->view('template/header');
+        $this->load->view('template/sidebar');
         $this->load->view('v_billing');
+        $this->load->view('template/footer');
     }
 
     public function view_sales()
     {
+        $this->load->view('template/header');
+        $this->load->view('template/sidebar');
         $this->load->view('v_sales');
+        $this->load->view('template/footer');
     }
 
     public function jsonSales(){
@@ -31,12 +40,14 @@ class control_admin extends CI_Controller
         foreach($fetch_data as $row){
             $no++;
             $sub_array = array();
-            $sub_array[] = $no;                
+            $sub_array[] = $no;
+            $sub_array[] = $row->booking_order;               
             $sub_array[] = $row->no_reservasi;  
             $sub_array[] = $row->pic_sales;
             $sub_array[] = $row->profit_center;
             $sub_array[] = '<a href="'.base_url().'index.php/control_admin/delete_sales/'.$row->id_sales.'" class="btn btn-danger pull-right btn-xs" role="button">Hapus</a>
-                            <a href="'.base_url().'index.php/control_admin/edit_sales/'.$row->id_sales.'" class="btn btn-secondary pull-right btn-xs" style="padding-left: 10px; padding-right: 10px;" role="button">Edit</a>'; 
+                            <a href="'.base_url().'index.php/control_admin/edit_sales/'.$row->id_sales.'" class="btn btn-secondary pull-right btn-xs" style="padding-left: 10px; padding-right: 10px;" role="button">Edit</a>
+                            <a href="" class="btn btn-success pull-right btn-xs" role="button"><i class="fa fa-eye"></i> View Data</a>'; 
             $data[] = $sub_array;
         }
         $output = array(  
