@@ -45,9 +45,25 @@ class control_admin extends CI_Controller
             $sub_array[] = $row->no_reservasi;  
             $sub_array[] = $row->pic_sales;
             $sub_array[] = $row->profit_center;
-            $sub_array[] = '<a href="'.base_url().'index.php/control_admin/delete_sales/'.$row->id_sales.'" class="btn btn-danger pull-right btn-xs" role="button">Hapus</a>
-                            <a href="'.base_url().'index.php/control_admin/edit_sales/'.$row->id_sales.'" class="btn btn-secondary pull-right btn-xs" style="padding-left: 10px; padding-right: 10px;" role="button">Edit</a>
-                            <a href="" class="btn btn-success pull-right btn-xs" role="button"><i class="fa fa-eye"></i> View Data</a>'; 
+            $sub_array[] = '<a class="btn btn-success pull-right btn-xs" id="salesModal" data-toggle="modal" data-target="#modal-lg"
+                                      data-booking="'.$row->booking_order.'" data-idreservasi="'.$row->no_reservasi.'" data-picsales="'.$row->pic_sales.'" data-profit="'.$row->profit_center.'"
+                                      data-namacmd="'.$row->nama_cmd.'" data-nama-instansi="'.$row->nama_instansi.'" data-order-type="'.$row->order_type.'" data-jenisbayar="'.$row->jenis_bayar.'"
+                                      data-invoice="'.$row->invoice.'" data-spek="'.$row->spesifikasi.'" data-type-customer="'.$row->type_customer.'"
+                                      data-source="'.$row->source_data.'" data-type-group="'.$row->group.'"
+                                      data-cmd="'.$row->cmd.'" data-pic-customer="'.$row->pic_customer.'"
+                                      data-pic-cont="'.$row->pic_contact.'" data-type-unit="'.$row->type_unit.'"
+                                      data-kategori="'.$row->kategori.'" data-nopol="'.$row->nopol.'"
+                                      data-seat="'.$row->seat.'" data-driver="'.$row->driver.'"
+                                      data-maksudsewa="'.$row->maksud_sewa.'" data-rute="'.$row->rute.'"
+                                      data-provinsi="'.$row->provinsi.'" data-ord-start="'.$row->order_start.'"
+                                      data-ord-end="'.$row->order_end.'" data-day="'.$row->order_day.'"
+                                      data-toll="'.$row->toll_parkir.'" data-revenueunit="'.$row->revenue_unit.'"
+                                      data-addcharge="'.$row->addcharge.'" data-ket-addcharge="'.$row->addcharge_ket.'"
+                                      data-totalrevenue="'.$row->revenue_total.'" data-pricelist="'.$row->price_list.'"
+                                      data-diskon="'.$row->diskon.'"
+                                      ><i class="fa fa-eye"></i> View Data</a>
+                            <a href="'.base_url().'index.php/control_admin/delete_sales/'.$row->id_sales.'" class="btn btn-danger pull-right btn-xs" role="button">Hapus</a>
+                            <a href="'.base_url().'index.php/control_admin/edit_sales/'.$row->id_sales.'" class="btn btn-secondary pull-right btn-xs" style="padding-left: 10px; padding-right: 10px;" role="button">Edit</a>'; 
             $data[] = $sub_array;
         }
         $output = array(  
@@ -108,18 +124,6 @@ class control_admin extends CI_Controller
         $total_revenue  = $this->input->post('total_rvnu');
         $price_list     = $this->input->post('prcl');
         $diskon         = $this->input->post('dsk');
-        $payment1       = $this->input->post('py1');
-        $tgl_payment1   = $this->input->post('tgl_py1');
-        $no_payment1    = $this->input->post('nom_py1');
-        $payment2       = $this->input->post('py2');
-        $tgl_payment2   = $this->input->post('tgl_py2');
-        $no_payment2    = $this->input->post('nom_py2');
-        $payment3       = $this->input->post('py3');
-        $tgl_payment3   = $this->input->post('tgl_py3');
-        $no_payment3    = $this->input->post('nom_py3');
-        $payment4       = $this->input->post('py4');
-        $tgl_payment4	= $this->input->post('tgl_py4');
-        $no_payment4    = $this->input->post('nom_py4');
 
         $data = array(
             'no_reservasi' => $reservasi,
@@ -155,19 +159,7 @@ class control_admin extends CI_Controller
             'ket_additionalcharge' => $ket_add_charge,
             'total_revenue' => $total_revenue,
             'price_list' => $price_list,
-            'diskon' => $diskon,
-            'payment1' => $payment1,
-            'tanggal_payment1' => date("Y-m-d", strtotime($tgl_payment1)),
-            'nominal_payment1' => $no_payment1,
-            'payment2' => $payment2,
-            'tanggal_payment2' => date("Y-m-d", strtotime($tgl_payment2)),
-            'nominal_payment2' => $no_payment2,
-            'payment3' => $payment3,
-            'tanggal_payment3' => date("Y-m-d", strtotime($tgl_payment3)),
-            'nominal_payment3' => $no_payment3,
-            'payment4' => $payment4,
-            'tanggal_payment4' => date("Y-m-d", strtotime($tgl_payment4)),
-            'nominal_payment4' => $no_payment4
+            'diskon' => $diskon
         );
         $this->m_admin->input_data($data, 'sales');
         redirect('control_admin/view_sales');
