@@ -98,7 +98,11 @@
                         <div class="col-md-6">
                           <div class="form-group">
                             <label>Profit Center</label>
-                            <input type="text" class="form-control" name="prfc" placeholder="Masukkan Profit Center">
+                            <select class="form-control" name="tyunit">
+                              <option>-- Pilih Profit Utama --</option>
+                              <option>UB01</option>
+                              <option>UB02</option>
+                            </select>
                           </div>
                         </div>
                         <div class="col-md-6">
@@ -237,50 +241,37 @@
                         <div class="col">
                           <div class="form-group">
                             <label>Type Unit</label>
-                            <select class="form-control" name="tyunit">
+                            <select class="form-control" name="tyunit" id="drop-ty">
                               <option>-- Pilih Tipe Unit BUS --</option>
-                              <option>Small Bus</option>
-                              <option>Medium Bus</option>
-                              <option>Big Bus</option>
+                              <?php foreach ($type_unit as $row) {
+                                echo "<option value='" . $row['id_unit'] . "'>" . $row['nama_unit'] . "</option>";
+                              } ?>
                             </select>
                           </div>
                         </div>
                         <div class="col">
                           <div class="form-group">
                             <label>Kategori Unit</label>
-                            <select class="select2" style="width: 100%;" name="kg">
+                            <select class="select2" style="width: 100%;" name="kg" id="drop-kg">
                               <option> -- Pilih Kategori Bus -- </option>
-                              <?php foreach ($kategori as $kg) : ?>
-                              <option value="<?php echo $kg->id_kategori; ?>">
-                                <?php echo $kg->kategori_bus; ?>
                               </option>
-                              <?php endforeach; ?>
                             </select>
                           </div>
                         </div>
                         <div class="col-md-2">
                           <div class="form-group">
                             <label>Jumlah Bangku</label>
-                            <select class="form-control" name="seat">
+                            <select class="form-control" name="seat" id="drop-seat">
                               <option>-- Pilih Jumlah Seat/Bangku --</option>
-                              <?php foreach ($seat as $st) : ?>
-                              <option value="<?php echo $st->id_seat; ?>">
-                                <?php echo $st->jumlah_seat; ?>
                               </option>
-                              <?php endforeach; ?>
                             </select>
                           </div>
                         </div>
                         <div class="col-md-3">
                           <div class="form-group">
                             <label>No. Polisi</label>
-                            <select class="select2" style="width: 100%;" name="npl">
+                            <select class="select2" style="width: 100%;" name="npl" id="drop-npl">
                               <option>-- Masukkan Nomor Plat Polisi --</option>
-                              <?php foreach ($nomor_polisi as $npl) : ?>
-                              <option value="<?php echo $npl->id_pol; ?>">
-                                <?php echo $npl->nomor_plat; ?>
-                              </option>
-                              <?php endforeach; ?>
                             </select>
                           </div>
                         </div>
@@ -467,14 +458,15 @@
                       <div class="col border-bottom mb-3 mt-4"></div>
 
                       <!-- Payment Form -->
+                      <!-- Payment 1-->
                       <div class="row">
-                        <div class="col-md-4">
+                        <div class="col">
                           <div class="form-group">
                             <label>Payment 1</label>
                             <input type="text" class="form-control" name="py1" placeholder="Masukkan jenis akun bank">
                           </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col">
                           <div class="form-group">
                             <label>Tanggal Payment 1</label>
                             <div class="input-group date" id="paymentdate1" data-target-input="nearest">
@@ -486,101 +478,289 @@
                             </div>
                           </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col">
                           <div class="form-group">
                             <label>Nominal Payment 1</label>
                             <input type="number" class="form-control" placeholder="Masukkan nominal uang"
                               name="nom_py1">
                           </div>
                         </div>
-                      </div>
-                      <!-- Payment Form Ends -->
-                      <!-- Payment Form -->
-                      <div class="row">
-                        <div class="col-md-4">
+                        <div class="col-sm-2 align-self-end">
                           <div class="form-group">
-                            <label>Payment 2</label>
-                            <input type="text" class="form-control" placeholder="Masukkan jenis akun bank" name="py2">
+                            <button class="btn btn-success form-control payment-form-add-more" type="button">
+                              <i class="fa fa-plus"></i> Add More
+                            </button>
                           </div>
                         </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
-                            <label>Tanggal Payment 2</label>
-                            <div class="input-group date" id="paymentdate2" data-target-input="nearest">
-                              <input type="text" class="form-control datetimepicker-input" name="tgl_py2"
-                                data-target="#paymentdate2" placeholder="Masukkan tanggal pembayaran" />
-                              <div class="input-group-append" data-target="#paymentdate2" data-toggle="datetimepicker">
-                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                      </div>
+                      <!-- Payment 1 End -->
+                      <!-- Payment 2 -->
+                      <div class="payment-form-block-1" style="display : none !important">
+                        <div class="row">
+                          <div class="col">
+                            <div class="form-group">
+                              <label>Payment 2</label>
+                              <input type="text" class="form-control" name="py1" placeholder="Masukkan jenis akun bank">
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="form-group">
+                              <label>Tanggal Payment 2</label>
+                              <div class="input-group date" id="paymentdate1" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input" name="tgl_py1"
+                                  data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
+                                <div class="input-group-append" data-target="#paymentdate1"
+                                  data-toggle="datetimepicker">
+                                  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>
                               </div>
                             </div>
                           </div>
-                        </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
-                            <label>Nominal Payment 2</label>
-                            <input type="number" class="form-control" placeholder="Masukkan nominal uang"
-                              name="nom_py2">
+                          <div class="col">
+                            <div class="form-group">
+                              <label>Nominal Payment 2</label>
+                              <input type="number" class="form-control" placeholder="Masukkan nominal uang"
+                                name="nom_py1">
+                            </div>
+                          </div>
+                          <div class="col-sm-2 align-self-end">
+                            <div class="form-group">
+                              <button class="btn btn-danger payment-form-remove" type="button">
+                                <i class="fa fa-times"></i> Remove
+                              </button>
+                            </div>
                           </div>
                         </div>
                       </div>
-                      <!-- Payment Form Ends -->
-                      <!-- Payment Form -->
+                      <!-- Payment 2 End -->
+                      <!-- Payment 3 -->
+                      <div class="payment-form-block-2" style="display : none !important">
                       <div class="row">
-                        <div class="col-md-4">
+                        <div class="col">
                           <div class="form-group">
                             <label>Payment 3</label>
-                            <input type="text" class="form-control" placeholder="Masukkan jenis akun bank" name="py3">
+                            <input type="text" class="form-control" name="py1" placeholder="Masukkan jenis akun bank">
                           </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col">
                           <div class="form-group">
                             <label>Tanggal Payment 3</label>
-                            <div class="input-group date" id="paymentdate3" data-target-input="nearest">
-                              <input type="text" class="form-control datetimepicker-input" name="tgl_py3"
-                                data-target="#paymentdate3" placeholder="Masukkan tanggal pembayaran" />
-                              <div class="input-group-append" data-target="#paymentdate3" data-toggle="datetimepicker">
+                            <div class="input-group date" id="paymentdate1" data-target-input="nearest">
+                              <input type="text" class="form-control datetimepicker-input" name="tgl_py1"
+                                data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
+                              <div class="input-group-append" data-target="#paymentdate1" data-toggle="datetimepicker">
                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                               </div>
                             </div>
                           </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col">
                           <div class="form-group">
                             <label>Nominal Payment 3</label>
                             <input type="number" class="form-control" placeholder="Masukkan nominal uang"
-                              name="nom_py3">
+                              name="nom_py1">
+                          </div>
+                        </div>
+                        <div class="col-sm-2 align-self-end">
+                          <div class="form-group">
+                            <button class="btn btn-danger payment-form-remove" type="button">
+                              <i class="fa fa-times"></i> Remove
+                            </button>
                           </div>
                         </div>
                       </div>
-                      <!-- Payment Form Ends -->
-                      <!-- Payment Form -->
+                    </div>
+                      <!-- Payment 3 End -->
+                      <!-- Payment 4 -->
+                      <div class="payment-form-block-3" style="display : none !important">
                       <div class="row">
-                        <div class="col-md-4">
+                        <div class="col">
                           <div class="form-group">
                             <label>Payment 4</label>
-                            <input type="text" class="form-control" placeholder="Masukkan jenis akun bank" name="py4">
+                            <input type="text" class="form-control" name="py1" placeholder="Masukkan jenis akun bank">
                           </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col">
                           <div class="form-group">
                             <label>Tanggal Payment 4</label>
-                            <div class="input-group date" id="paymentdate4" data-target-input="nearest">
-                              <input type="text" class="form-control datetimepicker-input" name="tgl_py4"
-                                data-target="#paymentdate4" placeholder="Masukkan tanggal pembayaran" />
-                              <div class="input-group-append" data-target="#paymentdate4" data-toggle="datetimepicker">
+                            <div class="input-group date" id="paymentdate1" data-target-input="nearest">
+                              <input type="text" class="form-control datetimepicker-input" name="tgl_py1"
+                                data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
+                              <div class="input-group-append" data-target="#paymentdate1" data-toggle="datetimepicker">
                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                               </div>
                             </div>
                           </div>
                         </div>
-                        <div class="col-md-4">
+                        <div class="col">
                           <div class="form-group">
                             <label>Nominal Payment 4</label>
                             <input type="number" class="form-control" placeholder="Masukkan nominal uang"
-                              name="nom_py4">
+                              name="nom_py1">
+                          </div>
+                        </div>
+                        <div class="col-sm-2 align-self-end">
+                          <div class="form-group">
+                            <button class="btn btn-danger payment-form-remove" type="button">
+                              <i class="fa fa-times"></i> Remove
+                            </button>
                           </div>
                         </div>
                       </div>
+                      </div>
+                      <!-- Payment 4 End -->
+                      <!-- Payment 5 -->
+                      <div class="payment-form-block-4" style="display : none !important">
+                      <div class="row">
+                        <div class="col">
+                          <div class="form-group">
+                            <label>Payment 5</label>
+                            <input type="text" class="form-control" name="py1" placeholder="Masukkan jenis akun bank">
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="form-group">
+                            <label>Tanggal Payment 5</label>
+                            <div class="input-group date" id="paymentdate1" data-target-input="nearest">
+                              <input type="text" class="form-control datetimepicker-input" name="tgl_py1"
+                                data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
+                              <div class="input-group-append" data-target="#paymentdate1" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="form-group">
+                            <label>Nominal Payment 5</label>
+                            <input type="number" class="form-control" placeholder="Masukkan nominal uang"
+                              name="nom_py1">
+                          </div>
+                        </div>
+                        <div class="col-sm-2 align-self-end">
+                          <div class="form-group">
+                            <button class="btn btn-danger payment-form-remove" type="button">
+                              <i class="fa fa-times"></i> Remove
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+                      <!-- Payment 5 End -->
+                      <!-- Payment 6 -->
+                      <div class="payment-form-block-5" style="display : none !important">
+                      <div class="row">
+                        <div class="col">
+                          <div class="form-group">
+                            <label>Payment 6</label>
+                            <input type="text" class="form-control" name="py1" placeholder="Masukkan jenis akun bank">
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="form-group">
+                            <label>Tanggal Payment 6</label>
+                            <div class="input-group date" id="paymentdate1" data-target-input="nearest">
+                              <input type="text" class="form-control datetimepicker-input" name="tgl_py1"
+                                data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
+                              <div class="input-group-append" data-target="#paymentdate1" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="form-group">
+                            <label>Nominal Payment 6</label>
+                            <input type="number" class="form-control" placeholder="Masukkan nominal uang"
+                              name="nom_py1">
+                          </div>
+                        </div>
+                        <div class="col-sm-2 align-self-end">
+                          <div class="form-group">
+                            <button class="btn btn-danger payment-form-remove" type="button">
+                              <i class="fa fa-times"></i> Remove
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+                      <!-- Payment 6 End -->
+                      <!-- Payment 7 -->
+                      <div class="payment-form-block-6" style="display : none !important">
+                      <div class="row">
+                        <div class="col">
+                          <div class="form-group">
+                            <label>Payment 7</label>
+                            <input type="text" class="form-control" name="py1" placeholder="Masukkan jenis akun bank">
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="form-group">
+                            <label>Tanggal Payment 7</label>
+                            <div class="input-group date" id="paymentdate1" data-target-input="nearest">
+                              <input type="text" class="form-control datetimepicker-input" name="tgl_py1"
+                                data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
+                              <div class="input-group-append" data-target="#paymentdate1" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="form-group">
+                            <label>Nominal Payment 7</label>
+                            <input type="number" class="form-control" placeholder="Masukkan nominal uang"
+                              name="nom_py1">
+                          </div>
+                        </div>
+                        <div class="col-sm-2 align-self-end">
+                          <div class="form-group">
+                            <button class="btn btn-danger payment-form-remove" type="button">
+                              <i class="fa fa-times"></i> Remove
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+                      <!-- Payment 7 End -->
+                      <!-- Payment 8 -->
+                      <div class="payment-form-block-7" style="display : none !important">
+                      <div class="row">
+                        <div class="col">
+                          <div class="form-group">
+                            <label>Payment 8</label>
+                            <input type="text" class="form-control" name="py1" placeholder="Masukkan jenis akun bank">
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="form-group">
+                            <label>Tanggal Payment 8</label>
+                            <div class="input-group date" id="paymentdate1" data-target-input="nearest">
+                              <input type="text" class="form-control datetimepicker-input" name="tgl_py1"
+                                data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
+                              <div class="input-group-append" data-target="#paymentdate1" data-toggle="datetimepicker">
+                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col">
+                          <div class="form-group">
+                            <label>Nominal Payment 8</label>
+                            <input type="number" class="form-control" placeholder="Masukkan nominal uang"
+                              name="nom_py1">
+                          </div>
+                        </div>
+                        <div class="col-sm-2 align-self-end">
+                          <div class="form-group">
+                            <button class="btn btn-danger payment-form-remove" type="button">
+                              <i class="fa fa-times"></i> Remove
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      </div>
+                      <!-- Payment 8 End -->
                       <!-- Payment Form Ends -->
                       <div class="col border-bottom mb-4 mt-3"></div>
 
@@ -594,7 +774,8 @@
                                   <h7>Rp. </h7>
                                 </span>
                               </div>
-                              <input type="number" class="form-control" name="total_py" id="totalpayment" placeholder="Masukkan jumlah total pembayaran" onkeyup="subtracPayment()">
+                              <input type="number" class="form-control" name="total_py" id="totalpayment"
+                                placeholder="Masukkan jumlah total pembayaran" onkeyup="subtracPayment()">
                             </div>
                           </div>
                         </div>
@@ -620,7 +801,8 @@
                         <div class="col-md-8">
                           <div class="form-group">
                             <label>Selisih Pembayaran (Payment-Revenue)</label>
-                            <input type="text" class="form-control" name="slpy" id="selisih-py" placeholder="Masukkan selisih pembayaran (Payment - Revenue)">
+                            <input type="text" class="form-control" name="slpy" id="selisih-py"
+                              placeholder="Masukkan selisih pembayaran (Payment - Revenue)">
                           </div>
                           <div class="form-group">
                             <label>Catatan Lainnya</label>
@@ -648,7 +830,7 @@
                         <div class="input-group">
                           <input type="text" class="form-control" placeholder="Masukkan kode upload" width="100%">
                           <div class="col-sm-2 col-form-group">
-                            <button class="btn btn-success add-more" type="button" onclick="startCount()">
+                            <button class="btn btn-success add-more" type="button">
                               <i class="fa fa-plus"></i> Add More
                             </button>
                           </div>
@@ -819,68 +1001,115 @@
       }
     }
 
-
-    // Calculate Total Revenue from Revenue per Unit & Additional Charge
-    /*$(document).ready(function () {
-      function compute() {
-      var r = parseInt($("#revenueunit").val());
-      var a = parseInt($("#addcharge").val());
-      var total = r + a
-      $('#totalrevenue').val(total);
-      }
-      $('#revenueunit, #addcharge').change(compute);
-    });*/
-
-    /*$(document).ready(function () {
-      $("#revenueunit, #addcharge").keyup(function () {
-        var total = 0;
-        var r = parseInt($("#revenueunit").val());
-        var a = parseInt($("#addcharge").val());
-        var tr = parseInt($("#totalrevenue").val())
-        var total = r + a;
-        $("#totalrevenue").val(total);
-        $("pph23").val();
-      })
-      /*$("#revenueunit, #pricelist").keyup(function () {
-        var r = parseInt($("#revenueunit").val());
-        var p = parseInt($("#pricelist").val());
-        var total = isNaN(r / p) ? 0 : (r / p);
-        $("#diskon").val(total);
-      })
-    })*/
-
-    /*$("#totalrevenue").blur(function() {
-      var tr = parseInt($('#totalrevenue').val());
-      var updateTotal = isNaN(tr * 2) ? 0 : (tr * 2);
-      $("#pph23").val(updateTotal);
-    })*/
-
-    //let tr = $('#totalrevenue');
-    //let updateTotal = () => $('#pph23').val(tr.val() * (0.02));
-
-    //updateTotal(); // on page load
-    //$('form input').on('input', updateTotal);
-
+    // Dependent Dropdown //
+    // Fetching Type Unit
+    var baseURL = "<?php echo base_url(); ?>";
     $(document).ready(function () {
+      $('#drop-ty').change(function () {
+        var unit = $(this).val();
 
+        // AJAX request
+        $.ajax({
+          url: '<?= base_url() ?>index.php/control_admin/jsonKategori',
+          method: 'post',
+          data: {
+            id_unit: unit
+          },
+          dataType: 'json',
+          success: function (response) {
+
+            // Remove options 
+            $('#drop-kg').find('option').not(':first').remove();
+            $('#drop-seat').find('option').not(':first').remove();
+            $('#drop-npl').find('option').not(':first').remove();
+
+            // Add options
+            $.each(response, function (index, data) {
+              $('#drop-kg').append('<option value="' + data['id_kategori'] + '">' + data['jenis_kategori'] + '</option>');
+            });
+          }
+        });
+      });
+
+      // Kategori Unit change
+      $('#drop-kg').change(function () {
+        var kategori = $(this).val();
+
+        // AJAX request
+        $.ajax({
+          url: '<?= base_url() ?>index.php/control_admin/jsonSeat',
+          method: 'post',
+          data: {
+            id_kategori: kategori
+          },
+          dataType: 'json',
+          success: function (response) {
+
+            // Remove options
+            $('#drop-seat').find('option').not(':first').remove();
+            $('#drop-npl').find('option').not(':first').remove();
+
+            // Add options
+            $.each(response, function (index, data) {
+              $('#drop-seat').append('<option value="' + data['id_seat'] + '">' + data['jmlh_seat'] + '</option>');
+            });
+          }
+        });
+      });
+
+      // Seat Unit change
+      $('#drop-seat').change(function () {
+        var seat = $(this).val();
+
+        // AJAX request
+        $.ajax({
+          url: '<?= base_url() ?>index.php/control_admin/jsonPlat',
+          method: 'post',
+          data: {
+            id_seat: seat
+          },
+          dataType: 'json',
+          success: function (response) {
+
+            // Remove options
+            $('#drop-npl').find('option').not(':first').remove();
+
+            // Add options
+            $.each(response, function (index, data) {
+              $('#drop-npl').append('<option value="' + data['id_nopol'] + '">' + data['nomor_plat'] + '</option>');
+            });
+          }
+        });
+      });
     });
+    // End //
 
     // BS-Stepper Init
     document.addEventListener('DOMContentLoaded', function () {
       window.stepper = new Stepper(document.querySelector('.bs-stepper'))
     })
 
-
-    var clicks = 1;
     $(document).ready(function () {
-      $(".add-more").click(function () {
-        var html = $(".copy").html();
-        $(".after-add-more").after(html);
-      });
-      $("body").on("click", ".remove", function () {
-        $(this).parents(".form-group").remove();
-      });
+      $(".payment-form-add-more").click(function () {
+        $(".payment-form-block-1").show();
+      })
     });
+
+    /*var maxField = 5;
+    var x = 1;
+    $(document).ready(function () {
+      $(".payment-form-add-more").click(function () {
+        if (x < maxField) {
+          x++;
+          var html = $(".payment-form-copy").html();
+          $(".after-add-more").after(html);
+        }
+      });
+      $("body").on("click", ".payment-form-remove", function () {
+        $(this).parents(".form-on").remove();
+        x--;
+      });
+    });*/
   </script>
 </body>
 

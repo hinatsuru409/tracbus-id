@@ -46,22 +46,52 @@ class m_admin extends CI_Model{
    }
 
     // Get tables for Select2
-    public function getBangku_data(){
-        return $this->db->get('seat');
-    }
+   public function getUnit(){
+    $response = array();
+
+    $this->db->select('*');
+    $query = $this->db->get('type_unit');
+    $response = $query->result_array();
+
+    return $response;
+   }
+
+   public function fetchKategori_unit($postData){
+    $response = array();
+
+    $this->db->select('id_kategori, jenis_kategori');
+    $this->db->where('id_unit', $postData['id_unit']);
+    $query = $this->db->get('kategori_unit');
+    $response = $query->result_array();
+
+    return $response;
+   }
+
+   public function fetchSeat_unit($postData){
+    $response = array();
+
+    $this->db->select('id_seat, jmlh_seat');
+    $this->db->where('id_kategori', $postData['id_kategori']);
+    $query = $this->db->get('seat_unit');
+    $response = $query->result_array();
+
+    return $response;
+   }
+
+   public function fetchNopol_unit($postData){
+    $response = array();
+
+    $this->db->select('id_nopol, nomor_plat');
+    $this->db->where('id_seat', $postData['id_seat']);
+    $query = $this->db->get('no_polisi_unit');
+    $response = $query->result_array();
+
+    return $response;
+   }
 
     public function getSewa_data(){
         return $this->db->get('maksud_sewa');
     }
-
-    public function getKategori_data(){
-        return $this->db->get('kategori');
-    }
-
-    public function getNopol_data(){
-        return $this->db->get('nomor_polisi');
-    }
-
 
     public function getSc_data(){
         return $this->db->get('source_data');

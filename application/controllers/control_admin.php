@@ -77,15 +77,34 @@ class control_admin extends CI_Controller
 
     public function add_sales()
     {
-        $data['seat'] = $this->m_admin->getBangku_data()->result();
+        $data['type_unit'] = $this->m_admin->getUnit();
         $data['maksud_sewa'] = $this->m_admin->getSewa_data()->result();
-        $data['kategori'] = $this->m_admin->getKategori_data()->result();
-        $data['nomor_polisi'] = $this->m_admin->getNopol_data()->result();
         $data['spesifikasi'] = $this->m_admin->getSpec_data()->result();
         $data['source_data'] = $this->m_admin->getSc_data()->result();
         $data['rute_tujuan'] = $this->m_admin->getTujuan_data()->result();
         $data['provinsi'] = $this->m_admin->getProvinsi_data()->result();
         $this->load->view('v_add_sales', $data);
+    }
+
+    public function jsonKategori()
+    {
+        $postData = $this->input->post();
+        $data = $this->m_admin->fetchKategori_unit($postData);
+        echo json_encode($data);
+    }
+
+    public function jsonSeat()
+    {
+        $postData = $this->input->post();
+        $data = $this->m_admin->fetchSeat_unit($postData);
+        echo json_encode($data);
+    }
+
+    public function jsonPlat()
+    {
+        $postData = $this->input->post();
+        $data = $this->m_admin->fetchNopol_unit($postData);
+        echo json_encode($data);
     }
 
     public function getAddSales()
