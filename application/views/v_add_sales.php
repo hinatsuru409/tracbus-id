@@ -95,7 +95,7 @@
                             <select class="form-control" name="tyunit">
                               <option>-- Pilih Profit Utama --</option>
                               <option>UB01</option>
-                              <option>UB02</option>
+                              <option>UB21</option>
                             </select>
                           </div>
                         </div>
@@ -140,7 +140,6 @@
                               <label>Jenis Pembayaran</label>
                               <select class="form-control" name="jpm">
                                 <option>PO</option>
-                                <option>GL</option>
                                 <option>IN Advanced</option>
                               </select>
                             </div>
@@ -262,7 +261,7 @@
                           <div class="form-group">
                             <label>No. Polisi</label>
                             <select class="select2" style="width: 100%;" name="npl" id="drop-npl">
-                              <option>-- Masukkan Nomor Plat Polisi --</option>
+                              <option>-- Masukkan Nomor Polisi --</option>
                             </select>
                           </div>
                         </div>
