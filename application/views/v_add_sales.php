@@ -74,7 +74,7 @@
             <form role="form" action="<?php echo base_url() . 'index.php/control_admin/getAddSales'; ?>" method="POST">
               <div class="card card-default">
                 <div class="card-header">
-                  <h3 class="card-title">Lorem ipsum dolor sit amet</h3>
+                  <h3 class="card-title"></h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -83,13 +83,13 @@
                     <!-- /.col -->
                     <div class="col-md-12">
                       <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                           <div class="form-group">
                             <label>Booking Order</label>
                             <input type="text" class="form-control" name="bko" placeholder="Masukkan kode Booking Order">
                           </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                           <div class="form-group">
                             <label>Profit Center</label>
                             <select class="form-control" name="tyunit">
@@ -99,25 +99,25 @@
                             </select>
                           </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                           <div class="form-group">
                             <label>Person In Charge (PIC) Sales</label>
                             <input type="text" class="form-control" name="pic" placeholder="Masukkan PIC Sales">
                           </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                           <div class="form-group">
                             <label>Nomor Reservasi</label>
                             <input type="text" class="form-control" name="rsv" placeholder="Masukkan Reservasi ID">
                           </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-3">
                           <div class="form-group">
                             <label>Nama Customer Master Data (CMD)</label>
                             <input type="text" class="form-control" name="nama_cmd" placeholder="Masukkan nama Customer Master Data">
                           </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                           <div class="form-group">
                             <label>Nama Instansi/Perusahaan</label>
                             <input type="text" class="form-control" name="ins" placeholder="Masukkan nama Instansi Perusahaan, Sekolah, Tour & Travel, dll">

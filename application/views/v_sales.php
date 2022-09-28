@@ -5,12 +5,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>DataTables</h1>
+              <h1>DataTable</h1>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                <li class="breadcrumb-item active">DataTables</li>
+                <li class="breadcrumb-item"><a href="#">Logout</a></li>
+                <li class="breadcrumb-item active">DataTable</li>
               </ol>
             </div>
           </div>
@@ -261,7 +261,7 @@
     $("#example1").DataTable({
       "responsive": true,  
       "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdfHtml5", "print"],
+      "buttons": ["csv", "excel", "pdfHtml5", "print"],
       dom: 
       "<'row'<'col-md-3'l><'col-md-5'B><'col-md-4'f>>" +
       "<'row'<'col-md-12'tr>>" +
@@ -273,7 +273,7 @@
         var dataTable = $('#table1').DataTable({
           "responsive": true,
           "autoWidth": false,
-          "buttons": ["copy", "csv", "excel", "pdfHtml5", "print"],
+          "buttons": ["csv", "excel", "pdfHtml5", "print"],
 
           dom: "<'row'<'col-md-3'l><'col-md-5'B><'col-md-4'f>>" +
             "<'row'<'col-md-12'tr>>" +
