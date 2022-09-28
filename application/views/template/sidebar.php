@@ -1,4 +1,16 @@
-    <!-- Main Sidebar Container -->
+<?php
+	// setting tanggal
+	$haries = array("Sunday" => "Minggu", "Monday" => "Senin", "Tuesday" => "Selasa", "Wednesday" => "Rabu", "Thursday" => "Kamis", "Friday" => "Jum'at", "Saturday" => "Sabtu");
+	$bulans = array("", "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember");
+	$bulans_count = count($bulans);
+	// tanggal bulan dan tahun hari ini
+	$hari_ini = $haries[date("l")];
+	$bulan_ini = $bulans[date("n")];
+	$tanggal = date("d");
+	$bulan = date("m");
+	$tahun = date("Y");
+?>
+   <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-light-primary elevation-4">
       <!-- Brand Logo -->
       <a href="../../index3.html" class="brand-link">
@@ -19,7 +31,38 @@
             </div>
           </div>
         </div>
+        <h6 class="text-muted"><i class="fa fa-calendar fa-fw"></i>&nbsp;<?php echo $hari_ini.", ".$tanggal." ".$bulan_ini." ".$tahun ?></h6>
+        <!DOCTYPE html>
+      <html>
+      <head>
+      <title>MEMBUAT JAM DIGITAL SENDIRI</title>
+      <script type="text/javascript">
+      window.onload = function() { jam(); }
 
+      function jam() {
+        var e = document.getElementById('jam'),
+        d = new Date(), h, m, s;
+        h = d.getHours();
+        m = set(d.getMinutes());
+        s = set(d.getSeconds());
+
+  e.innerHTML = h +':'+ m +':'+ s;
+
+  setTimeout('jam()', 1000);
+ }
+
+ function set(e) {
+  e = e < 10 ? '0'+ e : e;
+  return e;
+ }
+</script>
+</head>
+<body>
+<center>
+<h1 style="font-size: 20px; font-family: verdana;" id="jam"></h1>
+</center>
+</body>
+</html>
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">

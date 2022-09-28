@@ -36,10 +36,10 @@
                     <thead>
                       <tr>
                         <th>No.</th>
+                        <th>Nomor Reservasi</th>
                         <th>Booking Order</th>
-                        <th>Profit Center</th>
                         <th>PIC Sales</th>
-                        <th>ID Reservasi</th>
+                        <th>Provit Center</th>
                         <th>Action</th>
                       </tr>
                     </thead>
