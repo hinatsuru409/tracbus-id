@@ -35,6 +35,7 @@
         <!DOCTYPE html>
       <html>
       <head>
+      <title>MEMBUAT JAM DIGITAL SENDIRI</title>
       <script type="text/javascript">
       window.onload = function() { jam(); }
 
@@ -104,4 +105,3 @@
       </div>
       <!-- /.sidebar -->
     </aside>
-    

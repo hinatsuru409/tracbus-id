@@ -62,156 +62,98 @@
                         <div class="col">
                           <table class="table table-borderless no-margin">
                             <tbody>
-                              <tr>
-                                <th>Kode Booking</th>
-                                <td><span id="txt-kodebooking"></span></td>
-                              </tr>
-                              <tr>
-                                <th>Nama Instansi / Perusahaan</th>
-                                <td><span id="txt-namainstansi"></span></td>
-                              </tr>
-                              <tr>
-                                <th>Person in Charge Sales</th>
-                                <td><span id="txt-pic-sales"></span></td>
-                              </tr>
-                              <tr>
-                                <th>Profit Center</th>
-                                <td><span id="txt-profit"></span></td>
-                              </tr>
-                              <tr>
+                            <tr>
                                 <th>Nomor Reservasi</th>
+                                <td><b>:</b></td>
                                 <td><span id="txt-reservasi-id"></span></td>
                               </tr>
                               <tr>
+                                <th>Kode Booking</th>
+                                <td><b>:</b></td>
+                                <td><span id="txt-kodebooking"></span></td>
+                              </tr>
+                              <tr>
+                                <th>Profit Center</th>
+                                <td><b>:</b></td>
+                                <td><span id="txt-profit"></span></td>
+                              </tr>
+                              <tr>
+                                <th>Person in Charge Sales</th>
+                                <td><b>:</b></td>
+                                <td><span id="txt-pic-sales"></span></td>
+                              </tr>  
+                              </tbody>
+                                </table>
+                                  </div>
+                                  <div class="car-body">
+                                <table class="table table-bordered table-striped">
+                              <tbody>          
+                                <tr>              
+                                <th>Nama Instansi / Perusahaan</th>  
                                 <th>Tipe Order</th>
-                                <td><span id="txt-ordertype"></span></td>
-                              </tr>
-                              <tr>
                                 <th>Jenis Pembayaran</th>
-                                <td><span id="txt-jenis-bayar"></span></td>
-                              </tr>
-                              <tr>
                                 <th>Invoice</th>
-                                <td><span id="txt-invoice"></span></td>
-                              </tr>
-                              <tr>
                                 <th>Spesifikasi</th>
-                                <td><span id="txt-spek"></span></td>
-                              </tr>
-                              <tr>
                                 <th>Tipe Pelanggan (Customer)</th>
-                                <td><span id="txt-tipe-cs"></span></td>
-                              </tr>
-                              <tr>
                                 <th>Source Data</th>
-                                <td><span id="txt-src-data"></span></td>
-                              </tr>
-                              <tr>
                                 <th>Group</th>
-                                <td><span id="txt-group"></span></td>
-                              </tr>
-                              <tr>
                                 <th>Customer Master Data</th>
-                                <td><span id="txt-cmd"></span></td>
-                              </tr>
-                              <tr>
                                 <th>Person in Charge Customer</th>
-                                <td><span id="txt-pic-cs"></span></td>
-                              </tr>
-                              <tr>
                                 <th>Person in Charge Contact</th>
-                                <td><span id="txt-pic-contact"></span></td>
-                              </tr>
-                              <tr>
                                 <th>Tipe Unit</th>
-                                <td><span id="txt-tipe-unit"></span></td>
-                              </tr>
-                            </tbody>
-                        </table>
-                        </div>
-                        <div class="col">
-                          <table class="table table-borderless no-margin">
-                            <tbody>
-                              <tr>
                                 <th>Nama Customer Master Data</th>
-                                <td><span id="txt-namacmd"></span></td>
-                              </tr>
-                              <tr>
-                                <th>Nomor Reservasi</th>
-                                <td><span id="txt-"></span></td>
-                              </tr>
-                              <tr>
                                 <th>Kategori Unit</th>
-                                <td><span id="txt-kg-unit"></span></td>
-                              </tr>
-                              <tr>
                                 <th>Jumlah Bangku</th>
-                                <td><span id="txt-seat"></span></td>
-                              </tr>
-                              <tr>
                                 <th>Nomor Plat Polisi</th>
-                                <td><span id="txt-nopol"></span></td>
-                              </tr>
-                              <tr>
                                 <th>Driver</th>
-                                <td><span id="txt-driver"></span></td>
-                              </tr>
-                              <tr>
                                 <th>Maksud Sewa</th>
-                                <td><span id="txt-sewa"></span></td>
-                              </tr>
-                              <tr>
                                 <th>Rute Tujuan</th>
-                                <td><span id="txt-rute"></span></td>
-                              </tr>
-                              <tr>
                                 <th>Alamat Tujuan</th>
-                                <td><span id="txt-alamat"></span></td>
-                              </tr>
-                              <tr>
                                 <th>Provinsi</th>
-                                <td><span id="txt-provinsi"></span></td>
-                              </tr>
-                              <tr>
                                 <th>Tanggal Mulai Pemesanan</th>
-                                <td><span id="txt-order-start"></span></td>
-                              </tr>
-                              <tr>
                                 <th>Tanggal Akhir Pemesanan</th>
-                                <td><span id="txt-order-end"></span></td>
-                              </tr>
-                              <tr>
                                 <th>Waktu Sewa</th>
-                                <td><span id="txt-day"></span></td>
-                              </tr>
-                              <tr>
                                 <th>Toll Parkir</th>
-                                <td><span id="txt-toll"></span></td>
-                              </tr>
-                              <tr>
                                 <th>Revenue Per Unit</th>
-                                <td><span id="txt-rev-unit"></span></td>
-                              </tr>
-                              <tr>
                                 <th>Addtional Charge</th>
-                                <td><span id="txt-addcharge"></span></td>
-                              </tr>
-                              <tr>
                                 <th>Keterangan Additional Charge</th>
-                                <td><span id="txt-addcharge-info"></span></td>
-                              </tr>
-                              <tr>
                                 <th>Price List</th>
-                                <td><span id="txt-price-list"></span></td>
-                              </tr>
-                              <tr>
                                 <th>Diskon</th>
-                                <td><span id="txt-diskon"></span></td>
-                              </tr>
-                              <tr>
                                 <th>Total Revenue</th>
+                                </tr>
+                                <tr>
+                                <td><span id="txt-namainstansi"></span></td>
+                                <td><span id="txt-ordertype"></span></td>
+                                <td><span id="txt-jenis-bayar"></span></td>
+                                <td><span id="txt-invoice"></span></td>
+                                <td><span id="txt-spek"></span></td>
+                                <td><span id="txt-tipe-cs"></span></td>
+                                <td><span id="txt-src-data"></span></td>
+                                <td><span id="txt-group"></span></td>
+                                <td><span id="txt-cmd"></span></td>
+                                <td><span id="txt-pic-cs"></span></td>
+                                <td><span id="txt-pic-contact"></span></td>
+                                <td><span id="txt-tipe-unit"></span></td>
+                                <td><span id="txt-namacmd"></span></td>
+                                <td><span id="txt-kg-unit"></span></td>
+                                <td><span id="txt-seat"></span></td>
+                                <td><span id="txt-nopol"></span></td>
+                                <td><span id="txt-driver"></span></td>
+                                <td><span id="txt-sewa"></span></td>
+                                <td><span id="txt-rute"></span></td>
+                                <td><span id="txt-alamat"></span></td>
+                                <td><span id="txt-provinsi"></span></td>
+                                <td><span id="txt-order-start"></span></td>
+                                <td><span id="txt-order-end"></span></td>
+                                <td><span id="txt-day"></span></td>
+                                <td><span id="txt-toll"></span></td>
+                                <td><span id="txt-rev-unit"></span></td>
+                                <td><span id="txt-addcharge"></span></td>
+                                <td><span id="txt-addcharge-info"></span></td>
+                                <td><span id="txt-price-list"></span></td>
+                                <td><span id="txt-diskon"></span></td>
                                 <td><span id="txt-total-rev"></span></td>
-                              </tr>
+                             </tr>
                             </tbody>
                           </table>
                         </div>
