@@ -35,7 +35,6 @@
         <!DOCTYPE html>
       <html>
       <head>
-      <title>MEMBUAT JAM DIGITAL SENDIRI</title>
       <script type="text/javascript">
       window.onload = function() { jam(); }
 
@@ -59,10 +58,9 @@
 </head>
 <body>
 <center>
-<h1 style="font-size: 20px; font-family: verdana;" id="jam"></h1>
+<h1 style="font-size: 17px; font-family: verdana;" id="jam"></h1>
 </center>
-</body>
-</html>
+
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -106,3 +104,4 @@
       </div>
       <!-- /.sidebar -->
     </aside>
+    
