@@ -62,17 +62,18 @@
 <left>  
 <h3 style="font-size: 15px; font-family: verdana;" id="jam"></h3>
 </left>
-<h6>Menu</h6>
+<i class="fas fa-chevron-circle-down"></i> Menu
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-            <li class="nav-item">
+            <li class="nav-item menu-open">
               <a href="<?php echo base_url() . 'index.php/control_admin/dashboard' ?>" <?php if ($this->uri->uri_string() == 'control_admin/dashboard') { echo 'class="nav-link active" style="background-color: #28a745"'; } else { echo 'class="nav-link"'; } ?> >
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
                   Dashboard
+                  <i class="right fas fa-angle-left"></i>
                 </p>
               </a>
             </li>
@@ -102,7 +103,7 @@
             </li>
             <li class="nav-item">
               <a href="<?php echo base_url() . 'index.php/control_admin/send_mail' ?>" <?php if ($this->uri->uri_string() == 'control_admin/send_mail') { echo 'class="nav-link active" style="background-color: #28a745"'; } else { echo 'class="nav-link"'; } ?> >
-                <i class="nav-icon fas fa-table"></i>
+                <i class="nav-icon fas fa-envelope"></i>
                 <p>
                   Send Mail 
                 </p>
