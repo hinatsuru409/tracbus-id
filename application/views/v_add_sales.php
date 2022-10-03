@@ -37,7 +37,7 @@
       <div class="container">
         <ul class="navbar-nav">
           <li class="nav-item d-none d-sm-inline-block">
-            <a href="<?php echo base_url() . " index.php/control_admin/view_sales"; ?>" class="nav-link">
+            <a href="<?php echo base_url() . "index.php/control_admin/view_sales"; ?>" class="nav-link">
               < Kembali</a>
           </li>
         </ul>
@@ -74,7 +74,7 @@
             <form role="form" action="<?php echo base_url() . 'index.php/control_admin/getAddSales'; ?>" method="POST">
               <div class="card card-default">
                 <div class="card-header">
-                  <h3 class="card-title"></h3>
+                  <h3 class="card-title">Lorem ipsum dolor sit amet</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -83,41 +83,41 @@
                     <!-- /.col -->
                     <div class="col-md-12">
                       <div class="row">
-                        <div class="col-md-5">
-                          <div class="form-group">
-                            <label>Booking Order</label>
-                            <input type="text" class="form-control" name="bko" placeholder="Masukkan kode Booking Order">
-                          </div>
-                        </div>
-                        <div class="col-md-5">
-                          <div class="form-group">
-                            <label>Profit Center</label>
-                            <select class="form-control" name="tyunit">
-                              <option>-- Pilih Profit Utama --</option>
-                              <option>UB01</option>
-                              <option>UB21</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="col-md-5">
-                          <div class="form-group">
-                            <label>Person In Charge (PIC) Sales</label>
-                            <input type="text" class="form-control" name="pic" placeholder="Masukkan PIC Sales">
-                          </div>
-                        </div>
-                        <div class="col-md-5">
+                        <div class="col-md-6">
                           <div class="form-group">
                             <label>Nomor Reservasi</label>
                             <input type="text" class="form-control" name="rsv" placeholder="Masukkan Reservasi ID">
                           </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Booking Order</label>
+                            <input type="text" class="form-control" name="bko" placeholder="Masukkan kode Booking Order">
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Profit Center</label>
+                            <select class="form-control" name="profit">
+                              <option>-- Pilih Profit Utama --</option>
+                              <option>UB01</option>
+                              <option>UB02</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="form-group">
+                            <label>Person In Charge (PIC) Sales</label>
+                            <input type="text" class="form-control" name="pic" placeholder="Masukkan PIC Sales">
+                          </div>
+                        </div>
+                        <div class="col-md-6">
                           <div class="form-group">
                             <label>Nama Customer Master Data (CMD)</label>
                             <input type="text" class="form-control" name="nama_cmd" placeholder="Masukkan nama Customer Master Data">
                           </div>
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-6">
                           <div class="form-group">
                             <label>Nama Instansi/Perusahaan</label>
                             <input type="text" class="form-control" name="ins" placeholder="Masukkan nama Instansi Perusahaan, Sekolah, Tour & Travel, dll">
@@ -140,6 +140,7 @@
                               <label>Jenis Pembayaran</label>
                               <select class="form-control" name="jpm">
                                 <option>PO</option>
+                                <option>GL</option>
                                 <option>IN Advanced</option>
                               </select>
                             </div>
@@ -228,21 +229,26 @@
                       <div class="col border-bottom mb-3 mt-2"></div>
 
                       <div class="row">
+                        <div class="col-md-3">
+                          <div class="form-group">
+                            <label>No. Polisi</label>
+                            <select class="form-group" style="width: 100%;" name="npl" id="drop-npl">
+                              <option></option>
+                            </select>
+                          </div>
+                        </div>
                         <div class="col">
                           <div class="form-group">
                             <label>Type Unit</label>
                             <select class="form-control" name="tyunit" id="drop-ty">
                               <option>-- Pilih Tipe Unit BUS --</option>
-                              <?php foreach ($type_unit as $row) {
-                                echo "<option value='" . $row['id_unit'] . "'>" . $row['nama_unit'] . "</option>";
-                              } ?>
                             </select>
                           </div>
                         </div>
                         <div class="col">
                           <div class="form-group">
                             <label>Kategori Unit</label>
-                            <select class="select2" style="width: 100%;" name="kg" id="drop-kg">
+                            <select class="form-control" style="width: 100%;" name="kg" id="drop-kg">
                               <option> -- Pilih Kategori Bus -- </option>
                               </option>
                             </select>
@@ -257,14 +263,7 @@
                             </select>
                           </div>
                         </div>
-                        <div class="col-md-3">
-                          <div class="form-group">
-                            <label>No. Polisi</label>
-                            <select class="select2" style="width: 100%;" name="npl" id="drop-npl">
-                              <option>-- Masukkan Nomor Polisi --</option>
-                            </select>
-                          </div>
-                        </div>
+
                       </div>
                       <!-- /.col -->
                       <div class="row">
@@ -787,64 +786,147 @@
                       <div class="col border-bottom mb-4 mt-3"></div>
 
                       <!-- Upload Form -->
-                      <div class="form-group form-upload-blocks">
-                        <label>Upload Tahap</label>
+                      <div class="form-group">
+                        <label>Upload Tahap 1</label>
                         <div class="input-group">
                           <input type="text" class="form-control" placeholder="Masukkan kode upload" width="100%">
                           <div class="col-sm-2 col-form-group">
-                            <button class="btn btn-success form-upload-add-more" type="button">
+                            <button class="btn btn-success upload-form-add-more" type="button">
                               <i class="fa fa-plus"></i> Add More
                             </button>
                           </div>
                         </div>
                       </div>
-
-                      <div class="form-upload-copy"></div>
-
-                      <!-- <div class="form-upload-copy" style="display:none !important;">
-                        <div class="form-group">
-                          <label>Upload Tahap</label>
-                          <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Masukkan kode upload" width="100%">
-                            <div class="col-sm-2 col-form-group">
-                              <button class="btn btn-danger form-upload-remove" type="button">
-                                <i class="fa fa-times"></i> Remove
-                              </button>
-                            </div>
+                      <!-- <div class="form-upload-copy"></div> -->
+                      <div class="form-group upload-form-block-1" style="display:none !important;">
+                        <label>Upload Tahap 2</label>
+                        <div class="input-group">
+                          <input type="text" class="form-control" placeholder="Masukkan kode upload" width="100%">
+                          <div class="col-sm-2 col-form-group">
+                            <button class="btn btn-danger upload-form-remove-1" type="button">
+                              <i class="fa fa-times"></i> Remove
+                            </button>
                           </div>
                         </div>
-                      </div> -->
+                      </div>
+                      <div class="form-group upload-form-block-2" style="display:none !important;">
+                        <label>Upload Tahap 3</label>
+                        <div class="input-group">
+                          <input type="text" class="form-control" placeholder="Masukkan kode upload" width="100%">
+                          <div class="col-sm-2 col-form-group">
+                            <button class="btn btn-danger upload-form-remove-2" type="button">
+                              <i class="fa fa-times"></i> Remove
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group upload-form-block-3" style="display:none !important;">
+                        <label>Upload Tahap 4</label>
+                        <div class="input-group">
+                          <input type="text" class="form-control" placeholder="Masukkan kode upload" width="100%">
+                          <div class="col-sm-2 col-form-group">
+                            <button class="btn btn-danger upload-form-remove-3" type="button">
+                              <i class="fa fa-times"></i> Remove
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group upload-form-block-4" style="display:none !important;">
+                        <label>Upload Tahap 5</label>
+                        <div class="input-group">
+                          <input type="text" class="form-control" placeholder="Masukkan kode upload" width="100%">
+                          <div class="col-sm-2 col-form-group">
+                            <button class="btn btn-danger upload-form-remove-4" type="button">
+                              <i class="fa fa-times"></i> Remove
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group upload-form-block-5" style="display:none !important;">
+                        <label>Upload Tahap 6</label>
+                        <div class="input-group">
+                          <input type="text" class="form-control" placeholder="Masukkan kode upload" width="100%">
+                          <div class="col-sm-2 col-form-group">
+                            <button class="btn btn-danger upload-form-remove-5" type="button">
+                              <i class="fa fa-times"></i> Remove
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group upload-form-block-6" style="display:none !important;">
+                        <label>Upload Tahap 7</label>
+                        <div class="input-group">
+                          <input type="text" class="form-control" placeholder="Masukkan kode upload" width="100%">
+                          <div class="col-sm-2 col-form-group">
+                            <button class="btn btn-danger upload-form-remove-6" type="button">
+                              <i class="fa fa-times"></i> Remove
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group upload-form-block-7" style="display:none !important;">
+                        <label>Upload Tahap 8</label>
+                        <div class="input-group">
+                          <input type="text" class="form-control" placeholder="Masukkan kode upload" width="100%">
+                          <div class="col-sm-2 col-form-group">
+                            <button class="btn btn-danger upload-form-remove-7" type="button">
+                              <i class="fa fa-times"></i> Remove
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group upload-form-block-8" style="display:none !important;">
+                        <label>Upload Tahap 9</label>
+                        <div class="input-group">
+                          <input type="text" class="form-control" placeholder="Masukkan kode upload" width="100%">
+                          <div class="col-sm-2 col-form-group">
+                            <button class="btn btn-danger upload-form-remove-8" type="button">
+                              <i class="fa fa-times"></i> Remove
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group upload-form-block-9" style="display:none !important;">
+                        <label>Upload Tahap 10</label>
+                        <div class="input-group">
+                          <input type="text" class="form-control" placeholder="Masukkan kode upload" width="100%">
+                          <div class="col-sm-2 col-form-group">
+                            <button class="btn btn-danger upload-form-remove-9" type="button">
+                              <i class="fa fa-times"></i> Remove
+                            </button>
+                          </div>
+                        </div>
+                      </div>
 
+                      <!-- /.col -->
                     </div>
+
                     <!-- /.col -->
                   </div>
-
-                  <!-- /.col -->
+                  <!-- /.row -->
                 </div>
-                <!-- /.row -->
+                <!-- /.card-body -->
+                <div class="card-footer">
+                  <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                </div>
               </div>
-              <!-- /.card-body -->
-              <div class="card-footer">
-                <button type="submit" class="btn btn-primary btn-block">Submit</button>
-              </div>
+            </form>
+            <!-- /.card -->
           </div>
-          </form>
-          <!-- /.card -->
+          <!-- /.container-fluid -->
+        </section>
       </div>
-      <!-- /.container-fluid -->
-      </section>
+      <!-- /.content -->
     </div>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <div class="container">
-      <div class="float-right d-none d-sm-block">
-        <b>Version</b> 3.2.0
+    <!-- /.content-wrapper -->
+    <footer class="main-footer">
+      <div class="container">
+        <div class="float-right d-none d-sm-block">
+          <b>Version</b> 3.2.0
+        </div>
+        <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
       </div>
-      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-    </div>
-  </footer>
+    </footer>
 
 
   </div>
@@ -869,7 +951,7 @@
   <script src="<?php echo base_url('assets/AdminLTE/') ?>plugins/dropzone/min/dropzone.min.js"></script>
   <!-- Page specific script -->
   <script>
-    $(document).ready(function() {
+    /*$(document).ready(function() {
       var maxForm = 3;
       var countForm = 0;
       $(".form-upload-add-more").click(function() {
@@ -886,9 +968,6 @@
                           '</div>' +
                         '</div>' +
                     '</div>';
-        if (countForm === 1) {
-          $('#btn-form-remove-' + countForm.val(1)).show();
-        }
         }
         $(".form-upload-copy").append(html);
       });
@@ -899,7 +978,101 @@
           countForm--;
         }
       });
+    });*/
+
+    $('#drop-npl').select2({
+      placeholder: '-- Select --',
+      theme: 'bootstrap4',
+      minimumInputLength: 1,
+      ajax: {
+        url: "<?php echo base_url(); ?>index.php/control_admin/jsonUnit",
+        dataType: 'json',
+        delay: 250,
+        processResults: function(data) {
+          return {
+            results: data
+          };
+        },
+        cache: true
+      }
     });
+
+    $(document).ready(function() {
+      $(".upload-form-add-more").click(function() {
+        count++;
+        if (count === 1) {
+          $(".upload-form-block-1").show();
+          $(".upload-form-remove-1").click(function() {
+            $(".upload-form-block-1").hide();
+            count = 0;
+          })
+        } else if (count === 2) {
+          $(".upload-form-remove-1").hide();
+          $(".upload-form-block-2").show();
+          $(".upload-form-remove-2").click(function() {
+            $(".upload-form-block-2").hide();
+            $(".upload-form-remove-1").show();
+            count--;
+          })
+        } else if (count === 3) {
+          $(".upload-form-remove-2").hide();
+          $(".upload-form-block-3").show();
+          $(".upload-form-remove-3").click(function() {
+            $(".upload-form-block-3").hide();
+            $(".upload-form-remove-2").show();
+            count--;
+          })
+        } else if (count === 4) {
+          $(".upload-form-remove-3").hide();
+          $(".upload-form-block-4").show();
+          $(".upload-form-remove-4").click(function() {
+            $(".upload-form-block-4").hide();
+            $(".upload-form-remove-3").show();
+            count--;
+          })
+        } else if (count === 5) {
+          $(".upload-form-remove-4").hide();
+          $(".upload-form-block-5").show();
+          $(".upload-form-remove-5").click(function() {
+            $(".upload-form-block-5").hide();
+            $(".upload-form-remove-4").show();
+            count--;
+          })
+        } else if (count === 6) {
+          $(".upload-form-remove-5").hide();
+          $(".upload-form-block-6").show();
+          $(".upload-form-remove-6").click(function() {
+            $(".upload-form-block-6").hide();
+            $(".upload-form-remove-5").show();
+            count--;
+          })
+        } else if (count === 7) {
+          $(".upload-form-remove-6").hide();
+          $(".upload-form-block-7").show();
+          $(".upload-form-remove-7").click(function() {
+            $(".upload-form-block-7").hide();
+            $(".upload-form-remove-6").show();
+            count--;
+          })
+        } else if (count === 8) {
+          $(".upload-form-remove-7").hide();
+          $(".upload-form-block-8").show();
+          $(".upload-form-remove-8").click(function() {
+            $(".upload-form-block-8").hide();
+            $(".upload-form-remove-7").show();
+            count--;
+          })
+        } else if (count === 9) {
+          $(".upload-form-remove-8").hide();
+          $(".upload-form-block-9").show();
+          $(".upload-form-remove-9").click(function() {
+            $(".upload-form-block-9").hide();
+            $(".upload-form-remove-8").show();
+            count--;
+          })
+        }
+      })
+    })
 
     $(function() {
       //Initialize Select2 Elements
@@ -995,7 +1168,7 @@
 
     // Dependent Dropdown //
     // Fetching Type Unit
-    var baseURL = "<?php echo base_url(); ?>";
+    /*var baseURL = "<?php echo base_url(); ?>";
     $(document).ready(function() {
       $('#drop-ty').change(function() {
         var unit = $(this).val();
@@ -1073,7 +1246,7 @@
           }
         });
       });
-    });
+    });*/
     // End //
 
     // BS-Stepper Init

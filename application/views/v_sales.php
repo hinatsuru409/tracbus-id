@@ -60,9 +60,9 @@
                     <div class="modal-body table-responsive">
                       <div class="row">
                         <div class="col">
-                          <table class="table table-borderless no-margin">
+                          <table class="table table-borderless no-margin" id="table">
                             <tbody>
-                            <tr>
+                              <tr>
                                 <th>Nomor Reservasi</th>
                                 <td><b>:</b></td>
                                 <td><span id="txt-reservasi-id"></span></td>
@@ -81,15 +81,15 @@
                                 <th>Person in Charge Sales</th>
                                 <td><b>:</b></td>
                                 <td><span id="txt-pic-sales"></span></td>
-                              </tr>  
-                              </tbody>
-                                </table>
-                                  </div>
-                                  <div class="car-body">
-                                <table class="table table-bordered table-striped">
-                              <tbody>          
-                                <tr>              
-                                <th>Nama Instansi / Perusahaan</th>  
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div class="car-body">
+                          <table class="table table-bordered table-striped">
+                            <tbody>
+                              <tr>
+                                <th>Nama Instansi / Perusahaan</th>
                                 <th>Tipe Order</th>
                                 <th>Jenis Pembayaran</th>
                                 <th>Invoice</th>
@@ -120,8 +120,8 @@
                                 <th>Price List</th>
                                 <th>Diskon</th>
                                 <th>Total Revenue</th>
-                                </tr>
-                                <tr>
+                              </tr>
+                              <tr>
                                 <td><span id="txt-namainstansi"></span></td>
                                 <td><span id="txt-ordertype"></span></td>
                                 <td><span id="txt-jenis-bayar"></span></td>
@@ -153,7 +153,7 @@
                                 <td><span id="txt-price-list"></span></td>
                                 <td><span id="txt-diskon"></span></td>
                                 <td><span id="txt-total-rev"></span></td>
-                             </tr>
+                              </tr>
                             </tbody>
                           </table>
                         </div>
@@ -210,6 +210,14 @@
       "<'row'<'col-md-5'i><'col-md-7'p>>"
     }).buttons().container().appendTo('#example1_wrapper .col-md-5:eq(0)');
   });*/
+
+      var $table = $('#table')
+
+      $(function() {
+        $('.modal-lg').on('shown.bs.modal', function() {
+          $table.bootstrapTable('resetView')
+        })
+      })
 
       $(document).ready(function() {
         var dataTable = $('#table1').DataTable({

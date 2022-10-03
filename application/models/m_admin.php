@@ -39,55 +39,19 @@ class m_admin extends CI_Model{
    }
           
     public function get_all_data()  
-   {  
+    {  
         $this->db->select("*");  
         $this->db->from($this->table);  
         return $this->db->count_all_results();  
-   }
+    }
 
     // Get tables for Select2
-   public function getUnit(){
-    $response = array();
-
-    $this->db->select('*');
-    $query = $this->db->get('type_unit');
-    $response = $query->result_array();
-
-    return $response;
-   }
-
-   public function fetchKategori_unit($postData){
-    $response = array();
-
-    $this->db->select('id_kategori, jenis_kategori');
-    $this->db->where('id_unit', $postData['id_unit']);
-    $query = $this->db->get('kategori_unit');
-    $response = $query->result_array();
-
-    return $response;
-   }
-
-   public function fetchSeat_unit($postData){
-    $response = array();
-
-    $this->db->select('id_seat, jmlh_seat');
-    $this->db->where('id_kategori', $postData['id_kategori']);
-    $query = $this->db->get('seat_unit');
-    $response = $query->result_array();
-
-    return $response;
-   }
-
-   public function fetchNopol_unit($postData){
-    $response = array();
-
-    $this->db->select('id_nopol, nomor_plat');
-    $this->db->where('id_seat', $postData['id_seat']);
-    $query = $this->db->get('no_polisi_unit');
-    $response = $query->result_array();
-
-    return $response;
-   }
+    public function getUnit($searchTerm){
+        $this->db->select('id_unit, nopol as text, type, kategori, seat');
+        $this->db->like('nopol', $searchTerm);
+        $query = $this->db->get('sales_unit');
+        return $query->result();
+    }
 
     public function getSewa_data(){
         return $this->db->get('maksud_sewa');

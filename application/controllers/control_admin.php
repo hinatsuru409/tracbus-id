@@ -75,9 +75,13 @@ class control_admin extends CI_Controller
        echo json_encode($output);
     }
 
+    public function jsonUnit(){
+        $query = $this->input->get('query');
+        echo json_encode($this->m_admin->getUnit($query));
+    }
+
     public function add_sales()
     {
-        $data['type_unit'] = $this->m_admin->getUnit();
         $data['maksud_sewa'] = $this->m_admin->getSewa_data()->result();
         $data['spesifikasi'] = $this->m_admin->getSpec_data()->result();
         $data['source_data'] = $this->m_admin->getSc_data()->result();
