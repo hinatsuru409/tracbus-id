@@ -5,7 +5,7 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>DataTable</h1>
+              <h3>DATA PENYEWAAAN BUS TRAC</h3>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
@@ -38,6 +38,7 @@
                         <th>No.</th>
                         <th>Nomor Reservasi</th>
                         <th>Booking Order</th>
+                        <th>Check</th>
                         <th>PIC Sales</th>
                         <th>Provit Center</th>
                         <th>Action</th>
@@ -52,7 +53,7 @@
                 <div class="modal-dialog modal-lg">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h4 class="modal-title">View in Detail Sales</h4>
+                      <h3 class="modal-title">View in Detail Sales</h3>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
@@ -63,12 +64,17 @@
                           <table class="table table-borderless no-margin">
                             <tbody>
                             <tr>
-                                <th>Nomor Reservasi</th>
+                                <th>ID Reservasi</th>
                                 <td><b>:</b></td>
                                 <td><span id="txt-reservasi-id"></span></td>
                               </tr>
                               <tr>
                                 <th>Kode Booking</th>
+                                <td><b>:</b></td>
+                                <td><span id="txt-kodebooking"></span></td>
+                              </tr>
+                              <tr>
+                                <th>Check</th>
                                 <td><b>:</b></td>
                                 <td><span id="txt-kodebooking"></span></td>
                               </tr>
@@ -131,7 +137,7 @@
                                 <td><span id="txt-src-data"></span></td>
                                 <td><span id="txt-group"></span></td>
                                 <td><span id="txt-cmd"></span></td>
-                                <td><span id="txt-pic-cs"></span></td>
+                                <td><span id="txt-customerpic"></span></td>
                                 <td><span id="txt-pic-contact"></span></td>
                                 <td><span id="txt-tipe-unit"></span></td>
                                 <td><span id="txt-namacmd"></span></td>
@@ -243,6 +249,7 @@
 
         $(document).on('click', '#salesModal', function() {
           var booking_order = $(this).data('booking'); // Calling data class from controller
+          var booking_order = $(this).data('booking');
           var nama_cmd = $(this).data('namacmd');
           var nama_instansi = $(this).data('nama-instansi');
           var profit_center = $(this).data('profit');
@@ -277,6 +284,7 @@
           var price_list = $(this).data('pricelist');
           var diskon = $(this).data('diskon');
           $('#txt-kodebooking').text(booking_order); // Classified id and variable string
+          $('#txt-kodebooking').text(booking_order);
           $('#txt-namacmd').text(nama_cmd);
           $('#txt-namainstansi').text(nama_instansi);
           $('#txt-reservasi-id').text(no_reservasi);

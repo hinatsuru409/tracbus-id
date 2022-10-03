@@ -42,7 +42,8 @@ class control_admin extends CI_Controller
             $sub_array = array();
             $sub_array[] = $no;
             $sub_array[] = $row->no_reservasi;               
-            $sub_array[] = $row->booking_order;  
+            $sub_array[] = $row->booking_order;
+            $sub_array[] = $row->booking_order;
             $sub_array[] = $row->pic_sales;
             $sub_array[] = $row->profit_center;
             $sub_array[] = '<a class="btn btn-success pull-right btn-xs" id="salesModal" data-toggle="modal" data-target="#modal-lg"

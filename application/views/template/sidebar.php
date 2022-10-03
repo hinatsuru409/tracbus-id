@@ -35,7 +35,8 @@
         <!DOCTYPE html>
       <html>
       <head>
-      <title>MEMBUAT JAM DIGITAL SENDIRI</title>
+      <title>#</title>
+      <h6 class="Jam"><i class="fa-solid fa-clock-four-thirty"></i></h6>
       <script type="text/javascript">
       window.onload = function() { jam(); }
 
@@ -58,10 +59,10 @@
 </script>
 </head>
 <body>
-<center>
-<h1 style="font-size: 17px; font-family: verdana;" id="jam"></h1>
-</center>
-
+<left>  
+<h3 style="font-size: 15px; font-family: verdana;" id="jam"></h3>
+</left>
+<h6>Menu</h6>
         <!-- Sidebar Menu -->
         <nav class="mt-2">
           <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -96,6 +97,14 @@
                 <i class="nav-icon fas fa-layer-group"></i>
                 <p>
                   Sales
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="<?php echo base_url() . 'index.php/control_admin/send_mail' ?>" <?php if ($this->uri->uri_string() == 'control_admin/send_mail') { echo 'class="nav-link active" style="background-color: #28a745"'; } else { echo 'class="nav-link"'; } ?> >
+                <i class="nav-icon fas fa-table"></i>
+                <p>
+                  Send Mail 
                 </p>
               </a>
             </li>

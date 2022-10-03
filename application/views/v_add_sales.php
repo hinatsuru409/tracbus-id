@@ -81,12 +81,10 @@
                   <div class="row">
 
                     <!-- /.col -->
-                    <div class="col-md-12">
-                      <div class="row">
-                        <div class="col-md-5">
+                    <div class="col-md-5">
                           <div class="form-group">
-                            <label>Booking Order</label>
-                            <input type="text" class="form-control" name="bko" placeholder="Masukkan kode Booking Order">
+                            <label>Nomor Reservasi</label>
+                            <input type="text" class="form-control" name="rsv" placeholder="Masukkan Reservasi ID">
                           </div>
                         </div>
                         <div class="col-md-5">
@@ -105,12 +103,15 @@
                             <input type="text" class="form-control" name="pic" placeholder="Masukkan PIC Sales">
                           </div>
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-10">
+                      <div class="row">
+                        <div class="col-md-6">
                           <div class="form-group">
-                            <label>Nomor Reservasi</label>
-                            <input type="text" class="form-control" name="rsv" placeholder="Masukkan Reservasi ID">
+                            <label>Booking Order</label>
+                            <input type="text" class="form-control" name="bko" placeholder="Masukkan kode Booking Order">
                           </div>
                         </div>
+                        
                         <div class="col-md-3">
                           <div class="form-group">
                             <label>Nama Customer Master Data (CMD)</label>
