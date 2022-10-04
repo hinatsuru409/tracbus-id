@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>UAS TRAC BUS | Log in </title>
+  <title>TRAC BUS | Log in </title>
   <link href="../../assets/AdminLTE/dist/img/traclogo.png" rel="icon" type="images">
 
   <!-- Google Font: Source Sans Pro -->
@@ -70,7 +70,7 @@
       <!-- /.social-auth-links -->
 
       <p class="mb-1">
-        <a href="forgot-password.html">I Forgot my password</a>
+        <a href="forgot-password.html">I forgot my password</a>
       </p>
       <p class="mb-0">
         <a href="register.html" class="text-center">Register a new membership</a>

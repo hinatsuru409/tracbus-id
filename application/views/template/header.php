@@ -1,3 +1,7 @@
+<?php 
+    $this->load->helper('date'); 
+    date_default_timezone_set('Asia/Jakarta');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,7 +21,7 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/AdminLTE/') ?>plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="<?php echo base_url('assets/AdminLTE/') ?>dist/css/adminlte.min.css">
-    
+
     <!-- INDEX ONLY -->
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
@@ -35,27 +39,15 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/AdminLTE/') ?>plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="<?php echo base_url('assets/AdminLTE/') ?>plugins/summernote/summernote-bs4.min.css">
-    <script type="text/javascript">
- window.onload = function() { jam(); }
-
- function jam() {
-  var e = document.getElementById('jam'),
-  d = new Date(), h, m, s;
-  h = d.getHours();
-  m = set(d.getMinutes());
-  s = set(d.getSeconds());
-
-  e.innerHTML = h +':'+ m +':'+ s;
-
-  setTimeout('jam()', 1000);
- }
-
- function set(e) {
-  e = e < 10 ? '0'+ e : e;
-  return e;
- }
-</script>
 </head>
+
+<!-- Codeigniter Date -->
+<?php
+    $datestring = '%D: %d-%M-%Y';
+    $timestring = '%h:%i %A';
+    $time = time();
+?>
+<!-- End -->
 
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
@@ -67,10 +59,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="<?php echo base_url('assets/AdminLTE/') ?>index3.html" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
+                    <a class="text-muted nav-link"><i class="fa fa-calendar fa-fw"></i> <?php echo mdate($datestring, $time); ?> <?php echo mdate($timestring, $time); ?></a>
                 </li>
             </ul>
 

@@ -44,8 +44,6 @@
       </div>
     </nav>
     <!-- /.navbar -->
-
-
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
       <!-- Content Header (Page header) -->
@@ -85,8 +83,8 @@
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group">
-                            <label>Nomor Reservasi</label>
-                            <input type="text" class="form-control" name="rsv" placeholder="Masukkan Reservasi ID">
+                            <label>Booking Order</label>
+                            <input type="text" class="form-control" name="bko" placeholder="Masukkan kode Booking Order">
                           </div>
                         </div>
                         <div class="col-md-6">
