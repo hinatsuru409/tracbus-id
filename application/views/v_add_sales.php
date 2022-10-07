@@ -83,8 +83,8 @@
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group">
-                            <label>Booking Order</label>
-                            <input type="text" class="form-control" name="bko" placeholder="Masukkan kode Booking Order">
+                            <label>Nomor Reservasi</label>
+                            <input type="text" class="form-control" name="rsv" placeholder="Masukkan Nomor Reservasi">
                           </div>
                         </div>
                         <div class="col-md-6">
@@ -230,35 +230,25 @@
                         <div class="col-md-3">
                           <div class="form-group">
                             <label>No. Polisi</label>
-                            <select class="form-group" style="width: 100%;" name="npl" id="drop-npl">
-                              <option></option>
-                            </select>
+                            <input type="text" class="form-control" name="npl" id="drop-npl">
                           </div>
                         </div>
                         <div class="col">
                           <div class="form-group">
                             <label>Type Unit</label>
-                            <select class="form-control" name="tyunit" id="drop-ty">
-                              <option>-- Pilih Tipe Unit BUS --</option>
-                            </select>
+                            <input type="text" class="form-control" name="tyunit">
                           </div>
                         </div>
                         <div class="col">
                           <div class="form-group">
                             <label>Kategori Unit</label>
-                            <select class="form-control" style="width: 100%;" name="kg" id="drop-kg">
-                              <option> -- Pilih Kategori Bus -- </option>
-                              </option>
-                            </select>
+                            <input type="text" class="form-control" name="kg">
                           </div>
                         </div>
                         <div class="col-md-2">
                           <div class="form-group">
                             <label>Jumlah Bangku</label>
-                            <select class="form-control" name="seat" id="drop-seat">
-                              <option>-- Pilih Jumlah Seat/Bangku --</option>
-                              </option>
-                            </select>
+                            <input type="text" class="form-control" name="seat">
                           </div>
                         </div>
 
@@ -277,8 +267,8 @@
                         <div class="col">
                           <div class="form-group">
                             <label>Maksud Sewa</label>
-                            <select class="select2" style="width: 100%;" name="sw">
-                              <option>-- Pilih kebutuhan sewa --</option>
+                            <select class="sewa-select" style="width: 100%;" name="sw">
+                              <option></option>
                               <?php foreach ($maksud_sewa as $sw) : ?>
                                 <option value="<?php echo $sw->id_sewa; ?>">
                                   <?php echo $sw->jenis_sewa; ?>
@@ -949,50 +939,39 @@
   <script src="<?php echo base_url('assets/AdminLTE/') ?>plugins/dropzone/min/dropzone.min.js"></script>
   <!-- Page specific script -->
   <script>
-    /*$(document).ready(function() {
-      var maxForm = 3;
-      var countForm = 0;
-      $(".form-upload-add-more").click(function() {
-        if (countForm < maxForm) {
-          countForm++;
-          var html =  '<div class="form-group form-append" id="form-count' + countForm + '">' +
-                      '<label>Upload Tahap ' + countForm + '</label>' +
-                        '<div class="input-group">' +
-                        '<input type="text" class="form-control" placeholder="Masukkan kode upload" width="100%" id="upload-' + countForm + '">' +
-                          '<div class="col-sm-2 col-form-group" id="btn-form-remove-' + countForm + '" style="display : none !important">' +
-                            '<button class="btn btn-danger form-upload-remove" type="button">' +
-                              '<i class="fa fa-times"></i> Remove' +
-                            '</button>' +
-                          '</div>' +
-                        '</div>' +
-                    '</div>';
-        }
-        $(".form-upload-copy").append(html);
-      });
+    $(document).ready(function() {
+      $("#drop-npl").autocomplete({
+        source: "<?php echo site_url('control_admin/jsonUnitAutocomplete') ?>",
 
-      $("body").on("click", ".form-upload-remove", function() {
-        if (countForm != 0) {
-          $(this).parents(".form-append").remove();
-          countForm--;
+        select: function(event, ui) {
+          $('[name="npl"]').val(ui.item.nopol);
+          $('[name="tyunit"]').val(ui.item.type);
+          $('[name="kg"]').val(ui.item.kategori);
+          $('[name="seat]').val(ui.item.seat);
         }
       });
-    });*/
 
-    $('#drop-npl').select2({
-      placeholder: '-- Select --',
-      theme: 'bootstrap4',
-      minimumInputLength: 1,
-      ajax: {
-        url: "<?php echo base_url(); ?>index.php/control_admin/jsonUnit",
-        dataType: 'json',
-        delay: 250,
-        processResults: function(data) {
-          return {
-            results: data
-          };
-        },
-        cache: true
-      }
+      /*$("#drop-npl").on('autocomplete', function() {
+        var nopol = $(this).val();
+        $.ajax({
+          type: "POST",
+          url: "",
+          dataType: "JSON",
+          data: {
+            term: nopol
+          },
+          cache: false,
+          success: function(data) {
+            $.each(data, function(nopol, type, kategori, seat) {
+              $('[name="tyunit"]').val(data.type);
+              $('[name="kg"]').val(data.kategori);
+              $('[name="seat"]').val(data.seat);
+            });
+          }
+        });
+        return false;
+      });*/
+
     });
 
     $(document).ready(function() {
@@ -1074,7 +1053,9 @@
 
     $(function() {
       //Initialize Select2 Elements
-      $('.select2').select2()
+      $('.sewa-select').select2({
+        placeholder: "-- Pilih kebutuhan sewa --"
+      })
 
       //Initialize Select2 Elements
       $('.select2bs4').select2({
@@ -1163,89 +1144,6 @@
         spy.value = 0;
       }
     }
-
-    // Dependent Dropdown //
-    // Fetching Type Unit
-    /*var baseURL = "<?php echo base_url(); ?>";
-    $(document).ready(function() {
-      $('#drop-ty').change(function() {
-        var unit = $(this).val();
-
-        // AJAX request
-        $.ajax({
-          url: '<?= base_url() ?>index.php/control_admin/jsonKategori',
-          method: 'post',
-          data: {
-            id_unit: unit
-          },
-          dataType: 'json',
-          success: function(response) {
-
-            // Remove options 
-            $('#drop-kg').find('option').not(':first').remove();
-            $('#drop-seat').find('option').not(':first').remove();
-            $('#drop-npl').find('option').not(':first').remove();
-
-            // Add options
-            $.each(response, function(index, data) {
-              $('#drop-kg').append('<option value="' + data['id_kategori'] + '">' + data['jenis_kategori'] + '</option>');
-            });
-          }
-        });
-      });
-
-      // Kategori Unit change
-      $('#drop-kg').change(function() {
-        var kategori = $(this).val();
-
-        // AJAX request
-        $.ajax({
-          url: '<?= base_url() ?>index.php/control_admin/jsonSeat',
-          method: 'post',
-          data: {
-            id_kategori: kategori
-          },
-          dataType: 'json',
-          success: function(response) {
-
-            // Remove options
-            $('#drop-seat').find('option').not(':first').remove();
-            $('#drop-npl').find('option').not(':first').remove();
-
-            // Add options
-            $.each(response, function(index, data) {
-              $('#drop-seat').append('<option value="' + data['id_seat'] + '">' + data['jmlh_seat'] + '</option>');
-            });
-          }
-        });
-      });
-
-      // Seat Unit change
-      $('#drop-seat').change(function() {
-        var seat = $(this).val();
-
-        // AJAX request
-        $.ajax({
-          url: '<?= base_url() ?>index.php/control_admin/jsonPlat',
-          method: 'post',
-          data: {
-            id_seat: seat
-          },
-          dataType: 'json',
-          success: function(response) {
-
-            // Remove options
-            $('#drop-npl').find('option').not(':first').remove();
-
-            // Add options
-            $.each(response, function(index, data) {
-              $('#drop-npl').append('<option value="' + data['id_nopol'] + '">' + data['nomor_plat'] + '</option>');
-            });
-          }
-        });
-      });
-    });*/
-    // End //
 
     // BS-Stepper Init
     document.addEventListener('DOMContentLoaded', function() {

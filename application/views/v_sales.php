@@ -5,12 +5,12 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h3>DATA PENYEWAAAN BUS TRAC</h3>
+              <h3>Data Pengajuan Sales</h3>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Logout</a></li>
-                <li class="breadcrumb-item active">DataTables</li>
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">Sales</li>
               </ol>
             </div>
           </div>
@@ -116,9 +116,13 @@
                                 <th>Revenue Per Unit</th>
                                 <th>Addtional Charge</th>
                                 <th>Keterangan Additional Charge</th>
+                                <th>Total Revenue</th>
                                 <th>Price List</th>
                                 <th>Diskon</th>
-                                <th>Total Revenue</th>
+                                <th>Total Payment</th>
+                                <th>PPH 23</th>
+                                <th>Selisih Payment</th>
+                                <th>Keterangan Payment</th>
                               </tr>
                               <tr>
                                 <td><span id="txt-namainstansi"></span></td>
@@ -149,9 +153,52 @@
                                 <td><span id="txt-rev-unit"></span></td>
                                 <td><span id="txt-addcharge"></span></td>
                                 <td><span id="txt-addcharge-info"></span></td>
+                                <td><span id="txt-total-rev"></span></td>
                                 <td><span id="txt-price-list"></span></td>
                                 <td><span id="txt-diskon"></span></td>
-                                <td><span id="txt-total-rev"></span></td>
+                                <td><span id="txt-totalpay"></span></td>
+                                <td><span id="txt-pph23"></span></td>
+                                <td><span id="txt-selisihpay"></span></td>
+                                <td><span id="txt-ketpay"></span></td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                        <div class="col mt-2">
+                        <table class="table table-sm table-borderless no-margin">
+                            <tbody>
+                              <tr>
+                                <th>Tahapan Upload :</th>
+                              </tr>
+                            </tbody>
+                        </table>
+                        </div>
+                        <div class="col" style="overflow-x: auto; white-space: nowrap">
+                          <table class="table table-bordered table-striped text-center">
+                            <tbody>
+                              <tr>
+                                <th>Upload Tahap 1</th>
+                                <th>Upload Tahap 2</th>
+                                <th>Upload Tahap 3</th>
+                                <th>Upload Tahap 4</th>
+                                <th>Upload Tahap 5</th>
+                                <th>Upload Tahap 6</th>
+                                <th>Upload Tahap 7</th>
+                                <th>Upload Tahap 8</th>
+                                <th>Upload Tahap 9</th>
+                                <th>Upload Tahap 10</th>
+                              </tr>
+                              <tr>
+                                <td><span id="txt-upload1"></span></td>
+                                <td><span id="txt-upload2"></span></td>
+                                <td><span id="txt-upload3"></span></td>
+                                <td><span id="txt-upload4"></span></td>
+                                <td><span id="txt-upload5"></span></td>
+                                <td><span id="txt-upload6"></span></td>
+                                <td><span id="txt-upload7"></span></td>
+                                <td><span id="txt-upload8"></span></td>
+                                <td><span id="txt-upload9"></span></td>
+                                <td><span id="txt-upload10"></span></td>
                               </tr>
                             </tbody>
                           </table>
@@ -275,6 +322,20 @@
           var total_revenue = $(this).data('totalrevenue');
           var price_list = $(this).data('pricelist');
           var diskon = $(this).data('diskon');
+          var total_payment = $(this).data('totalpay');
+          var pph23 = $(this).data('pph');
+          var sel_payment = $(this).data('selpay');
+          var ket_payment = $(this).data('ketpay');
+          var upload1 = $(this).data('upload1');
+          var upload2 = $(this).data('upload2');
+          var upload3 = $(this).data('upload3');
+          var upload4 = $(this).data('upload4');
+          var upload5 = $(this).data('upload5');
+          var upload6 = $(this).data('upload6');
+          var upload7 = $(this).data('upload7');
+          var upload8 = $(this).data('upload8');
+          var upload9 = $(this).data('upload9');
+          var upload10 = $(this).data('upload10');
           $('#txt-kodebooking').text(booking_order); // Classified id and variable string
           $('#txt-kodebooking').text(booking_order);
           $('#txt-namacmd').text(nama_cmd);
@@ -307,9 +368,23 @@
           $('#txt-rev-unit').text(revenue_unit);
           $('#txt-addcharge').text(additional_charge);
           $('#txt-addcharge-info').text(ket_additionalcharge);
+          $('#txt-total-rev').text(total_revenue);
           $('#txt-price-list').text(price_list);
           $('#txt-diskon').text(diskon);
-          $('#txt-total-rev').text(total_revenue);
+          $('#txt-totalpay').text(total_payment);
+          $('#txt-pph23').text(pph23);
+          $('#txt-selisihpay').text(sel_payment);
+          $('#txt-ketpay').text(ket_payment);
+          $('#txt-upload1').text(upload1);
+          $('#txt-upload2').text(upload2);
+          $('#txt-upload3').text(upload3);
+          $('#txt-upload4').text(upload4);
+          $('#txt-upload5').text(upload5);
+          $('#txt-upload6').text(upload6);
+          $('#txt-upload7').text(upload7);
+          $('#txt-upload8').text(upload8);
+          $('#txt-upload9').text(upload9);
+          $('#txt-upload10').text(upload10);
         })
 
       });
