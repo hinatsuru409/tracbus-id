@@ -943,26 +943,21 @@
       $("#drop-npl").autocomplete({
         source: "<?php echo site_url('control_admin/jsonUnitAutocomplete') ?>",
 
-        select: function(event, ui) {
-          $('[name="npl"]').val(ui.item.nopol);
-          $('[name="tyunit"]').val(ui.item.type);
-          $('[name="kg"]').val(ui.item.kategori);
-          $('[name="seat]').val(ui.item.seat);
-        }
       });
 
-      /*$("#drop-npl").on('autocomplete', function() {
-        var nopol = $(this).val();
+      $('#drop-npl').on('keyup', function() {
+        var postData = $(this).val();
         $.ajax({
           type: "POST",
-          url: "",
+          url: "<?php echo base_url('index.php/control_admin/jsonUnitOnChange') ?>",
           dataType: "JSON",
           data: {
-            term: nopol
+            postData: postData
           },
           cache: false,
           success: function(data) {
             $.each(data, function(nopol, type, kategori, seat) {
+              $('[name="npl"]').val(data.nopol);
               $('[name="tyunit"]').val(data.type);
               $('[name="kg"]').val(data.kategori);
               $('[name="seat"]').val(data.seat);
@@ -970,7 +965,8 @@
           }
         });
         return false;
-      });*/
+      });
+
 
     });
 

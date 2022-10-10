@@ -53,26 +53,39 @@ class m_admin extends CI_Model
     }
 
     // Get tables for Select2
-    public function getUnit($searchTerm)
+    public function getUnit_all_data($searchTerm)
     {
         $this->db->like('nopol', $searchTerm, 'both');
         $this->db->order_by('nopol', 'ASC');
         $this->db->limit(10);
-
         return $this->db->get($this->unit_table)->result();
+    }
 
-        /*$result = $this->db->query("SELECT * FROM sales_unit WHERE nopol='$term'");
+    public function getUnit($postData)
+    {
+        $result = $this->db->query("SELECT * FROM sales_unit WHERE nopol='$postData'");
         if ($result->num_rows() > 0) {
             foreach ($result->result() as $row) {
                 $data = array(
                     'nopol' => $row->nopol,
                     'type' => $row->type,
                     'kategori' => $row->kategori,
-                    'seat' => $row->seat,
+                    'seat' => $row->seat
                 );
             }
         }
-        return $data;*/
+        return $data;
+    }
+
+    public function getModalData($postSales)
+    {
+        if (isset($postSales['id_sales'])) {
+            $this->db->select('*');
+            $this->db->join($this->upload_table, 'sales_upload.id_upload=sales.id_upload', 'left');
+            $this->db->join($this->payment_table, 'sales_payment.id_payment=sales.id_payment', 'left');
+            $this->db->where("id_sales like '%".$postSales['id_sales']."%'");
+        }
+        return $this->db->get($this->sales_table)->result();
     }
 
     public function getSewa_data()

@@ -86,21 +86,22 @@ class control_admin extends CI_Controller
     function jsonUnitAutocomplete()
     {
         if (isset($_GET['term'])) {
-            $result = $this->m_admin->getUnit($_GET['term']);
+            $result = $this->m_admin->getUnit_all_data($_GET['term']);
             if (count($result) > 0) {
-                foreach ($result as $row)
-                    $data[] = array(
-                        'nopol' => $row->nopol,
-                        'type' => $row->type,
-                        'kategori' => $row->kategori,
-                        'seat' => $row->seat,
-                    );
-                    $this->output->set_content_type('application/json')->set_output(json_encode($data));
+                foreach ($result as $row) {
+                    $data[] = $row->nopol;
+                }
+                echo json_encode($data);
             }
         }
-        /*$term = $this->input->post('term');
-        $data = $this->m_admin->getUnit($term);
-        echo json_encode($data);*/
+        
+    }
+
+    public function jsonUnitOnChange()
+    {
+        $postData = $this->input->post('postData');
+        $data = $this->m_admin->getUnit($postData);
+        echo json_encode($data);
     }
 
     public function add_sales()
@@ -113,17 +114,22 @@ class control_admin extends CI_Controller
         $this->load->view('v_add_sales', $data);
     }
 
+    public function add_sales_inDetail()
+    {
+        
+    }
+
     public function getAddSales()
     {
-        $postData       = $this->input->post();
-        
+        $postData = $this->input->post();
+
         $data = array(
             'no_reservasi' => $postData['rsv'],                 'booking_order' => $postData['bko'],
             'pic_sales' => $postData['pic'],                    'profit_center' => $postData['profit'],
             'nama_cmd' => $postData['nama_cmd'],                'nama_instansi' => $postData['ins'],
             'order_type' => $postData['ord'],                   'jenis_bayar' => $postData['jpm'],
             'invoice' => $postData['invo'],                     'spesifikasi' => $postData['sp'],
-            'type_customer' => $postData['tycus'],              'source_data' => $postData['sd'], 
+            'type_customer' => $postData['tycus'],              'source_data' => $postData['sd'],
             'group' => $postData['grp'],                        'cmd' => $postData['cmd'],
             'costumer_pic' => $postData['pcus'],                'pic_contact' => $postData['picc'],
             'type_unit' => $postData['tyunit'],                 'kategori' => $postData['kg'],
