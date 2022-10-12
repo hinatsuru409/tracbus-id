@@ -1,15 +1,24 @@
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trac Bus | Sales</title>
+ </head>
+ <body>
+  <!-- Content Wrapper. Contains page content -->
+ <div class="content-wrapper">
       <!-- Content Header (Page header) -->
       <section class="content-header">
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h3>Data Pengajuan Sales</h3>
+              <h4>DATA SALES | UAS TRAC BUS</h4>
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item">Datatable</li>
                 <li class="breadcrumb-item active">Sales</li>
               </ol>
             </div>
@@ -25,11 +34,13 @@
 
               <div class="card">
                 <div class="card-header">
-                  <p class="card-title">Table Pengajuan Sales</p>
+                  <p class="card-title"></p>
                   <div class="card-tools">
-                    <a href="<?php echo base_url() . 'index.php/control_admin/add_sales' ?>" class="btn btn-primary pull-right btn-sm" role="button">+ Tambah Data</a>
+                    <a href="<?php echo base_url() . 'index.php/control_admin/add_sales' ?>" class="btn btn-primary pull-right btn-sm" role="button">+ Add Data</a></i>
                   </div>
-                </div>
+                  <div class="panel-heading">
+								<a href="<?php echo base_url() . 'index.php/control_admin/view_laporan' ?>" class="btn btn-primary"> Export Data</a></i>
+							</div>
                 <!-- /.card-header -->
                 <div class="card-body">
                   <table id="table1" class="table table-bordered table-striped">

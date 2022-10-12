@@ -30,16 +30,28 @@
 </head>
 
 <body class="hold-transition layout-top-nav">
-  <div class="wrapper">
+<div class="wrapper">
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
       <!-- Left navbar links -->
       <div class="container">
         <ul class="navbar-nav">
           <li class="nav-item d-none d-sm-inline-block">
-            <a href="<?php echo base_url() . "index.php/control_admin/view_sales"; ?>" class="nav-link">
-              < Kembali</a>
-          </li>
+            <a href="<?php echo base_url() . "index.php/control_admin/view_sales"; ?>"  class="btn btn-primary">
+               Kembali</a>
+
+           <!-- Date and Time Zone -->    
+               <?php 
+    $this->load->helper('date'); 
+    date_default_timezone_set('Asia/Jakarta');
+?>      
+    <!-- /.navbar -->
+<?php
+    $datestring = '%D: %d-%M-%Y';
+    $timestring = '%h:%i %A';
+    $time = time();
+?>
+</li>
         </ul>
       </div>
     </nav>
@@ -52,19 +64,18 @@
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-                <h1>Tambah Data Sales</h1>
+              <img src="../../assets/AdminLTE/dist/img/tracnew.png" alt="AdminTrac" class="#" style="opacity: .8">
+              <h6><b>PT. UNITED AUTOMOBIL SEMBILAN PULUH UTAMA </b></h6>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item">Sales</li>
-                  <li class="breadcrumb-item active">Tambah Data</li>
+                  <li class="breadcrumb-item"><a href="#">Keluar</a></li>
+                  <li class="breadcrumb-item active">Sales</li>
+                  <li class="breadcrumb-item">Tambah Data</li>
                 </ol>
               </div>
             </div>
-          </div><!-- /.container-fluid -->
-        </section>
-
+          </div>
         <!-- Main content -->
         <section class="content">
           <div class="container-fluid">
@@ -72,7 +83,7 @@
             <form role="form" action="<?php echo base_url() . 'index.php/control_admin/getAddSales'; ?>" method="POST">
               <div class="card card-default">
                 <div class="card-header">
-                  <h3 class="card-title">Lorem ipsum dolor sit amet</h3>
+                  <center><i class="fas fa-share-square"> FORM BILLING BUS UAS</center></i>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
