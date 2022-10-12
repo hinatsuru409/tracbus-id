@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tambah Data | Sales</title>
+  <link href="../../assets/AdminLTE/dist/img/tracnew.png" rel="icon" type="images">
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -43,7 +44,7 @@
            <!-- Date and Time Zone -->    
                <?php 
     $this->load->helper('date'); 
-    date_default_timezone_set('Asia/Jakarta');
+    date_default_timezone_set('Asia/jakarta');
 ?>      
     <!-- /.navbar -->
 <?php
@@ -65,7 +66,7 @@
             <div class="row mb-2">
               <div class="col-sm-6">
               <img src="../../assets/AdminLTE/dist/img/tracnew.png" alt="AdminTrac" class="#" style="opacity: .8">
-              <h6><b>PT. UNITED AUTOMOBIL SEMBILAN PULUH UTAMA </b></h6>
+              <h6><b>UNITED AUTO MOBIL SEMBILAN PULUH UTAMA. </b></h6>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -83,7 +84,7 @@
             <form role="form" action="<?php echo base_url() . 'index.php/control_admin/getAddSales'; ?>" method="POST">
               <div class="card card-default">
                 <div class="card-header">
-                  <center><i class="fas fa-share-square"> FORM BILLING BUS UAS</center></i>
+                  <center><i class="fas fa-share-square"> FORM BILLING RENTAL BUS</center></i>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -149,7 +150,6 @@
                               <label>Jenis Pembayaran</label>
                               <select class="form-control" name="jpm">
                                 <option>PO</option>
-                                <option>GL</option>
                                 <option>IN Advanced</option>
                               </select>
                             </div>
@@ -366,7 +366,7 @@
                       <div class="row">
                         <div class="col-md-6">
                           <div class="form-group">
-                            <label>Revenue per Unit (1)</label>
+                            <label>Revenue Unit (1)</label>
                             <div class="input-group">
                               <div class="input-group-prepend">
                                 <span class="input-group-text">
@@ -392,8 +392,19 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label>Keterangan Additional Charge</label>
+                        <label>Ket. Additional Charge</label>
                         <textarea class="form-control" name="ket_addc" rows="2" placeholder="Enter ..."></textarea>
+                      </div>
+                      <div class="form-group">
+                        <label>Total Revenue (1+2)</label>
+                        <div class="input-group">
+                          <div class="input-group-prepend">
+                            <span class="input-group-text">
+                              <h7>Rp. </h7>
+                            </span>
+                          </div>
+                          <input type="number" class="form-control" name="total_rvnu" id="totalrevenue">
+                        </div>
                       </div>
                       <div class="row">
                         <div class="col-md-8">
@@ -423,18 +434,6 @@
                           </div>
                         </div>
                       </div>
-                      <div class="form-group">
-                        <label>Total Revenue (1+2)</label>
-                        <div class="input-group">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">
-                              <h7>Rp. </h7>
-                            </span>
-                          </div>
-                          <input type="number" class="form-control" name="total_rvnu" id="totalrevenue">
-                        </div>
-                      </div>
-
                       <div class="col border-bottom mb-3 mt-4"></div>
 
                       <!-- Payment Form -->
@@ -465,7 +464,7 @@
                         </div>
                         <div class="col-sm-2 align-self-end">
                           <div class="form-group">
-                            <button class="btn btn-success form-control payment-form-add-more" type="button">
+                            <button class="btn btn-primary form-control payment-form-add-more" type="button">
                               <i class="fa fa-plus"></i> Add More
                             </button>
                           </div>
@@ -790,7 +789,7 @@
                         <div class="input-group">
                           <input type="text" name="upl-1" class="form-control" placeholder="Masukkan kode upload" width="100%">
                           <div class="col-sm-2 col-form-group">
-                            <button class="btn btn-success upload-form-add-more" type="button">
+                            <button class="btn btn-primary upload-form-add-more" type="button">
                               <i class="fa fa-plus"></i> Add More
                             </button>
                           </div>
@@ -921,10 +920,11 @@
     <footer class="main-footer">
       <div class="container">
         <div class="float-right d-none d-sm-block">
-          <b>Version</b> 3.2.0
         </div>
-        <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+        <img src="<?php echo base_url(); ?>assets/AdminLTE/dist/img/tracnobg2.png">
+         &copy; <?php echo date('Y'); ?>. UNITED AUTOMOBIL SEMBILANPULUH UTAMA.
       </div>
+    
     </footer>
 
 

@@ -49,8 +49,9 @@
                         <th>No.</th>
                         <th>Nomor Reservasi</th>
                         <th>Booking Order</th>
-                        <th>PIC Sales</th>
+                        <th>Check</th>
                         <th>Profit Center</th>
+                        <th>PIC Sales</th>
                         <th>Action</th>
                       </tr>
                     </thead>
@@ -63,7 +64,10 @@
                 <div class="modal-dialog modal-lg">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h3 class="modal-title">View in Detail Sales</h3>
+                    <a class="brand-link modal-title">
+                        <img src="../../assets/AdminLTE/dist/img/tracnobg.png" alt="AdminTrac" class="brand-image" style="opacity: .8">
+                        <h5><b>UNITED AUTOMOBIL SEMBILANPULUH UTAMA</b></h5>
+                    </a>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
@@ -216,7 +220,7 @@
                         </div>
                     </div>
                     <div class="modal-footer justify-content-between">
-                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
                       <button type="button" class="btn btn-info"><i class="fa fa-plus"></i> Tambah Data Baru</button>
                     </div>
                   </div>

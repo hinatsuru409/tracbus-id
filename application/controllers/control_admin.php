@@ -44,9 +44,10 @@ class control_admin extends CI_Controller
             $sub_array[] = $no;
             $sub_array[] = $row->no_reservasi;
             $sub_array[] = $row->booking_order;
-            $sub_array[] = $row->pic_sales;
+            $sub_array[] = $row->booking_order;
             $sub_array[] = $row->profit_center;
-            $sub_array[] = '<a class="btn btn-success pull-right btn-xs" id="salesModal" data-toggle="modal" data-target="#modal-lg"
+            $sub_array[] = $row->pic_sales;
+            $sub_array[] = '<a class="btn btn-primary pull-right btn-xs" id="salesModal" data-toggle="modal" data-target="#modal-lg"
                                       data-booking="' . $row->booking_order . '" data-idreservasi="' . $row->no_reservasi . '" data-picsales="' . $row->pic_sales . '" data-profit="' . $row->profit_center . '"
                                       data-namacmd="' . $row->nama_cmd . '" data-nama-instansi="' . $row->nama_instansi . '" data-order-type="' . $row->order_type . '" data-jenisbayar="' . $row->jenis_bayar . '"
                                       data-invoice="' . $row->invoice . '" data-spek="' . $row->spesifikasi . '" data-type-customer="' . $row->type_customer . '"
@@ -71,7 +72,7 @@ class control_admin extends CI_Controller
                                       data-upload10="' . $row->upload_10 . '"
                                       ><i class="fa fa-eye"></i> View Data</a>
                             <a href="' . base_url() . 'index.php/control_admin/delete_sales/' . $row->id_sales . '" class="btn btn-danger pull-right btn-xs" role="button">Hapus</a>
-                            <a href="' . base_url() . 'index.php/control_admin/edit_sales/' . $row->id_sales . '" class="btn btn-secondary pull-right btn-xs" style="padding-left: 10px; padding-right: 10px;" role="button">Edit</a>';
+                            <a href="' . base_url() . 'index.php/control_admin/edit_sales/' . $row->id_sales . '" class="btn btn-warning pull-right btn-xs" style="padding-left: 10px; padding-right: 10px;" role="button">Edit</a>';
             $data[] = $sub_array;
         }
         $output = array(
