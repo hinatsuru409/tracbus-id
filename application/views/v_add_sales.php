@@ -777,7 +777,7 @@
                       <div class="form-group">
                         <label>Upload Tahap 1</label>
                         <div class="input-group">
-                          <input type="text" class="form-control" placeholder="Masukkan kode upload" width="100%">
+                          <input type="text" name="upl-1" class="form-control" placeholder="Masukkan kode upload" width="100%">
                           <div class="col-sm-2 col-form-group">
                             <button class="btn btn-success upload-form-add-more" type="button">
                               <i class="fa fa-plus"></i> Add More
@@ -789,7 +789,7 @@
                       <div class="form-group upload-form-block-1" style="display:none !important;">
                         <label>Upload Tahap 2</label>
                         <div class="input-group">
-                          <input type="text" class="form-control" placeholder="Masukkan kode upload" width="100%">
+                          <input type="text" class="form-control" name="upl-2" placeholder="Masukkan kode upload" width="100%">
                           <div class="col-sm-2 col-form-group">
                             <button class="btn btn-danger upload-form-remove-1" type="button">
                               <i class="fa fa-times"></i> Remove
@@ -800,7 +800,7 @@
                       <div class="form-group upload-form-block-2" style="display:none !important;">
                         <label>Upload Tahap 3</label>
                         <div class="input-group">
-                          <input type="text" class="form-control" placeholder="Masukkan kode upload" width="100%">
+                          <input type="text" class="form-control" name="upl-3" placeholder="Masukkan kode upload" width="100%">
                           <div class="col-sm-2 col-form-group">
                             <button class="btn btn-danger upload-form-remove-2" type="button">
                               <i class="fa fa-times"></i> Remove
@@ -811,7 +811,7 @@
                       <div class="form-group upload-form-block-3" style="display:none !important;">
                         <label>Upload Tahap 4</label>
                         <div class="input-group">
-                          <input type="text" class="form-control" placeholder="Masukkan kode upload" width="100%">
+                          <input type="text" class="form-control" name="upl-4" placeholder="Masukkan kode upload" width="100%">
                           <div class="col-sm-2 col-form-group">
                             <button class="btn btn-danger upload-form-remove-3" type="button">
                               <i class="fa fa-times"></i> Remove
@@ -822,7 +822,7 @@
                       <div class="form-group upload-form-block-4" style="display:none !important;">
                         <label>Upload Tahap 5</label>
                         <div class="input-group">
-                          <input type="text" class="form-control" placeholder="Masukkan kode upload" width="100%">
+                          <input type="text" class="form-control" name="upl-5" placeholder="Masukkan kode upload" width="100%">
                           <div class="col-sm-2 col-form-group">
                             <button class="btn btn-danger upload-form-remove-4" type="button">
                               <i class="fa fa-times"></i> Remove
@@ -833,7 +833,7 @@
                       <div class="form-group upload-form-block-5" style="display:none !important;">
                         <label>Upload Tahap 6</label>
                         <div class="input-group">
-                          <input type="text" class="form-control" placeholder="Masukkan kode upload" width="100%">
+                          <input type="text" class="form-control" name="upl-6" placeholder="Masukkan kode upload" width="100%">
                           <div class="col-sm-2 col-form-group">
                             <button class="btn btn-danger upload-form-remove-5" type="button">
                               <i class="fa fa-times"></i> Remove
@@ -844,7 +844,7 @@
                       <div class="form-group upload-form-block-6" style="display:none !important;">
                         <label>Upload Tahap 7</label>
                         <div class="input-group">
-                          <input type="text" class="form-control" placeholder="Masukkan kode upload" width="100%">
+                          <input type="text" class="form-control" name="upl-7" placeholder="Masukkan kode upload" width="100%">
                           <div class="col-sm-2 col-form-group">
                             <button class="btn btn-danger upload-form-remove-6" type="button">
                               <i class="fa fa-times"></i> Remove
@@ -855,7 +855,7 @@
                       <div class="form-group upload-form-block-7" style="display:none !important;">
                         <label>Upload Tahap 8</label>
                         <div class="input-group">
-                          <input type="text" class="form-control" placeholder="Masukkan kode upload" width="100%">
+                          <input type="text" class="form-control" name="upl-8" placeholder="Masukkan kode upload" width="100%">
                           <div class="col-sm-2 col-form-group">
                             <button class="btn btn-danger upload-form-remove-7" type="button">
                               <i class="fa fa-times"></i> Remove
@@ -866,7 +866,7 @@
                       <div class="form-group upload-form-block-8" style="display:none !important;">
                         <label>Upload Tahap 9</label>
                         <div class="input-group">
-                          <input type="text" class="form-control" placeholder="Masukkan kode upload" width="100%">
+                          <input type="text" class="form-control" name="upl-9" placeholder="Masukkan kode upload" width="100%">
                           <div class="col-sm-2 col-form-group">
                             <button class="btn btn-danger upload-form-remove-8" type="button">
                               <i class="fa fa-times"></i> Remove
@@ -877,7 +877,7 @@
                       <div class="form-group upload-form-block-9" style="display:none !important;">
                         <label>Upload Tahap 10</label>
                         <div class="input-group">
-                          <input type="text" class="form-control" placeholder="Masukkan kode upload" width="100%">
+                          <input type="text" class="form-control" name="upl-10" placeholder="Masukkan kode upload" width="100%">
                           <div class="col-sm-2 col-form-group">
                             <button class="btn btn-danger upload-form-remove-9" type="button">
                               <i class="fa fa-times"></i> Remove

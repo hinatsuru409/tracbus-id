@@ -131,32 +131,39 @@ class control_admin extends CI_Controller
             'invoice' => $postData['invo'],                     'spesifikasi' => $postData['sp'],
             'type_customer' => $postData['tycus'],              'source_data' => $postData['sd'],
             'group' => $postData['grp'],                        'cmd' => $postData['cmd'],
-            'costumer_pic' => $postData['pcus'],                'pic_contact' => $postData['picc'],
+            'pic_customer' => $postData['pcus'],                'pic_contact' => $postData['picc'],
             'type_unit' => $postData['tyunit'],                 'kategori' => $postData['kg'],
             'nopol' => $postData['npl'],                        'seat' => $postData['seat'],
             'driver' => $postData['drv'],                       'maksud_sewa' => $postData['sw'],
             'rute' => $postData['rt'],                          'provinsi' => $postData['pr'],
             'order_start' => date("Y-m-d", strtotime($postData['tgl_mulai_p'])),
             'order_end' => date("Y-m-d", strtotime($postData['tgl_akhir_p'])),
-            'day' => $postData['wkts'],                         'toll_parkir' => $postData['toll'],
-            'revenue_unit' => $postData['rvnu'],                'additional_charge' => $postData['addc'],
-            'ket_additionalcharge' => $postData['ket_addc'],    'total_revenue' => $postData['total_rvnu'],
-            'price_list' => $postData['prcl'],                  'diskon' => $postData['dsk']
+            'order_day' => $postData['wkts'],                   'toll_parkir' => $postData['toll'],
+            'revenue_unit' => $postData['rvnu'],                'addcharge' => $postData['addc'],
+            'addcharge_ket' => $postData['ket_addc'],           'revenue_total' => $postData['total_rvnu'],
+            'price_list' => $postData['prcl'],                  'diskon' => $postData['dsk'],
+            'total_payment' => $postData['total_py'],           'pph_23' => $postData['pph'],
+            'sel_payment' => $postData['slpy'],                 'ket_payment' => $postData['note'],
+            'upload_1' => $postData['upl-1'],                   'upload_2' => $postData['upl-2'],
+            'upload_3' => $postData['upl-3'],                   'upload_4' => $postData['upl-4'],
+            'upload_5' => $postData['upl-5'],                   'upload_6' => $postData['upl-6'],
+            'upload_7' => $postData['upl-7'],                   'upload_8' => $postData['upl-8'],
+            'upload_9' => $postData['upl-9'],                   'upload_10' => $postData['upl-10']
         );
-        $this->m_admin->input_data($data, 'sales');
+        $this->m_admin->insert_multipleData($data);
         redirect('control_admin/view_sales');
     }
 
     public function delete_sales($id)
     {
-        $where = array('id_sales' => $id);
+        $where = array('id' => $id);
         $this->m_admin->delete_data($where, 'sales');
         redirect('control_admin/view_sales');
     }
 
     public function edit_sales($id)
     {
-        $where = array('id_sales' => $id);
+        $where = array('id' => $id);
         $data['sales'] = $this->m_admin->edit_data($where, 'sales')->result();
         $this->load->view('v_edit_sales', $data);
     }
@@ -174,7 +181,7 @@ class control_admin extends CI_Controller
             'profit_center' => $profit
         );
 
-        $where = array('id_sales' => $id);
+        $where = array('id' => $id);
 
         $this->m_admin->update_data($where, $data, 'sales');
         redirect('control_admin/view_sales');
