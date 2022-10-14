@@ -36,7 +36,7 @@
                 <div class="card-header">
                   <p class="card-title"></p>
                   <div class="card-tools">
-                    <a href="<?php echo base_url() . 'index.php/control_admin/add_sales' ?>" class="btn btn-primary pull-right btn-sm" role="button">+ Add Data</a></i>
+                    <a href="<?php echo base_url() . 'index.php/control_admin/add_sales' ?>" class="btn btn-primary pull-right btn-sm" role="button"><b>+ Add Data</b></a></i>
                   </div>
                   <div class="panel-heading">
 								<a href="<?php echo base_url() . 'index.php/control_admin/view_laporan' ?>" class="btn btn-primary"> Export Data</a></i>
@@ -46,13 +46,13 @@
                   <table id="table1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
-                        <th>No.</th>
-                        <th>Nomor Reservasi</th>
-                        <th>Booking Order</th>
-                        <th>Check</th>
-                        <th>Profit Center</th>
-                        <th>PIC Sales</th>
-                        <th>Action</th>
+                        <th><center>No.</center></th>
+                        <th><center>Nomor Reservasi</center></th>
+                        <th><center>Booking Order</center></th>
+                        <th><center>Check</center></th>
+                        <th><center>Profit Center</center></th>
+                        <th><center>PIC Sales</center></th>
+                        <th><center>Action</center></th>
                       </tr>
                     </thead>
                   </table>
@@ -221,7 +221,8 @@
                     </div>
                     <div class="modal-footer justify-content-between">
                       <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
-                      <button type="button" class="btn btn-info"><i class="fa fa-plus"></i> Tambah Data Baru</button>
+                      <div class="card-tools">
+                    <a href="<?php echo base_url() . 'index.php/control_admin/add_bookingnew' ?>" class="btn btn-primary pull-right btn-sm" role="button">New Booking Order</a></i>
                     </div>
                   </div>
                   <!-- /.modal-content -->
@@ -301,9 +302,9 @@
             },
           ],
         })
-
+// Calling data class from controller
         $(document).on('click', '#salesModal', function() {
-          var booking_order = $(this).data('booking'); // Calling data class from controller
+          var booking_order = $(this).data('booking'); 
           var booking_order = $(this).data('booking');
           var nama_cmd = $(this).data('namacmd');
           var nama_instansi = $(this).data('nama-instansi');
@@ -352,7 +353,8 @@
           var upload8 = $(this).data('upload8');
           var upload9 = $(this).data('upload9');
           var upload10 = $(this).data('upload10');
-          $('#txt-kodebooking').text(booking_order); // Classified id and variable string
+  // Classified id and variable string,
+          $('#txt-kodebooking').text(booking_order); 
           $('#txt-kodebooking').text(booking_order);
           $('#txt-namacmd').text(nama_cmd);
           $('#txt-namainstansi').text(nama_instansi);

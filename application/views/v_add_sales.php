@@ -43,15 +43,15 @@
 
            <!-- Date and Time Zone -->    
                <?php 
-    $this->load->helper('date'); 
-    date_default_timezone_set('Asia/jakarta');
-?>      
-    <!-- /.navbar -->
-<?php
-    $datestring = '%D: %d-%M-%Y';
-    $timestring = '%h:%i %A';
-    $time = time();
-?>
+                            $this->load->helper('date'); 
+                            date_default_timezone_set('Asia/jakarta');
+ ?>      
+                            <!-- /.navbar -->
+              <?php
+                            $datestring = '%D: %d-%M-%Y';
+                            $timestring = '%h:%i %A';
+                            $time = time();
+ ?>
 </li>
         </ul>
       </div>
@@ -66,7 +66,7 @@
             <div class="row mb-2">
               <div class="col-sm-6">
               <img src="../../assets/AdminLTE/dist/img/tracnew.png" alt="AdminTrac" class="#" style="opacity: .8">
-              <h6><b>UNITED AUTO MOBIL SEMBILAN PULUH UTAMA. </b></h6>
+              <h6><b>UNITED AUTOMOBIL SEMBILANPULUH UTAMA. </b></h6>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
@@ -84,12 +84,13 @@
             <form role="form" action="<?php echo base_url() . 'index.php/control_admin/getAddSales'; ?>" method="POST">
               <div class="card card-default">
                 <div class="card-header">
-                  <center><i class="fas fa-share-square"> FORM BILLING RENTAL BUS</center></i>
+                  <center><i class="fas fa-share-square"> FORM BILLING RENT BUS</center></i>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
                   <div class="row">
-
+            </div>
+        </div>
                     <!-- /.col -->
                     <div class="col-md-12">
                       <div class="row">
@@ -262,7 +263,6 @@
                             <input type="text" class="form-control" name="seat">
                           </div>
                         </div>
-
                       </div>
                       <!-- /.col -->
                       <div class="row">
@@ -805,7 +805,7 @@
                               <i class="fa fa-times"></i> Remove
                             </button>
                           </div>
-                        </div>
+                        </div>              
                       </div>
                       <div class="form-group upload-form-block-2" style="display:none !important;">
                         <label>Upload Tahap 3</label>
@@ -922,7 +922,7 @@
         <div class="float-right d-none d-sm-block">
         </div>
         <img src="<?php echo base_url(); ?>assets/AdminLTE/dist/img/tracnobg2.png">
-         &copy; <?php echo date('Y'); ?>. UNITED AUTOMOBIL SEMBILANPULUH UTAMA.
+         &copy; <?php echo date('Y'); ?>.UNITED AUTOMOBIL SEMBILANPULUH UTAMA.
       </div>
     
     </footer>

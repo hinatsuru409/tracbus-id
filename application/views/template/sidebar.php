@@ -2,7 +2,7 @@
 <aside class="main-sidebar sidebar-light-primary elevation-4">
   <!-- Brand Logo -->
   <a href="../../index3.html" class="brand-link">
-    <img src="../../assets/AdminLTE/dist/img/tracnobg1.png" alt="AdminTrac" class="brand-image" style="opacity: .8">
+    <img src="../../assets/AdminLTE/dist/img/tracnobg.png" alt="AdminTrac" class="brand-image" style="opacity: .8">
     <span class="brand-text font-weight-dark"><b>UAS TRAC BUS </span></b>
   </a>
 
@@ -26,9 +26,9 @@
                with font-awesome or any other icon font library -->
         <li class="nav-item">
           <a href="<?php echo base_url() . 'index.php/control_admin/dashboard' ?>" <?php if ($this->uri->uri_string() == 'control_admin/dashboard') {
-            echo 'class="nav-link active" style="background-color: #051efc"';
+            echo 'class="nav-link active" style="background-color: 002EFF"';
               } 
-              else 
+                else 
               {
             echo 'class="nav-link"';
               }
@@ -41,7 +41,7 @@
         </li>
         <li class="nav-item">
           <a href="<?php echo base_url() . 'index.php/control_katbus/view_katbus' ?>" <?php if ($this->uri->uri_string() == 'control_katbus/view_katbus') {
-            echo 'class="nav-link active" style="background-color: #051efc"';
+            echo 'class="nav-link active" style="background-color: 002EFF"';
               } 
                 else 
               {
@@ -56,7 +56,7 @@
         </li>
         <li class="nav-item">
           <a href="<?php echo base_url() . 'index.php/control_admin/view_sales' ?>" <?php if ($this->uri->uri_string() == 'control_admin/view_sales') {
-            echo 'class="nav-link active" style="background-color: #051efc"';
+            echo 'class="nav-link active" style="background-color: 002EFF"';
               } 
                 else 
               {
@@ -71,7 +71,7 @@
         </li>
         <li class="nav-item">
           <a href="<?php echo base_url() . 'index.php/control_admin/send_mail' ?>" <?php if ($this->uri->uri_string() == 'control_admin/send_mail') {
-            echo 'class="nav-link active" style="background-color: #051efc"';
+            echo 'class="nav-link active" style="background-color: 002EFF"';
               } 
                 else 
               {

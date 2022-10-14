@@ -60,7 +60,7 @@
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
               </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="<?php echo base_url() . 'index.php/control_admin/view_sales' ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
               <!-- /.card-header -->
               <div class="card-body">

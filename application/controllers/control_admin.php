@@ -71,8 +71,8 @@ class control_admin extends CI_Controller
                                       data-upload8="' . $row->upload_8 . '" data-upload9="' . $row->upload_9 . '"
                                       data-upload10="' . $row->upload_10 . '"
                                       ><i class="fa fa-eye"></i> View Data</a>
-                            <a href="' . base_url() . 'index.php/control_admin/delete_sales/' . $row->id_sales . '" class="btn btn-danger pull-right btn-xs" role="button">Hapus</a>
-                            <a href="' . base_url() . 'index.php/control_admin/edit_sales/' . $row->id_sales . '" class="btn btn-warning pull-right btn-xs" style="padding-left: 10px; padding-right: 10px;" role="button">Edit</a>';
+                                      <a href="'.base_url().'index.php/control_admin/edit_sales/'.$row->id_sales.'" class="btn btn-warning pull-right btn-xs" style="padding-left: 10px; padding-right: 10px;" role="button"><i class="fas fa-edit"></i> <b>Edit</b></a>
+                                      <a href="'.base_url().'index.php/control_admin/delete_sales/'.$row->id_sales.'" class="btn btn-danger pull-right btn-xs" role="button"><i class="fa fa-trash"></i>Hapus</a>'; 
             $data[] = $sub_array;
         }
         $output = array(
@@ -187,4 +187,10 @@ class control_admin extends CI_Controller
         $this->m_admin->update_data($where, $data, 'sales');
         redirect('control_admin/view_sales');
     }
+    public function add_bookingnew()
+    {
+        $this->load->view("v_add_bookingnew");
+    }
+
 }
+
