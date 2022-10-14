@@ -1,5 +1,7 @@
 <?php
 
+
+
 class control_admin extends CI_Controller
 {
     function __construct()
@@ -70,8 +72,8 @@ class control_admin extends CI_Controller
                                       data-upload8="' . $row->upload_8 . '" data-upload9="' . $row->upload_9 . '"
                                       data-upload10="' . $row->upload_10 . '"
                                       ><i class="fa fa-eye"></i> View Data</a>
-                            <a href="' . base_url() . 'index.php/control_admin/delete_sales/' . $row->id_sales . '" class="btn btn-danger pull-right btn-xs" role="button">Hapus</a>
-                            <a href="' . base_url() . 'index.php/control_admin/edit_sales/' . $row->id_sales . '" class="btn btn-secondary pull-right btn-xs" style="padding-left: 10px; padding-right: 10px;" role="button">Edit</a>';
+                            <a href="' . base_url() . 'index.php/control_admin/delete_sales/' . $row->id . '" class="btn btn-danger pull-right btn-xs" role="button">Hapus</a>
+                            <a href="' . base_url() . 'index.php/control_admin/edit_sales/' . $row->id . '" class="btn btn-secondary pull-right btn-xs" style="padding-left: 10px; padding-right: 10px;" role="button">Edit</a>';
             $data[] = $sub_array;
         }
         $output = array(
@@ -144,20 +146,27 @@ class control_admin extends CI_Controller
             'price_list' => $postData['prcl'],                  'diskon' => $postData['dsk'],
             'total_payment' => $postData['total_py'],           'pph_23' => $postData['pph'],
             'sel_payment' => $postData['slpy'],                 'ket_payment' => $postData['note'],
+        );
+        $id_sales = $this->m_admin->insert_dataMultiple('sales', $data);
+
+        $data1 = array(
+            'id_sales' => $id_sales,
             'upload_1' => $postData['upl-1'],                   'upload_2' => $postData['upl-2'],
             'upload_3' => $postData['upl-3'],                   'upload_4' => $postData['upl-4'],
             'upload_5' => $postData['upl-5'],                   'upload_6' => $postData['upl-6'],
             'upload_7' => $postData['upl-7'],                   'upload_8' => $postData['upl-8'],
             'upload_9' => $postData['upl-9'],                   'upload_10' => $postData['upl-10']
         );
-        $this->m_admin->insert_multipleData($data);
+
+        $this->m_admin->insert_dataMultiple('sales_upload', $data1);
         redirect('control_admin/view_sales');
     }
 
     public function delete_sales($id)
     {
-        $where = array('id' => $id);
-        $this->m_admin->delete_data($where, 'sales');
+        $this->m_admin->delete_data($id);
+        //$where = array('id' => $id);
+        //$this->m_admin->delete_data($where, 'sales');
         redirect('control_admin/view_sales');
     }
 
@@ -186,4 +195,6 @@ class control_admin extends CI_Controller
         $this->m_admin->update_data($where, $data, 'sales');
         redirect('control_admin/view_sales');
     }
+
+    
 }

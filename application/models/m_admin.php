@@ -13,8 +13,8 @@ class m_admin extends CI_Model
     {
         $this->db->select("*");
         $this->db->from($this->sales_table);
-        $this->db->join($this->upload_table, 'sales_upload.id_sales=sales.id', 'inner');
-        $this->db->join($this->payment_table, 'sales_payment.id_sales=sales.id', 'inner');
+        $this->db->join($this->upload_table, 'sales_upload.id_sales=sales.id', 'left');
+        $this->db->join($this->payment_table, 'sales_payment.id_sales=sales.id', 'left');
         if (isset($_POST["search"]["value"])) {
             $this->db->like("no_reservasi", $_POST["search"]["value"]);
             $this->db->or_like("booking_order", $_POST["search"]["value"]);
@@ -40,8 +40,7 @@ class m_admin extends CI_Model
     }
     public function get_filtered_data()
     {
-        $this->getData();
-        $query = $this->db->get();
+        $query = $this->db->get($this->sales_table);
         return $query->num_rows();
     }
 
@@ -77,11 +76,6 @@ class m_admin extends CI_Model
         return $data;
     }
 
-    public function insert_multipleData($data, $sales_upload)
-    {
-        
-    }
-
     public function getSewa_data()
     {
         return $this->db->get('maksud_sewa');
@@ -107,16 +101,18 @@ class m_admin extends CI_Model
         return $this->db->get('rute_tujuan');
     }
     // END
-
-    /*public function input_data($data, $table)
+    public function insert_data($table, $data)
     {
-        $this->db->insert($table, $data);
-    }*/
+        $query = $this->db->insert($table, $data);
+        return $this->db->insert_id();
+    }
 
-    public function delete_data($where, $table)
+    public function delete_data($id)
     {
-        $this->db->where($where);
-        $this->db->delete($table);
+        $this->db->from($this->sales_table);
+        $this->db->join($this->upload_table, "sales_upload.id_sales = sales.id", "left");
+        $this->db->where("sales_upload.id_upload", $id);
+        return $this->db->delete($this->sales_table);
     }
 
     public function edit_data($where, $table)
