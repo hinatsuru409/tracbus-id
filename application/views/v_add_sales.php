@@ -27,7 +27,7 @@
 </head>
 
 <body class="hold-transition layout-top-nav">
-  <div class="wrapper">
+<div class="wrapper">
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
       <!-- Left navbar links -->

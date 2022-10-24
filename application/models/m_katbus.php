@@ -54,6 +54,11 @@ class m_katbus extends CI_Model{
         }
     }
 
+    public function add_data($data, $table)
+    {
+        $this->db->insert($table,$data);
+    }
+
     public function delete_all_data()
     {
         return $this->db->empty_table($this->table);

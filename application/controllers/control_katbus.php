@@ -107,6 +107,31 @@ class control_katbus extends CI_Controller{
         $this->load->view('kategori-bus/v_add_katbus');
     }
 
+    public function getAddKatbus()
+    {
+        $type_bus = $this->input->post('type');
+        $kategori_bus = $this->input->post('ktgr');
+        $seat_bus = $this->input->post('seat');
+        $nopol_bus = $this->input->post('npl');
+
+        $data = array(
+            'type' => $type_bus, 
+            'kategori' => $kategori_bus, 
+            'seat' => $seat_bus, 
+            'nopol' =>  $nopol_bus
+        );
+
+        $this->m_katbus->add_data($data, 'sales_unit');
+        redirect('control_katbus/view_katbus');
+    }
+
+    public function remove_data($id)
+    {
+        $where = array('id_unit' => $id);
+        $this->m_katbus->delete_data($where, 'sales_unit');
+        redirect('control_katbus/view_katbus');
+    }
+
     public function remove_allData()
     {
         $this->m_katbus->delete_all_data();

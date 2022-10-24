@@ -64,7 +64,7 @@
           <section class="content">
             <div class="container-fluid">
 
-              <form action="<?php echo base_url(''); ?>" method="POST">
+              <form action="<?php echo base_url('index.php/control_katbus/getAddKatbus'); ?>" method="POST">
                 <div class="card card-default">
                   <div class="card-header align-self-center">
                     <h6 class="card-title"><i class="fas fa-share-square"></i> FORM ADD BUS</h6>
@@ -245,7 +245,7 @@
 
       $(wrapper).on("click", ".remove-item-btn", function(e) {
         e.preventDefault();
-        $(this).parent(".form-group").remove();
+        $(this).parent("div").remove();
         itemValue--;
       });
 
