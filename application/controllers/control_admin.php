@@ -1,7 +1,5 @@
 <?php
 
-
-
 class control_admin extends CI_Controller
 {
     function __construct()
@@ -46,9 +44,9 @@ class control_admin extends CI_Controller
             $sub_array[] = $no;
             $sub_array[] = $row->no_reservasi;
             $sub_array[] = $row->booking_order;
-            $sub_array[] = $row->pic_sales;
             $sub_array[] = $row->profit_center;
-            $sub_array[] = '<a class="btn btn-success pull-right btn-xs" id="salesModal" data-toggle="modal" data-target="#modal-lg"
+            $sub_array[] = $row->pic_sales;
+            $sub_array[] = '<a class="btn btn-primary pull-right btn-xs" id="salesModal" data-toggle="modal" data-target="#modal-lg"
                                       data-booking="' . $row->booking_order . '" data-idreservasi="' . $row->no_reservasi . '" data-picsales="' . $row->pic_sales . '" data-profit="' . $row->profit_center . '"
                                       data-namacmd="' . $row->nama_cmd . '" data-nama-instansi="' . $row->nama_instansi . '" data-order-type="' . $row->order_type . '" data-jenisbayar="' . $row->jenis_bayar . '"
                                       data-invoice="' . $row->invoice . '" data-spek="' . $row->spesifikasi . '" data-type-customer="' . $row->type_customer . '"
@@ -72,8 +70,8 @@ class control_admin extends CI_Controller
                                       data-upload8="' . $row->upload_8 . '" data-upload9="' . $row->upload_9 . '"
                                       data-upload10="' . $row->upload_10 . '"
                                       ><i class="fa fa-eye"></i> View Data</a>
-                            <a href="' . base_url() . 'index.php/control_admin/delete_sales/' . $row->id . '" class="btn btn-danger pull-right btn-xs" role="button">Hapus</a>
-                            <a href="' . base_url() . 'index.php/control_admin/edit_sales/' . $row->id . '" class="btn btn-secondary pull-right btn-xs" style="padding-left: 10px; padding-right: 10px;" role="button">Edit</a>';
+                            <a href="'.base_url().'index.php/control_admin/edit_sales/'.$row->id.'" class="btn btn-warning pull-right btn-xs" style="padding-left: 10px; padding-right: 10px;" role="button"><i class="fas fa-edit"></i> <b>Edit</b></a>
+                            <a href="#" class="btn btn-danger pull-right btn-xs delete-record" data-toggle="modal" data-target="#DeleteModal" data-id="'.$row->id.'"><i class="fa fa-trash"></i> Hapus</a>'; 
             $data[] = $sub_array;
         }
         $output = array(
@@ -90,40 +88,55 @@ class control_admin extends CI_Controller
         if (isset($_GET['term'])) {
             $result = $this->m_admin->getUnit_all_data($_GET['term']);
             if (count($result) > 0) {
-                foreach ($result as $row) {
-                    $data[] = $row->nopol;
-                }
+                foreach ($result as $row)
+                $data[] = array(
+                    'nopol' => $row->nopol,
+                    'type' => $row->type,
+                    'kategori' => $row->kategori,
+                    'seat' => $row->seat,
+                    'value' => $row->nopol,
+                    'label' => $row->nopol
+                );
+                
                 echo json_encode($data);
             }
         }
         
     }
 
-    public function jsonUnitOnChange()
+    /*public function jsonUnitOnChange()
     {
         $postData = $this->input->post('postData');
         $data = $this->m_admin->getUnit($postData);
         echo json_encode($data);
-    }
+    }*/
 
     public function add_sales()
     {
-        $data['maksud_sewa'] = $this->m_admin->getSewa_data()->result();
-        $data['spesifikasi'] = $this->m_admin->getSpec_data()->result();
-        $data['source_data'] = $this->m_admin->getSc_data()->result();
-        $data['rute_tujuan'] = $this->m_admin->getTujuan_data()->result();
-        $data['provinsi'] = $this->m_admin->getProvinsi_data()->result();
+        $data = $this->m_admin->getSelect_data();
         $this->load->view('v_add_sales', $data);
-    }
-
-    public function add_sales_inDetail()
-    {
-        
     }
 
     public function getAddSales()
     {
+        $rules = $this->m_admin->validationForm();
+        $this->form_validation->set_rules($rules);
+
+        if ($this->form_validation->run() == FALSE) {
+            return $this->add_sales();
+        }
+
         $postData = $this->input->post();
+
+        $data1 = array(
+            'upload_1' => $postData['upl-1'],                   'upload_2' => $postData['upl-2'],
+            'upload_3' => $postData['upl-3'],                   'upload_4' => $postData['upl-4'],
+            'upload_5' => $postData['upl-5'],                   'upload_6' => $postData['upl-6'],
+            'upload_7' => $postData['upl-7'],                   'upload_8' => $postData['upl-8'],
+            'upload_9' => $postData['upl-9'],                   'upload_10' => $postData['upl-10']
+        );
+
+        $id_upload = $this->m_admin->insert_data('sales_upload', $data1);
 
         $data = array(
             'no_reservasi' => $postData['rsv'],                 'booking_order' => $postData['bko'],
@@ -146,27 +159,27 @@ class control_admin extends CI_Controller
             'price_list' => $postData['prcl'],                  'diskon' => $postData['dsk'],
             'total_payment' => $postData['total_py'],           'pph_23' => $postData['pph'],
             'sel_payment' => $postData['slpy'],                 'ket_payment' => $postData['note'],
-        );
-        $id_sales = $this->m_admin->insert_dataMultiple('sales', $data);
-
-        $data1 = array(
-            'id_sales' => $id_sales,
-            'upload_1' => $postData['upl-1'],                   'upload_2' => $postData['upl-2'],
-            'upload_3' => $postData['upl-3'],                   'upload_4' => $postData['upl-4'],
-            'upload_5' => $postData['upl-5'],                   'upload_6' => $postData['upl-6'],
-            'upload_7' => $postData['upl-7'],                   'upload_8' => $postData['upl-8'],
-            'upload_9' => $postData['upl-9'],                   'upload_10' => $postData['upl-10']
+            'id_upload' => $id_upload
         );
 
-        $this->m_admin->insert_dataMultiple('sales_upload', $data1);
+        $this->m_admin->insert_data('sales', $data);
         redirect('control_admin/view_sales');
     }
 
-    public function delete_sales($id)
+    public function check_default($data)
     {
+        if ($data == "") {
+            $this->form_validation->set_message('check_default', 'You need to select something other than the default');
+            return FALSE;
+        } else {
+            return TRUE;
+        }
+    }
+
+    public function delete_sales()
+    {
+        $id = $this->input->post('delete_id', TRUE);
         $this->m_admin->delete_data($id);
-        //$where = array('id' => $id);
-        //$this->m_admin->delete_data($where, 'sales');
         redirect('control_admin/view_sales');
     }
 
@@ -195,6 +208,11 @@ class control_admin extends CI_Controller
         $this->m_admin->update_data($where, $data, 'sales');
         redirect('control_admin/view_sales');
     }
-
     
+    public function add_bookingnew()
+    {
+        $this->load->view("v_add_bookingnew");
+    }
+
 }
+

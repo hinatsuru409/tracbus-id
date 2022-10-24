@@ -5,6 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tambah Data | Sales</title>
+  <link href="../../assets/AdminLTE/dist/img/traclogo.png" rel="icon" type="images">
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -21,10 +22,6 @@
   <link rel="stylesheet" href="<?php echo base_url('assets/AdminLTE/') ?>plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
   <!-- Jquery UI -->
   <link rel="stylesheet" href="<?php echo base_url('assets/AdminLTE/') ?>plugins/jquery-ui/jquery-ui.min.css">
-  <!-- BS Stepper -->
-  <link rel="stylesheet" href="<?php echo base_url('assets/AdminLTE/') ?>plugins/bs-stepper/css/bs-stepper.min.css">
-  <!-- dropzonejs -->
-  <link rel="stylesheet" href="<?php echo base_url('assets/AdminLTE/') ?>plugins/dropzone/min/dropzone.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url('assets/AdminLTE/') ?>dist/css/adminlte.min.css">
 </head>
@@ -38,7 +35,8 @@
         <ul class="navbar-nav">
           <li class="nav-item d-none d-sm-inline-block">
             <a href="<?php echo base_url() . "index.php/control_admin/view_sales"; ?>" class="nav-link">
-              < Kembali</a>
+              <b>
+                < Kembali</b></a>
           </li>
         </ul>
       </div>
@@ -51,428 +49,407 @@
         <section class="content-header">
           <div class="container-fluid">
             <div class="row mb-2">
-              <div class="col-sm-6">
+              <div class="col-sm-6 mt-2 mb-2">
                 <h1>Tambah Data Sales</h1>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                  <li class="breadcrumb-item"><a href="#">Home</a></li>
-                  <li class="breadcrumb-item">Sales</li>
-                  <li class="breadcrumb-item active">Tambah Data</li>
+                  <li class="breadcrumb-item active">Sales</li>
+                  <li class="breadcrumb-item">Tambah Data</li>
                 </ol>
               </div>
             </div>
-          </div><!-- /.container-fluid -->
-        </section>
+          </div>
+          <!-- Main content -->
+          <section class="content">
+            <div class="container-fluid">
 
-        <!-- Main content -->
-        <section class="content">
-          <div class="container-fluid">
+              <form role="form" action="<?php echo base_url() . 'index.php/control_admin/getAddSales'; ?>" method="POST">
+                <div class="card card-default">
+                  <div class="card-header align-self-center">
+                    <h6 class="card-title"><i class="fas fa-share-square"></i> FORM BILLING RENT BUS</h6>
+                  </div>
+                  <!-- /.card-header -->
+                  <div class="card-body">
+                    <div class="row">
 
-            <form role="form" action="<?php echo base_url() . 'index.php/control_admin/getAddSales'; ?>" method="POST">
-              <div class="card card-default">
-                <div class="card-header">
-                  <h3 class="card-title">Lorem ipsum dolor sit amet</h3>
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                  <div class="row">
-
-                    <!-- /.col -->
-                    <div class="col-md-12">
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label>Nomor Reservasi</label>
-                            <input type="text" class="form-control" name="rsv" placeholder="Masukkan Nomor Reservasi">
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label>Booking Order</label>
-                            <input type="text" class="form-control" name="bko" placeholder="Masukkan kode Booking Order">
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label>Profit Center</label>
-                            <select class="form-control" name="profit">
-                              <option>-- Pilih Profit Utama --</option>
-                              <option>UB01</option>
-                              <option>UB02</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label>Person In Charge (PIC) Sales</label>
-                            <input type="text" class="form-control" name="pic" placeholder="Masukkan PIC Sales">
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label>Nama Customer Master Data (CMD)</label>
-                            <input type="text" class="form-control" name="nama_cmd" placeholder="Masukkan nama Customer Master Data">
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label>Nama Instansi/Perusahaan</label>
-                            <input type="text" class="form-control" name="ins" placeholder="Masukkan nama Instansi Perusahaan, Sekolah, Tour & Travel, dll">
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="col border-bottom mb-3 mt-2"></div>
-
-                      <div class="row">
-                        <div class="col-md-3">
-                          <div class="form-group">
-                            <label>Order Type</label>
-                            <input type="text" class="form-control" name="ord" placeholder="Masukkan tipe order">
-                          </div>
-                        </div>
-                        <div class="col-sm-2">
-                          <div class="form-group">
+                      <!-- /.col -->
+                      <div class="col-md-12">
+                        <div class="row">
+                          <div class="col-md-6">
                             <div class="form-group">
-                              <label>Jenis Pembayaran</label>
-                              <select class="form-control" name="jpm">
-                                <option>PO</option>
-                                <option>GL</option>
-                                <option>IN Advanced</option>
+                              <label>Nomor Reservasi</label>
+                              <input type="text" class="form-control <?= form_error('rsv') ? 'is-invalid' : '' ?>" name="rsv" placeholder="Masukkan Nomor Reservasi">
+                              <div class="invalid-feedback"><?= form_error('rsv')  ?></div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>Booking Order</label>
+                              <input type="text" class="form-control  <?= form_error('bko') ? 'is-invalid' : '' ?>" name="bko" placeholder="Masukkan kode Booking Order">
+                              <div class="invalid-feedback"><?= form_error('bko')  ?></div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>Profit Center</label>
+                              <select class="form-control <?= form_error('profit') ? 'is-invalid' : '' ?>" name="profit">
+                                <option value="">-- Pilih Profit Utama --</option>
+                                <option value="UB01">UB01</option>
+                                <option value="UB02">UB02</option>
+                              </select>
+                              <div class="invalid-feedback"><?= form_error('profit')  ?></div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>Person In Charge (PIC) Sales</label>
+                              <input type="text" class="form-control <?= form_error('pic') ? 'is-invalid' : '' ?>" name="pic" placeholder="Masukkan PIC Sales">
+                              <div class="invalid-feedback"><?= form_error('pic')  ?></div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>Nama Customer Master Data (CMD)</label>
+                              <input type="text" class="form-control <?= form_error('nama_cmd') ? 'is-invalid' : '' ?>" name="nama_cmd" placeholder="Masukkan nama Customer Master Data">
+                              <div class="invalid-feedback"><?= form_error('nama_cmd')  ?></div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>Nama Instansi/Perusahaan</label>
+                              <input type="text" class="form-control <?= form_error('ins') ? 'is-invalid' : '' ?>" name="ins" placeholder="Masukkan nama Instansi Perusahaan, Sekolah, Tour & Travel, dll">
+                              <div class="invalid-feedback"><?= form_error('ins')  ?></div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col border-bottom mb-3 mt-2"></div>
+
+                        <div class="row">
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label>Tipe Order</label>
+                              <select class="form-control <?= form_error('ord') ? 'is-invalid' : '' ?>" name="ord">
+                                <option value="">-- Pilih Tipe Order --</option>
+                                <option value="B2C">B2C</option>
+                                <option value="B2B">B2B</option>
+                              </select>
+                              <div class="invalid-feedback"><?= form_error('ord')  ?></div>
+                            </div>
+                          </div>
+                          <div class="col-sm-2">
+                            <div class="form-group">
+                              <div class="form-group">
+                                <label>Jenis Pembayaran</label>
+                                <select class="form-control <?= form_error('jpm') ? 'is-invalid' : '' ?>" name="jpm">
+                                  <option value="">-- Pilih Jenis Pembayaran --</option>
+                                  <option value="PO">PO</option>
+                                  <option value="IN Advanced">IN Advanced</option>
+                                </select>
+                                <div class="invalid-feedback"><?= form_error('jpm')  ?></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-sm-2">
+                            <div class="form-group">
+                              <label>Invoice</label>
+                              <select class="form-control <?= form_error('invo') ? 'is-invalid' : '' ?>" name="invo">
+                                <option value="">-- Pilih Keterangan Faktur --</option>
+                                <option value="YA">YA</option>
+                                <option value="TIDAK">TIDAK</option>
+                              </select>
+                              <div class="invalid-feedback"><?= form_error('invo')  ?></div>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="form-group">
+                              <label>Spesifikasi</label>
+                              <select class="spek-select form-control <?= form_error('sp') ? 'is-invalid' : '' ?>" name="sp">
+                                <option></option>
+                                <?php foreach ($spesifikasi as $sp) : ?>
+                                  <option value="<?php echo $sp->id_spek; ?>"><?php echo $sp->jenis_spek; ?></option>
+                                <?php endforeach; ?>
+                              </select>
+                              <div class="invalid-feedback"><?= form_error('sp')  ?></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="form-group">
+                              <label>Tipe Customer</label>
+                              <select class="form-control <?= form_error('tycus') ? 'is-invalid' : '' ?>" name="tycus">
+                                <option value="">-- Pilih Tipe Customer/Pelanggan</option>
+                                <option value="New">New</option>
+                                <option value="Existing">Existing</option>
+                              </select>
+                              <div class="invalid-feedback"><?= form_error('tycus')  ?></div>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="form-group">
+                              <label>Source Data</label>
+                              <select class="source-select form-control <?= form_error('sd') ? 'is-invalid' : '' ?>" name="sd">
+                                <option></option>
+                                <?php foreach ($source_data as $sd) : ?>
+                                  <option value="<?php echo $sd->id_source; ?>"><?php echo $sd->jenis_source; ?></option>
+                                <?php endforeach; ?>
+                              </select>
+                              <div class="invalid-feedback"><?= form_error('sd')  ?></div>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="form-group">
+                              <label>Group</label>
+                              <select class="form-control <?= form_error('grp') ? 'is-invalid' : '' ?>" name="grp">
+                                <option value="">-- Pilih Group --</option>
+                                <option value="NON-AFFCO">NON-AFFCO</option>
+                                <option value="AFFCO">AFFCO</option>
+                              </select>
+                              <div class="invalid-feedback"><?= form_error('grp')  ?></div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col border-bottom mb-3 mt-2"></div>
+
+                        <div class="row">
+                          <div class="col">
+                            <div class="form-group">
+                              <label>Customer Master Data</label>
+                              <input type="text" class="form-control <?= form_error('cmd') ? 'is-invalid' : '' ?>" name="cmd" placeholder="Masukkan tipe CMD">
+                              <div class="invalid-feedback"><?= form_error('cmd')  ?></div>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="form-group">
+                              <label>PIC Customer</label>
+                              <input type="text" class="form-control <?= form_error('pcus') ? 'is-invalid' : '' ?>" name="pcus" placeholder="Masukkan nama customer">
+                              <div class="invalid-feedback"><?= form_error('pcus')  ?></div>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="form-group">
+                              <label>PIC Contact</label>
+                              <input type="text" class="form-control <?= form_error('picc') ? 'is-invalid' : '' ?>" name="picc" placeholder="Masukkan kontak Person In Charge">
+                              <div class="invalid-feedback"><?= form_error('picc')  ?></div>
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="col border-bottom mb-3 mt-2"></div>
+
+                        <div class="row">
+                          <div class="col-md-3">
+                            <div class="form-group">
+                              <label>No. Polisi</label>
+                              <input type="text" class="form-control <?= form_error('npl') ? 'is-invalid' : '' ?>" name="npl" id="drop-npl">
+                              <div class="invalid-feedback"><?= form_error('npl')  ?></div>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="form-group">
+                              <label>Type Unit</label>
+                              <input type="text" class="form-control <?= form_error('tyunit') ? 'is-invalid' : '' ?>" name="tyunit">
+                              <div class="invalid-feedback"><?= form_error('tyunit')  ?></div>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="form-group">
+                              <label>Kategori Unit</label>
+                              <input type="text" class="form-control <?= form_error('kg') ? 'is-invalid' : '' ?>" name="kg">
+                              <div class="invalid-feedback"><?= form_error('kg')  ?></div>
+                            </div>
+                          </div>
+                          <div class="col-md-2">
+                            <div class="form-group">
+                              <label>Jumlah Bangku</label>
+                              <input type="text" class="form-control <?= form_error('seat') ? 'is-invalid' : '' ?>" name="seat">
+                              <div class="invalid-feedback"><?= form_error('seat')  ?></div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- /.col -->
+                        <div class="row">
+                          <div class="col">
+                            <div class="form-group">
+                              <label>Driver</label>
+                              <input type="text" class="form-control <?= form_error('drv') ? 'is-invalid' : '' ?>" name="drv" placeholder="Masukkan nama Driver">
+                              <div class="invalid-feedback"><?= form_error('drv')  ?></div>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="form-group">
+                              <label>Maksud Sewa</label>
+                              <select class="sewa-select <?= form_error('sw') ? 'is-invalid' : '' ?>" style="width: 100%;" name="sw">
+                                <option></option>
+                                <?php foreach ($maksud_sewa as $sw) : ?>
+                                  <option value="<?php echo $sw->id_sewa; ?>"><?php echo $sw->jenis_sewa; ?></option>
+                                <?php endforeach; ?>
+                              </select>
+                              <div class="invalid-feedback"><?= form_error('sw')  ?></div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>Rute Tujuan</label>
+                              <input type="text" class="form-control <?= form_error('rt') ? 'is-invalid' : '' ?>" name="rt" placeholder="Masukkan tempat tujuan yang dipilih">
+                              <div class="invalid-feedback"><?= form_error('rt')  ?></div>
+                            </div>
+                            <div class="form-group">
+                              <label>Provinsi</label>
+                              <input type="text" class="form-control <?= form_error('pr') ? 'is-invalid' : '' ?>" name="pr" placeholder="Masukkan nama Daerah/Provinsi">
+                              <div class="invalid-feedback"><?= form_error('pr')  ?></div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>Alamat Tujuan</label>
+                              <textarea class="form-control" name="ket_addc" rows="4" placeholder="Enter ..."></textarea>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="form-group">
+                              <label>Tanggal mulai Pemesanan</label>
+                              <div class="input-group date">
+                                <input type="text" class="form-control <?= form_error('tgl_mulai_p') ? 'is-invalid' : '' ?>" id="reservationdate" autocomplete="off" name="tgl_mulai_p" placeholder="Masukkan Tanggal mulai pemesanan" />
+                                <div class="input-group-append">
+                                  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>
+                                <div class="invalid-feedback"><?= form_error('tgl_mulai_p')  ?></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="form-group">
+                              <label>Tanggal akhir Pemesanan</label>
+                              <div class="input-group date">
+                                <input type="text" class="form-control <?= form_error('tgl_akhir_p') ? 'is-invalid' : '' ?>" id="reservationdate2" autocomplete="off" name="tgl_akhir_p" placeholder="Masukkan Tanggal akhir pemesanan" />
+                                <div class="input-group-append">
+                                  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                </div>
+                                <div class="invalid-feedback"><?= form_error('tgl_akhir_p')  ?></div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="form-group">
+                              <label>Waktu Sewa</label>
+                              <div class="input-group">
+                                <div class="input-group-append">
+                                  <div class="input-group-text"><i class="fa fa-clock"></i></div>
+                                </div>
+                                <input type="number" class="form-control <?= form_error('wkts') ? 'is-invalid' : '' ?>" autocomplete="off" id="countFromDate" min="0" name="wkts" placeholder="Masukkan durasi waktu sewa">
+                                <div class="invalid-feedback"><?= form_error('wkts')  ?></div>
+                                <span>
+                                  <h6 class="col mt-2">Hari</h6>
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="form-group">
+                              <label>Toll Parkir</label>
+                              <select class="form-control" name="toll">
+                                <option>Exclude</option>
+                                <option>Include</option>
                               </select>
                             </div>
                           </div>
                         </div>
-                        <div class="col-sm-2">
-                          <div class="form-group">
-                            <label>Invoice</label>
-                            <select class="form-control" name="invo">
-                              <option>YA</option>
-                              <option>TIDAK</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="col">
-                          <div class="form-group">
-                            <label>Spesifikasi</label>
-                            <select class="form-control" name="sp">
-                              <option> -- Pilih Spesifikasi -- </option>
-                              <?php foreach ($spesifikasi as $sp) : ?>
-                                <option value="<?php echo $sp->id_spek; ?>">
-                                  <?php echo $sp->jenis_spek; ?>
-                                </option>
-                              <?php endforeach; ?>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col">
-                          <div class="form-group">
-                            <label>Type Customer</label>
-                            <select class="form-control" name="tycus">
-                              <option>New</option>
-                              <option>Existing</option>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="col">
-                          <div class="form-group">
-                            <label>Source Data</label>
-                            <select class="form-control" name="sd">
-                              <option>-- Pilih Source Data --</option>
-                              <?php foreach ($source_data as $sd) : ?>
-                                <option value="<?php echo $sd->id_source; ?>">
-                                  <?php echo $sd->jenis_source; ?>
-                                </option>
-                              <?php endforeach; ?>
-                            </select>
-                          </div>
-                        </div>
-                        <div class="col">
-                          <div class="form-group">
-                            <label>Group</label>
-                            <select class="form-control" name="grp">
-                              <option>NON-AFFCO</option>
-                              <option>AFFCO</option>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
 
-                      <div class="col border-bottom mb-3 mt-2"></div>
+                        <div class="col border-bottom mb-4 mt-3"></div>
 
-                      <div class="row">
-                        <div class="col">
-                          <div class="form-group">
-                            <label>Customer Master Data</label>
-                            <input type="text" class="form-control" name="cmd" placeholder="Masukkan tipe CMD">
-                          </div>
-                        </div>
-                        <div class="col">
-                          <div class="form-group">
-                            <label>PIC Customer</label>
-                            <input type="text" class="form-control" name="pcus" placeholder="Masukkan nama customer">
-                          </div>
-                        </div>
-                        <div class="col">
-                          <div class="form-group">
-                            <label>PIC Contact</label>
-                            <input type="text" class="form-control" name="picc" placeholder="Masukkan kontak Person In Charge">
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="col border-bottom mb-3 mt-2"></div>
-
-                      <div class="row">
-                        <div class="col-md-3">
-                          <div class="form-group">
-                            <label>No. Polisi</label>
-                            <input type="text" class="form-control" name="npl" id="drop-npl">
-                          </div>
-                        </div>
-                        <div class="col">
-                          <div class="form-group">
-                            <label>Type Unit</label>
-                            <input type="text" class="form-control" name="tyunit">
-                          </div>
-                        </div>
-                        <div class="col">
-                          <div class="form-group">
-                            <label>Kategori Unit</label>
-                            <input type="text" class="form-control" name="kg">
-                          </div>
-                        </div>
-                        <div class="col-md-2">
-                          <div class="form-group">
-                            <label>Jumlah Bangku</label>
-                            <input type="text" class="form-control" name="seat">
-                          </div>
-                        </div>
-
-                      </div>
-                      <!-- /.col -->
-                      <div class="row">
-                        <div class="col">
-                          <div class="form-group">
-                            <label>Driver</label>
-                            <div class="input-group-append">
-                              <div class="input-group-text"><i class="fa fa-user"></i></div>
-                              <input type="text" class="form-control" name="drv" placeholder="Masukkan nama Driver">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>Revenue Unit (1)</label>
+                              <div class="input-group">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">
+                                    <h7>Rp. </h7>
+                                  </span>
+                                </div>
+                                <input type="number" class="form-control" name="rvnu" id="revenueunit" onkeyup="updateSummary()">
+                              </div>
                             </div>
                           </div>
-                        </div>
-                        <div class="col">
-                          <div class="form-group">
-                            <label>Maksud Sewa</label>
-                            <select class="sewa-select" style="width: 100%;" name="sw">
-                              <option></option>
-                              <?php foreach ($maksud_sewa as $sw) : ?>
-                                <option value="<?php echo $sw->id_sewa; ?>">
-                                  <?php echo $sw->jenis_sewa; ?>
-                                </option>
-                              <?php endforeach; ?>
-                            </select>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label>Rute Tujuan</label>
-                            <div class="input-group-append">
-                              <div class="input-group-text"><i class="fa fa-map-marker"></i></div>
-                              <input type="text" class="form-control" name="rt" placeholder="Masukkan tempat tujuan yang dipilih">
-                            </div>
-                          </div>
-                          <div class="form-group">
-                            <label>Provinsi</label>
-                            <div class="input-group-append">
-                              <div class="input-group-text"><i class="fa fa-map"></i></div>
-                              <input type="text" class="form-control" name="pr" placeholder="Masukkan nama Daerah/Provinsi">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label>Alamat Tujuan</label>
-                            <textarea class="form-control" name="ket_addc" rows="4" placeholder="Enter ..."></textarea>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col">
-                          <div class="form-group">
-                            <label>Tanggal mulai Pemesanan</label>
-                            <div class="input-group date">
-                              <input type="text" class="form-control" id="reservationdate" autocomplete="off" name="tgl_mulai_p" placeholder="Masukkan Tanggal mulai pemesanan" />
-                              <div class="input-group-append">
-                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>Additional Charge (2)</label>
+                              <div class="input-group">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">
+                                    <h7>Rp. </h7>
+                                  </span>
+                                </div>
+                                <input type="number" class="form-control" name="addc" id="addcharge" onkeyup="updateSummary()">
                               </div>
                             </div>
                           </div>
                         </div>
-                        <div class="col">
-                          <div class="form-group">
-                            <label>Tanggal akhir Pemesanan</label>
-                            <div class="input-group date">
-                              <input type="text" class="form-control" id="reservationdate2" autocomplete="off" name="tgl_akhir_p" placeholder="Masukkan Tanggal akhir pemesanan" />
-                              <div class="input-group-append">
-                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                              </div>
-                            </div>
-                          </div>
+                        <div class="form-group">
+                          <label>Ket. Additional Charge</label>
+                          <textarea class="form-control" name="ket_addc" rows="2" placeholder="Enter ..."></textarea>
                         </div>
-                        <div class="col">
-                          <div class="form-group">
-                            <label>Waktu Sewa</label>
-                            <div class="input-group">
-                              <div class="input-group-append">
-                                <div class="input-group-text"><i class="fa fa-clock"></i></div>
-                              </div>
-                              <input type="number" class="form-control" autocomplete="off" id="countFromDate" min="0" name="wkts" placeholder="Masukkan durasi waktu sewa">
-                              <span>
-                                <h6 class="col mt-2">Hari</h6>
+                        <div class="form-group">
+                          <label>Total Revenue (1+2)</label>
+                          <div class="input-group">
+                            <div class="input-group-prepend">
+                              <span class="input-group-text">
+                                <h7>Rp. </h7>
                               </span>
                             </div>
+                            <input type="number" class="form-control" name="total_rvnu" id="totalrevenue">
                           </div>
                         </div>
-                        <div class="col">
-                          <div class="form-group">
-                            <label>Toll Parkir</label>
-                            <select class="form-control" name="toll">
-                              <option>Exclude</option>
-                              <option>Include</option>
-                            </select>
+                        <div class="row">
+                          <div class="col-md-8">
+                            <div class="form-group">
+                              <label>Price List</label>
+                              <div class="input-group">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">
+                                    <h7>Rp. </h7>
+                                  </span>
+                                </div>
+                                <input type="number" class="form-control" name="prcl" id="pricelist">
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-md-4">
+                            <div class="form-group">
+                              <label>Diskon</label>
+                              <div class="input-group">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">
+                                    <i class="fa fa-percent"></i>
+                                  </span>
+                                </div>
+                                <input type="text" class="form-control" name="dsk" placeholder="Masukkan besaran diskon" id="diskon">
+                              </div>
+                            </div>
                           </div>
                         </div>
-                      </div>
+                        <div class="col border-bottom mb-3 mt-4"></div>
 
-                      <div class="col border-bottom mb-4 mt-3"></div>
-
-                      <div class="row">
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label>Revenue per Unit (1)</label>
-                            <div class="input-group">
-                              <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                  <h7>Rp. </h7>
-                                </span>
-                              </div>
-                              <input type="number" class="form-control" name="rvnu" id="revenueunit" onkeyup="updateSummary()">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-6">
-                          <div class="form-group">
-                            <label>Additional Charge (2)</label>
-                            <div class="input-group">
-                              <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                  <h7>Rp. </h7>
-                                </span>
-                              </div>
-                              <input type="number" class="form-control" name="addc" id="addcharge" onkeyup="updateSummary()">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label>Keterangan Additional Charge</label>
-                        <textarea class="form-control" name="ket_addc" rows="2" placeholder="Enter ..."></textarea>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-8">
-                          <div class="form-group">
-                            <label>Price List</label>
-                            <div class="input-group">
-                              <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                  <h7>Rp. </h7>
-                                </span>
-                              </div>
-                              <input type="number" class="form-control" name="prcl" id="pricelist">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-md-4">
-                          <div class="form-group">
-                            <label>Diskon</label>
-                            <div class="input-group">
-                              <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                  <i class="fa fa-percent"></i>
-                                </span>
-                              </div>
-                              <input type="text" class="form-control" name="dsk" placeholder="Masukkan besaran diskon" id="diskon">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <label>Total Revenue (1+2)</label>
-                        <div class="input-group">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text">
-                              <h7>Rp. </h7>
-                            </span>
-                          </div>
-                          <input type="number" class="form-control" name="total_rvnu" id="totalrevenue">
-                        </div>
-                      </div>
-
-                      <div class="col border-bottom mb-3 mt-4"></div>
-
-                      <!-- Payment Form -->
-                      <!-- Payment 1-->
-                      <div class="row">
-                        <div class="col">
-                          <div class="form-group">
-                            <label>Payment 1</label>
-                            <input type="text" class="form-control" name="py1" placeholder="Masukkan jenis akun bank">
-                          </div>
-                        </div>
-                        <div class="col">
-                          <div class="form-group">
-                            <label>Tanggal Payment 1</label>
-                            <div class="input-group date" id="paymentdate1" data-target-input="nearest">
-                              <input type="text" class="form-control datetimepicker-input" name="tgl_py1" data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
-                              <div class="input-group-append" data-target="#paymentdate1" data-toggle="datetimepicker">
-                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col">
-                          <div class="form-group">
-                            <label>Nominal Payment 1</label>
-                            <input type="number" class="form-control" placeholder="Masukkan nominal uang" name="nom_py1">
-                          </div>
-                        </div>
-                        <div class="col-sm-2 align-self-end">
-                          <div class="form-group">
-                            <button class="btn btn-success form-control payment-form-add-more" type="button">
-                              <i class="fa fa-plus"></i> Add More
-                            </button>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Payment 1 End -->
-                      <!-- Payment 2 -->
-                      <div class="payment-form-block-1" style="display : none !important">
+                        <!-- Payment Form -->
+                        <!-- Payment 1-->
                         <div class="row">
                           <div class="col">
                             <div class="form-group">
-                              <label>Payment 2</label>
+                              <label>Payment 1</label>
                               <input type="text" class="form-control" name="py1" placeholder="Masukkan jenis akun bank">
                             </div>
                           </div>
                           <div class="col">
                             <div class="form-group">
-                              <label>Tanggal Payment 2</label>
+                              <label>Tanggal Payment 1</label>
                               <div class="input-group date" id="paymentdate1" data-target-input="nearest">
                                 <input type="text" class="form-control datetimepicker-input" name="tgl_py1" data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
                                 <div class="input-group-append" data-target="#paymentdate1" data-toggle="datetimepicker">
@@ -483,426 +460,461 @@
                           </div>
                           <div class="col">
                             <div class="form-group">
-                              <label>Nominal Payment 2</label>
+                              <label>Nominal Payment 1</label>
                               <input type="number" class="form-control" placeholder="Masukkan nominal uang" name="nom_py1">
                             </div>
                           </div>
                           <div class="col-sm-2 align-self-end">
                             <div class="form-group">
-                              <button class="btn btn-danger payment-form-remove-1" type="button">
-                                <i class="fa fa-times"></i> Remove
+                              <button class="btn btn-primary form-control payment-form-add-more" type="button">
+                                <i class="fa fa-plus"></i> Add More
                               </button>
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <!-- Payment 2 End -->
-                      <!-- Payment 3 -->
-                      <div class="payment-form-block-2" style="display : none !important">
-                        <div class="row">
-                          <div class="col">
-                            <div class="form-group">
-                              <label>Payment 3</label>
-                              <input type="text" class="form-control" name="py1" placeholder="Masukkan jenis akun bank">
+                        <!-- Payment 1 End -->
+                        <!-- Payment 2 -->
+                        <div class="payment-form-block-1" style="display : none !important">
+                          <div class="row">
+                            <div class="col">
+                              <div class="form-group">
+                                <label>Payment 2</label>
+                                <input type="text" class="form-control" name="py1" placeholder="Masukkan jenis akun bank">
+                              </div>
                             </div>
-                          </div>
-                          <div class="col">
-                            <div class="form-group">
-                              <label>Tanggal Payment 3</label>
-                              <div class="input-group date" id="paymentdate1" data-target-input="nearest">
-                                <input type="text" class="form-control datetimepicker-input" name="tgl_py1" data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
-                                <div class="input-group-append" data-target="#paymentdate1" data-toggle="datetimepicker">
-                                  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            <div class="col">
+                              <div class="form-group">
+                                <label>Tanggal Payment 2</label>
+                                <div class="input-group date" id="paymentdate1" data-target-input="nearest">
+                                  <input type="text" class="form-control datetimepicker-input" name="tgl_py1" data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
+                                  <div class="input-group-append" data-target="#paymentdate1" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
-                          <div class="col">
-                            <div class="form-group">
-                              <label>Nominal Payment 3</label>
-                              <input type="number" class="form-control" placeholder="Masukkan nominal uang" name="nom_py1">
+                            <div class="col">
+                              <div class="form-group">
+                                <label>Nominal Payment 2</label>
+                                <input type="number" class="form-control" placeholder="Masukkan nominal uang" name="nom_py1">
+                              </div>
                             </div>
-                          </div>
-                          <div class="col-sm-2 align-self-end">
-                            <div class="form-group">
-                              <button class="btn btn-danger payment-form-remove-2" type="button">
-                                <i class="fa fa-times"></i> Remove
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Payment 3 End -->
-                      <!-- Payment 4 -->
-                      <div class="payment-form-block-3" style="display : none !important">
-                        <div class="row">
-                          <div class="col">
-                            <div class="form-group">
-                              <label>Payment 4</label>
-                              <input type="text" class="form-control" name="py1" placeholder="Masukkan jenis akun bank">
-                            </div>
-                          </div>
-                          <div class="col">
-                            <div class="form-group">
-                              <label>Tanggal Payment 4</label>
-                              <div class="input-group date" id="paymentdate1" data-target-input="nearest">
-                                <input type="text" class="form-control datetimepicker-input" name="tgl_py1" data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
-                                <div class="input-group-append" data-target="#paymentdate1" data-toggle="datetimepicker">
-                                  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                </div>
+                            <div class="col-sm-2 align-self-end">
+                              <div class="form-group">
+                                <button class="btn btn-danger payment-form-remove-1" type="button">
+                                  <i class="fa fa-times"></i> Remove
+                                </button>
                               </div>
                             </div>
                           </div>
-                          <div class="col">
-                            <div class="form-group">
-                              <label>Nominal Payment 4</label>
-                              <input type="number" class="form-control" placeholder="Masukkan nominal uang" name="nom_py1">
-                            </div>
-                          </div>
-                          <div class="col-sm-2 align-self-end">
-                            <div class="form-group">
-                              <button class="btn btn-danger payment-form-remove-3" type="button">
-                                <i class="fa fa-times"></i> Remove
-                              </button>
-                            </div>
-                          </div>
                         </div>
-                      </div>
-                      <!-- Payment 4 End -->
-                      <!-- Payment 5 -->
-                      <div class="payment-form-block-4" style="display : none !important">
-                        <div class="row">
-                          <div class="col">
-                            <div class="form-group">
-                              <label>Payment 5</label>
-                              <input type="text" class="form-control" name="py1" placeholder="Masukkan jenis akun bank">
+                        <!-- Payment 2 End -->
+                        <!-- Payment 3 -->
+                        <div class="payment-form-block-2" style="display : none !important">
+                          <div class="row">
+                            <div class="col">
+                              <div class="form-group">
+                                <label>Payment 3</label>
+                                <input type="text" class="form-control" name="py1" placeholder="Masukkan jenis akun bank">
+                              </div>
                             </div>
-                          </div>
-                          <div class="col">
-                            <div class="form-group">
-                              <label>Tanggal Payment 5</label>
-                              <div class="input-group date" id="paymentdate1" data-target-input="nearest">
-                                <input type="text" class="form-control datetimepicker-input" name="tgl_py1" data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
-                                <div class="input-group-append" data-target="#paymentdate1" data-toggle="datetimepicker">
-                                  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            <div class="col">
+                              <div class="form-group">
+                                <label>Tanggal Payment 3</label>
+                                <div class="input-group date" id="paymentdate1" data-target-input="nearest">
+                                  <input type="text" class="form-control datetimepicker-input" name="tgl_py1" data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
+                                  <div class="input-group-append" data-target="#paymentdate1" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
-                          <div class="col">
-                            <div class="form-group">
-                              <label>Nominal Payment 5</label>
-                              <input type="number" class="form-control" placeholder="Masukkan nominal uang" name="nom_py1">
+                            <div class="col">
+                              <div class="form-group">
+                                <label>Nominal Payment 3</label>
+                                <input type="number" class="form-control" placeholder="Masukkan nominal uang" name="nom_py1">
+                              </div>
                             </div>
-                          </div>
-                          <div class="col-sm-2 align-self-end">
-                            <div class="form-group">
-                              <button class="btn btn-danger payment-form-remove-4" type="button">
-                                <i class="fa fa-times"></i> Remove
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Payment 5 End -->
-                      <!-- Payment 6 -->
-                      <div class="payment-form-block-5" style="display : none !important">
-                        <div class="row">
-                          <div class="col">
-                            <div class="form-group">
-                              <label>Payment 6</label>
-                              <input type="text" class="form-control" name="py1" placeholder="Masukkan jenis akun bank">
-                            </div>
-                          </div>
-                          <div class="col">
-                            <div class="form-group">
-                              <label>Tanggal Payment 6</label>
-                              <div class="input-group date" id="paymentdate1" data-target-input="nearest">
-                                <input type="text" class="form-control datetimepicker-input" name="tgl_py1" data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
-                                <div class="input-group-append" data-target="#paymentdate1" data-toggle="datetimepicker">
-                                  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                </div>
+                            <div class="col-sm-2 align-self-end">
+                              <div class="form-group">
+                                <button class="btn btn-danger payment-form-remove-2" type="button">
+                                  <i class="fa fa-times"></i> Remove
+                                </button>
                               </div>
                             </div>
                           </div>
-                          <div class="col">
-                            <div class="form-group">
-                              <label>Nominal Payment 6</label>
-                              <input type="number" class="form-control" placeholder="Masukkan nominal uang" name="nom_py1">
-                            </div>
-                          </div>
-                          <div class="col-sm-2 align-self-end">
-                            <div class="form-group">
-                              <button class="btn btn-danger payment-form-remove-5" type="button">
-                                <i class="fa fa-times"></i> Remove
-                              </button>
-                            </div>
-                          </div>
                         </div>
-                      </div>
-                      <!-- Payment 6 End -->
-                      <!-- Payment 7 -->
-                      <div class="payment-form-block-6" style="display : none !important">
-                        <div class="row">
-                          <div class="col">
-                            <div class="form-group">
-                              <label>Payment 7</label>
-                              <input type="text" class="form-control" name="py1" placeholder="Masukkan jenis akun bank">
+                        <!-- Payment 3 End -->
+                        <!-- Payment 4 -->
+                        <div class="payment-form-block-3" style="display : none !important">
+                          <div class="row">
+                            <div class="col">
+                              <div class="form-group">
+                                <label>Payment 4</label>
+                                <input type="text" class="form-control" name="py1" placeholder="Masukkan jenis akun bank">
+                              </div>
                             </div>
-                          </div>
-                          <div class="col">
-                            <div class="form-group">
-                              <label>Tanggal Payment 7</label>
-                              <div class="input-group date" id="paymentdate1" data-target-input="nearest">
-                                <input type="text" class="form-control datetimepicker-input" name="tgl_py1" data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
-                                <div class="input-group-append" data-target="#paymentdate1" data-toggle="datetimepicker">
-                                  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                            <div class="col">
+                              <div class="form-group">
+                                <label>Tanggal Payment 4</label>
+                                <div class="input-group date" id="paymentdate1" data-target-input="nearest">
+                                  <input type="text" class="form-control datetimepicker-input" name="tgl_py1" data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
+                                  <div class="input-group-append" data-target="#paymentdate1" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                  </div>
                                 </div>
                               </div>
                             </div>
-                          </div>
-                          <div class="col">
-                            <div class="form-group">
-                              <label>Nominal Payment 7</label>
-                              <input type="number" class="form-control" placeholder="Masukkan nominal uang" name="nom_py1">
+                            <div class="col">
+                              <div class="form-group">
+                                <label>Nominal Payment 4</label>
+                                <input type="number" class="form-control" placeholder="Masukkan nominal uang" name="nom_py1">
+                              </div>
                             </div>
-                          </div>
-                          <div class="col-sm-2 align-self-end">
-                            <div class="form-group">
-                              <button class="btn btn-danger payment-form-remove-6" type="button">
-                                <i class="fa fa-times"></i> Remove
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <!-- Payment 7 End -->
-                      <!-- Payment 8 -->
-                      <div class="payment-form-block-7" style="display : none !important">
-                        <div class="row">
-                          <div class="col">
-                            <div class="form-group">
-                              <label>Payment 8</label>
-                              <input type="text" class="form-control" name="py1" placeholder="Masukkan jenis akun bank">
-                            </div>
-                          </div>
-                          <div class="col">
-                            <div class="form-group">
-                              <label>Tanggal Payment 8</label>
-                              <div class="input-group date" id="paymentdate1" data-target-input="nearest">
-                                <input type="text" class="form-control datetimepicker-input" name="tgl_py1" data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
-                                <div class="input-group-append" data-target="#paymentdate1" data-toggle="datetimepicker">
-                                  <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                                </div>
+                            <div class="col-sm-2 align-self-end">
+                              <div class="form-group">
+                                <button class="btn btn-danger payment-form-remove-3" type="button">
+                                  <i class="fa fa-times"></i> Remove
+                                </button>
                               </div>
                             </div>
                           </div>
-                          <div class="col">
-                            <div class="form-group">
-                              <label>Nominal Payment 8</label>
-                              <input type="number" class="form-control" placeholder="Masukkan nominal uang" name="nom_py1">
+                        </div>
+                        <!-- Payment 4 End -->
+                        <!-- Payment 5 -->
+                        <div class="payment-form-block-4" style="display : none !important">
+                          <div class="row">
+                            <div class="col">
+                              <div class="form-group">
+                                <label>Payment 5</label>
+                                <input type="text" class="form-control" name="py1" placeholder="Masukkan jenis akun bank">
+                              </div>
                             </div>
-                          </div>
-                          <div class="col-sm-2 align-self-end">
-                            <div class="form-group">
-                              <button class="btn btn-danger payment-form-remove-7" type="button">
-                                <i class="fa fa-times"></i> Remove
-                              </button>
+                            <div class="col">
+                              <div class="form-group">
+                                <label>Tanggal Payment 5</label>
+                                <div class="input-group date" id="paymentdate1" data-target-input="nearest">
+                                  <input type="text" class="form-control datetimepicker-input" name="tgl_py1" data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
+                                  <div class="input-group-append" data-target="#paymentdate1" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col">
+                              <div class="form-group">
+                                <label>Nominal Payment 5</label>
+                                <input type="number" class="form-control" placeholder="Masukkan nominal uang" name="nom_py1">
+                              </div>
+                            </div>
+                            <div class="col-sm-2 align-self-end">
+                              <div class="form-group">
+                                <button class="btn btn-danger payment-form-remove-4" type="button">
+                                  <i class="fa fa-times"></i> Remove
+                                </button>
+                              </div>
                             </div>
                           </div>
                         </div>
-                      </div>
-                      <!-- Payment 8 End -->
-                      <!-- Payment Form Ends -->
-                      <div class="col border-bottom mb-4 mt-3"></div>
+                        <!-- Payment 5 End -->
+                        <!-- Payment 6 -->
+                        <div class="payment-form-block-5" style="display : none !important">
+                          <div class="row">
+                            <div class="col">
+                              <div class="form-group">
+                                <label>Payment 6</label>
+                                <input type="text" class="form-control" name="py1" placeholder="Masukkan jenis akun bank">
+                              </div>
+                            </div>
+                            <div class="col">
+                              <div class="form-group">
+                                <label>Tanggal Payment 6</label>
+                                <div class="input-group date" id="paymentdate1" data-target-input="nearest">
+                                  <input type="text" class="form-control datetimepicker-input" name="tgl_py1" data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
+                                  <div class="input-group-append" data-target="#paymentdate1" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col">
+                              <div class="form-group">
+                                <label>Nominal Payment 6</label>
+                                <input type="number" class="form-control" placeholder="Masukkan nominal uang" name="nom_py1">
+                              </div>
+                            </div>
+                            <div class="col-sm-2 align-self-end">
+                              <div class="form-group">
+                                <button class="btn btn-danger payment-form-remove-5" type="button">
+                                  <i class="fa fa-times"></i> Remove
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Payment 6 End -->
+                        <!-- Payment 7 -->
+                        <div class="payment-form-block-6" style="display : none !important">
+                          <div class="row">
+                            <div class="col">
+                              <div class="form-group">
+                                <label>Payment 7</label>
+                                <input type="text" class="form-control" name="py1" placeholder="Masukkan jenis akun bank">
+                              </div>
+                            </div>
+                            <div class="col">
+                              <div class="form-group">
+                                <label>Tanggal Payment 7</label>
+                                <div class="input-group date" id="paymentdate1" data-target-input="nearest">
+                                  <input type="text" class="form-control datetimepicker-input" name="tgl_py1" data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
+                                  <div class="input-group-append" data-target="#paymentdate1" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col">
+                              <div class="form-group">
+                                <label>Nominal Payment 7</label>
+                                <input type="number" class="form-control" placeholder="Masukkan nominal uang" name="nom_py1">
+                              </div>
+                            </div>
+                            <div class="col-sm-2 align-self-end">
+                              <div class="form-group">
+                                <button class="btn btn-danger payment-form-remove-6" type="button">
+                                  <i class="fa fa-times"></i> Remove
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Payment 7 End -->
+                        <!-- Payment 8 -->
+                        <div class="payment-form-block-7" style="display : none !important">
+                          <div class="row">
+                            <div class="col">
+                              <div class="form-group">
+                                <label>Payment 8</label>
+                                <input type="text" class="form-control" name="py1" placeholder="Masukkan jenis akun bank">
+                              </div>
+                            </div>
+                            <div class="col">
+                              <div class="form-group">
+                                <label>Tanggal Payment 8</label>
+                                <div class="input-group date" id="paymentdate1" data-target-input="nearest">
+                                  <input type="text" class="form-control datetimepicker-input" name="tgl_py1" data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
+                                  <div class="input-group-append" data-target="#paymentdate1" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col">
+                              <div class="form-group">
+                                <label>Nominal Payment 8</label>
+                                <input type="number" class="form-control" placeholder="Masukkan nominal uang" name="nom_py1">
+                              </div>
+                            </div>
+                            <div class="col-sm-2 align-self-end">
+                              <div class="form-group">
+                                <button class="btn btn-danger payment-form-remove-7" type="button">
+                                  <i class="fa fa-times"></i> Remove
+                                </button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <!-- Payment 8 End -->
+                        <!-- Payment Form Ends -->
+                        <div class="col border-bottom mb-4 mt-3"></div>
 
-                      <div class="row">
-                        <div class="col-md-8">
-                          <div class="form-group">
-                            <label>Total Payment</label>
-                            <div class="input-group">
-                              <div class="input-group-prepend">
-                                <span class="input-group-text">
-                                  <h7>Rp. </h7>
-                                </span>
+                        <div class="row">
+                          <div class="col-md-8">
+                            <div class="form-group">
+                              <label>Total Payment</label>
+                              <div class="input-group">
+                                <div class="input-group-prepend">
+                                  <span class="input-group-text">
+                                    <h7>Rp. </h7>
+                                  </span>
+                                </div>
+                                <input type="number" class="form-control" name="total_py" id="totalpayment" placeholder="Masukkan jumlah total pembayaran" onkeyup="subtracPayment()">
                               </div>
-                              <input type="number" class="form-control" name="total_py" id="totalpayment" placeholder="Masukkan jumlah total pembayaran" onkeyup="subtracPayment()">
+                            </div>
+                          </div>
+                          <div class="col-md-2">
+                            <div class="form-group">
+                              <label>Collect PPh 23</label>
+                              <select class="form-control" name="colpph23" id="collectpph23" onchange="summaryPajak()">
+                                <option></option>
+                                <option>YA</option>
+                                <option>TIDAK</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="col-md">
+                            <div class="form-group">
+                              <label>PPh 23</label>
+                              <input type="number" min="0" class="form-control" name="pph" id="pph23" placeholder="Masukkan hasil PPH">
                             </div>
                           </div>
                         </div>
-                        <div class="col-md-2">
-                          <div class="form-group">
-                            <label>Collect PPh 23</label>
-                            <select class="form-control" name="colpph23" id="collectpph23" onchange="summaryPajak()">
-                              <option></option>
-                              <option>YA</option>
-                              <option>TIDAK</option>
-                            </select>
+                        <div class="row">
+                          <div class="col-md-8">
+                            <div class="form-group">
+                              <label>Selisih Pembayaran (Payment-Revenue)</label>
+                              <input type="text" class="form-control" name="slpy" id="selisih-py" placeholder="Masukkan selisih pembayaran (Payment - Revenue)">
+                            </div>
+                            <div class="form-group">
+                              <label>Catatan Lainnya</label>
+                              <textarea class="form-control" name="note" rows="2" placeholder="Enter ..."></textarea>
+                            </div>
+                          </div>
+                          <div class="col-md-4 align-self-center">
+                            <div class="col-sm d-flex justify-content-center align-items-center border">
+                              <p class="flex-column text-right">
+                              <p class="text-muted mr-2 h5">STATUS :</p>
+                              <p class="font-weight-bold" style="padding-top: 10px;">
+                                <!-- <i class="fa fa-times text-danger"></i> KURANG BAYAR -->
+                              </p>
+                              </p>
+                              <!-- <h5 class="mr-2">STATUS :</h5><i class="fa fa-times mr-2"></i><p> KURANG BAYAR</p> -->
+                            </div>
                           </div>
                         </div>
-                        <div class="col-md">
-                          <div class="form-group">
-                            <label>PPh 23</label>
-                            <input type="number" min="0" class="form-control" name="pph" id="pph23" placeholder="Masukkan hasil PPH">
-                          </div>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-md-8">
-                          <div class="form-group">
-                            <label>Selisih Pembayaran (Payment-Revenue)</label>
-                            <input type="text" class="form-control" name="slpy" id="selisih-py" placeholder="Masukkan selisih pembayaran (Payment - Revenue)">
-                          </div>
-                          <div class="form-group">
-                            <label>Catatan Lainnya</label>
-                            <textarea class="form-control" name="note" rows="2" placeholder="Enter ..."></textarea>
-                          </div>
-                        </div>
-                        <div class="col-md-4 align-self-center">
-                          <div class="col-sm d-flex justify-content-center align-items-center border">
-                            <p class="flex-column text-right">
-                            <p class="text-muted mr-2 h5">STATUS :</p>
-                            <p class="font-weight-bold" style="padding-top: 10px;">
-                              <!-- <i class="fa fa-times text-danger"></i> KURANG BAYAR -->
-                            </p>
-                            </p>
-                            <!-- <h5 class="mr-2">STATUS :</h5><i class="fa fa-times mr-2"></i><p> KURANG BAYAR</p> -->
-                          </div>
-                        </div>
-                      </div>
 
-                      <div class="col border-bottom mb-4 mt-3"></div>
+                        <div class="col border-bottom mb-4 mt-3"></div>
 
-                      <!-- Upload Form -->
-                      <div class="form-group">
-                        <label>Upload Tahap 1</label>
-                        <div class="input-group">
-                          <input type="text" name="upl-1" class="form-control" placeholder="Masukkan kode upload" width="100%">
-                          <div class="col-sm-2 col-form-group">
-                            <button class="btn btn-success upload-form-add-more" type="button">
-                              <i class="fa fa-plus"></i> Add More
-                            </button>
+                        <!-- Upload Form -->
+                        <div class="form-group">
+                          <label>Upload Tahap 1</label>
+                          <div class="input-group">
+                            <input type="text" name="upl-1" class="form-control" placeholder="Masukkan kode upload" width="100%">
+                            <div class="col-sm-2 col-form-group">
+                              <button class="btn btn-primary upload-form-add-more" type="button">
+                                <i class="fa fa-plus"></i> Add More
+                              </button>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <!-- <div class="form-upload-copy"></div> -->
-                      <div class="form-group upload-form-block-1" style="display:none !important;">
-                        <label>Upload Tahap 2</label>
-                        <div class="input-group">
-                          <input type="text" class="form-control" name="upl-2" placeholder="Masukkan kode upload" width="100%">
-                          <div class="col-sm-2 col-form-group">
-                            <button class="btn btn-danger upload-form-remove-1" type="button">
-                              <i class="fa fa-times"></i> Remove
-                            </button>
+                        <!-- <div class="form-upload-copy"></div> -->
+                        <div class="form-group upload-form-block-1" style="display:none !important;">
+                          <label>Upload Tahap 2</label>
+                          <div class="input-group">
+                            <input type="text" class="form-control" name="upl-2" placeholder="Masukkan kode upload" width="100%">
+                            <div class="col-sm-2 col-form-group">
+                              <button class="btn btn-danger upload-form-remove-1" type="button">
+                                <i class="fa fa-times"></i> Remove
+                              </button>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="form-group upload-form-block-2" style="display:none !important;">
-                        <label>Upload Tahap 3</label>
-                        <div class="input-group">
-                          <input type="text" class="form-control" name="upl-3" placeholder="Masukkan kode upload" width="100%">
-                          <div class="col-sm-2 col-form-group">
-                            <button class="btn btn-danger upload-form-remove-2" type="button">
-                              <i class="fa fa-times"></i> Remove
-                            </button>
+                        <div class="form-group upload-form-block-2" style="display:none !important;">
+                          <label>Upload Tahap 3</label>
+                          <div class="input-group">
+                            <input type="text" class="form-control" name="upl-3" placeholder="Masukkan kode upload" width="100%">
+                            <div class="col-sm-2 col-form-group">
+                              <button class="btn btn-danger upload-form-remove-2" type="button">
+                                <i class="fa fa-times"></i> Remove
+                              </button>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="form-group upload-form-block-3" style="display:none !important;">
-                        <label>Upload Tahap 4</label>
-                        <div class="input-group">
-                          <input type="text" class="form-control" name="upl-4" placeholder="Masukkan kode upload" width="100%">
-                          <div class="col-sm-2 col-form-group">
-                            <button class="btn btn-danger upload-form-remove-3" type="button">
-                              <i class="fa fa-times"></i> Remove
-                            </button>
+                        <div class="form-group upload-form-block-3" style="display:none !important;">
+                          <label>Upload Tahap 4</label>
+                          <div class="input-group">
+                            <input type="text" class="form-control" name="upl-4" placeholder="Masukkan kode upload" width="100%">
+                            <div class="col-sm-2 col-form-group">
+                              <button class="btn btn-danger upload-form-remove-3" type="button">
+                                <i class="fa fa-times"></i> Remove
+                              </button>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="form-group upload-form-block-4" style="display:none !important;">
-                        <label>Upload Tahap 5</label>
-                        <div class="input-group">
-                          <input type="text" class="form-control" name="upl-5" placeholder="Masukkan kode upload" width="100%">
-                          <div class="col-sm-2 col-form-group">
-                            <button class="btn btn-danger upload-form-remove-4" type="button">
-                              <i class="fa fa-times"></i> Remove
-                            </button>
+                        <div class="form-group upload-form-block-4" style="display:none !important;">
+                          <label>Upload Tahap 5</label>
+                          <div class="input-group">
+                            <input type="text" class="form-control" name="upl-5" placeholder="Masukkan kode upload" width="100%">
+                            <div class="col-sm-2 col-form-group">
+                              <button class="btn btn-danger upload-form-remove-4" type="button">
+                                <i class="fa fa-times"></i> Remove
+                              </button>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="form-group upload-form-block-5" style="display:none !important;">
-                        <label>Upload Tahap 6</label>
-                        <div class="input-group">
-                          <input type="text" class="form-control" name="upl-6" placeholder="Masukkan kode upload" width="100%">
-                          <div class="col-sm-2 col-form-group">
-                            <button class="btn btn-danger upload-form-remove-5" type="button">
-                              <i class="fa fa-times"></i> Remove
-                            </button>
+                        <div class="form-group upload-form-block-5" style="display:none !important;">
+                          <label>Upload Tahap 6</label>
+                          <div class="input-group">
+                            <input type="text" class="form-control" name="upl-6" placeholder="Masukkan kode upload" width="100%">
+                            <div class="col-sm-2 col-form-group">
+                              <button class="btn btn-danger upload-form-remove-5" type="button">
+                                <i class="fa fa-times"></i> Remove
+                              </button>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="form-group upload-form-block-6" style="display:none !important;">
-                        <label>Upload Tahap 7</label>
-                        <div class="input-group">
-                          <input type="text" class="form-control" name="upl-7" placeholder="Masukkan kode upload" width="100%">
-                          <div class="col-sm-2 col-form-group">
-                            <button class="btn btn-danger upload-form-remove-6" type="button">
-                              <i class="fa fa-times"></i> Remove
-                            </button>
+                        <div class="form-group upload-form-block-6" style="display:none !important;">
+                          <label>Upload Tahap 7</label>
+                          <div class="input-group">
+                            <input type="text" class="form-control" name="upl-7" placeholder="Masukkan kode upload" width="100%">
+                            <div class="col-sm-2 col-form-group">
+                              <button class="btn btn-danger upload-form-remove-6" type="button">
+                                <i class="fa fa-times"></i> Remove
+                              </button>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="form-group upload-form-block-7" style="display:none !important;">
-                        <label>Upload Tahap 8</label>
-                        <div class="input-group">
-                          <input type="text" class="form-control" name="upl-8" placeholder="Masukkan kode upload" width="100%">
-                          <div class="col-sm-2 col-form-group">
-                            <button class="btn btn-danger upload-form-remove-7" type="button">
-                              <i class="fa fa-times"></i> Remove
-                            </button>
+                        <div class="form-group upload-form-block-7" style="display:none !important;">
+                          <label>Upload Tahap 8</label>
+                          <div class="input-group">
+                            <input type="text" class="form-control" name="upl-8" placeholder="Masukkan kode upload" width="100%">
+                            <div class="col-sm-2 col-form-group">
+                              <button class="btn btn-danger upload-form-remove-7" type="button">
+                                <i class="fa fa-times"></i> Remove
+                              </button>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="form-group upload-form-block-8" style="display:none !important;">
-                        <label>Upload Tahap 9</label>
-                        <div class="input-group">
-                          <input type="text" class="form-control" name="upl-9" placeholder="Masukkan kode upload" width="100%">
-                          <div class="col-sm-2 col-form-group">
-                            <button class="btn btn-danger upload-form-remove-8" type="button">
-                              <i class="fa fa-times"></i> Remove
-                            </button>
+                        <div class="form-group upload-form-block-8" style="display:none !important;">
+                          <label>Upload Tahap 9</label>
+                          <div class="input-group">
+                            <input type="text" class="form-control" name="upl-9" placeholder="Masukkan kode upload" width="100%">
+                            <div class="col-sm-2 col-form-group">
+                              <button class="btn btn-danger upload-form-remove-8" type="button">
+                                <i class="fa fa-times"></i> Remove
+                              </button>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                      <div class="form-group upload-form-block-9" style="display:none !important;">
-                        <label>Upload Tahap 10</label>
-                        <div class="input-group">
-                          <input type="text" class="form-control" name="upl-10" placeholder="Masukkan kode upload" width="100%">
-                          <div class="col-sm-2 col-form-group">
-                            <button class="btn btn-danger upload-form-remove-9" type="button">
-                              <i class="fa fa-times"></i> Remove
-                            </button>
+                        <div class="form-group upload-form-block-9" style="display:none !important;">
+                          <label>Upload Tahap 10</label>
+                          <div class="input-group">
+                            <input type="text" class="form-control" name="upl-10" placeholder="Masukkan kode upload" width="100%">
+                            <div class="col-sm-2 col-form-group">
+                              <button class="btn btn-danger upload-form-remove-9" type="button">
+                                <i class="fa fa-times"></i> Remove
+                              </button>
+                            </div>
                           </div>
                         </div>
+
+                        <!-- /.col -->
                       </div>
 
                       <!-- /.col -->
                     </div>
-
-                    <!-- /.col -->
+                    <!-- /.row -->
                   </div>
-                  <!-- /.row -->
+                  <!-- /.card-body -->
+                  <div class="card-footer">
+                    <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                  </div>
                 </div>
-                <!-- /.card-body -->
-                <div class="card-footer">
-                  <button type="submit" class="btn btn-primary btn-block">Submit</button>
-                </div>
-              </div>
-            </form>
-            <!-- /.card -->
-          </div>
-          <!-- /.container-fluid -->
-        </section>
+              </form>
+              <!-- /.card -->
+            </div>
+            <!-- /.container-fluid -->
+          </section>
       </div>
       <!-- /.content -->
     </div>
@@ -910,10 +922,10 @@
     <footer class="main-footer">
       <div class="container">
         <div class="float-right d-none d-sm-block">
-          <b>Version</b> 3.2.0
         </div>
-        <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+        &copy; <?php echo date('Y'); ?> UNITED AUTOMOBIL SEMBILANPULUH UTAMA.
       </div>
+
     </footer>
 
 
@@ -934,18 +946,28 @@
   <!-- Bootstrap Switch -->
   <script src="<?php echo base_url('assets/AdminLTE/') ?>plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
   <!-- BS-Stepper -->
-  <script src="<?php echo base_url('assets/AdminLTE/') ?>plugins/bs-stepper/js/bs-stepper.min.js"></script>
-  <!-- dropzonejs -->
-  <script src="<?php echo base_url('assets/AdminLTE/') ?>plugins/dropzone/min/dropzone.min.js"></script>
-  <!-- Page specific script -->
+  <!-- <script src="<?php echo base_url('assets/AdminLTE/') ?>plugins/bs-stepper/js/bs-stepper.min.js"></script> -->  <!-- Page specific script -->
   <script>
     $(document).ready(function() {
       $("#drop-npl").autocomplete({
         source: "<?php echo site_url('control_admin/jsonUnitAutocomplete') ?>",
 
+        select: function(event, ui) {
+          $('[name="npl"]').val(ui.item.nopol);
+          $('[name="tyunit"]').val(ui.item.type);
+          $('[name="kg"]').val(ui.item.kategori);
+          $('[name="seat"]').val(ui.item.seat);
+        },
+        response: function(event, ui) {
+          if (ui.content.length === 0) {
+            console.log('No results loaded!');
+          } else {
+            console.log('success!');
+          }
+        },
       });
 
-      $('#drop-npl').on('keyup', function() {
+      /*$('#drop-npl').on('keyup', function() {
         var postData = $(this).val();
         $.ajax({
           type: "POST",
@@ -965,9 +987,7 @@
           }
         });
         return false;
-      });
-
-
+      });*/
     });
 
     $(document).ready(function() {
@@ -1048,15 +1068,29 @@
     })
 
     $(function() {
-      //Initialize Select2 Elements
+      // Initialize Select2 Elements for Maksud Sewa
       $('.sewa-select').select2({
         placeholder: "-- Pilih kebutuhan sewa --"
       })
 
-      //Initialize Select2 Elements
-      $('.select2bs4').select2({
-        theme: 'bootstrap4'
+      // Initialize Select2 Elements for Source Data
+      $('.source-select').select2({
+        placeholder: "-- Pilih Source Data --"
+      });
+
+      $('.source-select').on('change', function() {
+        $(".source-select option:selected").text();
+      });
+
+      // Initialize Select2 Elements for Spesifikasi
+      $('.spek-select').select2({
+        placeholder: " -- Pilih Spesifikasi -- "
+      });
+
+      $('.spek-select').on('change', function() {
+        $(".spek-select option:selected").text();
       })
+
 
       //Date picker
       $("#reservationdate").datepicker({

@@ -18,7 +18,7 @@ class control_katbus extends CI_Controller{
     function view_katbus(){
 		$this->load->view('template/header');
 		$this->load->view('template/sidebar');
-        $this->load->view('v_datakategori_bus');
+        $this->load->view('kategori-bus/v_datakategori_bus');
 		$this->load->view('template/footer');
     }
 
@@ -34,6 +34,8 @@ class control_katbus extends CI_Controller{
             $sub_array[] = $row->type;
             $sub_array[] = $row->kategori;
             $sub_array[] = $row->seat;
+            $sub_array[] = '<a href="#" class="btn btn-warning pull-right btn-xs" style="padding-left: 10px; padding-right: 10px;" role="button"><i class="fas fa-edit"></i> <b>Edit</b></a>
+                            <a href="#" class="btn btn-danger pull-right btn-xs"><i class="fa fa-trash"></i> Hapus</a>';
             $data[] = $sub_array;
         }
         $output = array(  
@@ -98,6 +100,11 @@ class control_katbus extends CI_Controller{
                 redirect('control_katbus/view_katbus');
             }
         }
+    }
+
+    public function addBus()
+    {
+        $this->load->view('kategori-bus/v_add_katbus');
     }
 
     public function remove_allData()
