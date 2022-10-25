@@ -50,12 +50,12 @@
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6 mt-2 mb-2">
-                <h1>Tambah Data Kendaraan</h1>
+                <h1>Edit Data Kendaraan</h1>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                   <li class="breadcrumb-item active">Data List BUS</li>
-                  <li class="breadcrumb-item">Tambah Data</li>
+                  <li class="breadcrumb-item">Update</li>
                 </ol>
               </div>
             </div>
@@ -64,10 +64,11 @@
           <section class="content">
             <div class="container-fluid">
 
-              <form action="<?php echo base_url('index.php/control_katbus/getAddKatbus'); ?>" method="POST">
+            <?php foreach ($unit as $row):?>
+              <form action="<?php echo base_url('index.php/control_katbus/getUpdateKatbus'); ?>" method="POST">
                 <div class="card card-default">
                   <div class="card-header align-self-center">
-                    <h6 class="card-title"><i class="fas fa-share-square"></i> FORM ADD BUS</h6>
+                    <h6 class="card-title"><i class="fas fa-share-square"></i> FORM EDIT BUS</h6>
                   </div>
                   <!-- /.card-header -->
                   <div class="card-body">
@@ -80,7 +81,7 @@
                               <div class="form-group">
                                 <label>Tipe Kendaraan</label>
                                 <select class="form-control" name="type[]">
-                                  <option value="">-- Pilih Tipe Kendaraan --</option>
+                                  <option value="<?= $row->type ?>"><?= $row->type ?></option>
                                   <option value="Small">Small</option>
                                   <option value="Medium">Medium</option>
                                   <option value="Big">Big</option>
@@ -91,7 +92,7 @@
                             <div class="col">
                               <div class="form-group">
                                 <label>Kategori Kendaraan</label>
-                                <input type="text" class="form-control" name="ktgr[]" placeholder="Masukkan Jenis Kategori Kendaraan">
+                                <input type="text" class="form-control" name="ktgr[]" placeholder="Masukkan Jenis Kategori Kendaraan" value="<?= $row->kategori ?>">
                                 <div class="invalid-feedback"></div>
                               </div>
                             </div>
@@ -99,7 +100,7 @@
                               <div class="form-group">
                                 <label>Jumlah Kursi (Seat)</label>
                                 <select class="form-control" name="seat[]">
-                                  <option value="">-- Pilih Jumlah Kursi --</option>
+                                  <option value="<?= $row->seat ?>"><?= $row->seat ?></option>
                                   <option value="11 Seat">11 Seat</option>
                                   <option value="13 Seat">13 Seat</option>
                                   <option value="15 Seat">15 Seat</option>
@@ -119,12 +120,9 @@
                             <div class="col">
                               <div class="form-group">
                                 <label>Nomor Polisi</label>
-                                <input type="text" class="form-control" name="npl[]" placeholder="Masukkan Nomor Plat Polisi">
+                                <input type="text" class="form-control" name="npl[]" placeholder="Masukkan Nomor Plat Polisi" value="<?= $row->nopol ?>">
                                 <div class="invalid-feedback"></div>
                               </div>
-                            </div>
-                            <div class="d-flex align-items-end form-group">
-                              <button type="button" class="btn btn-success add-item-btn"><i class="fa fa-plus"></i></a>
                             </div>
                             <!-- /.col -->
                           </div>
@@ -143,6 +141,7 @@
                   </div>
                 </div>
               </form>
+              <?php endforeach; ?>
               <!-- /.card -->
             </div>
             <!-- /.container-fluid -->
@@ -178,78 +177,6 @@
   <script src="<?php echo base_url('assets/AdminLTE/') ?>plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
   <!-- Page specific script -->
   <script>
-    $(document).ready(function() {
-      var maxField = 10;
-      var addButton = $('.add-item-btn');
-      var wrapper = $('.item-group');
-      var fieldHtml = '<div class="row">' +
-        '<div class="col">' +
-        '<div class="form-group">' +
-        '<label>Tipe Kendaraan</label>' +
-        '<select class="form-control" name="type[]">' +
-        '<option value="">-- Pilih Tipe Kendaraan --</option>' +
-        '<option value="Small">Small</option>' +
-        '<option value="Medium">Medium</option>' +
-        '<option value="Big">Big</option>' +
-        '</select>' +
-        '<div class="invalid-feedback"></div>' +
-        '</div>' +
-        '</div>' +
-        '<div class="col">' +
-        '<div class="form-group">' +
-        '<label>Kategori Kendaraan</label>' +
-        '<input type="text" class="form-control" name="ktgr[]" placeholder="Masukkan Jenis Kategori Kendaraan">' +
-        '<div class="invalid-feedback"></div>' +
-        '</div>' +
-        '</div>' +
-        '<div class="col">' +
-        '<div class="form-group">' +
-        '<label>Jumlah Kursi (Seat)</label>' +
-        '<select class="form-control" name="seat[]">' +
-        '<option value="">-- Pilih Jumlah Kursi --</option>' +
-        '<option value="11 Seat">11 Seat</option>' +
-        '<option value="13 Seat">13 Seat</option>' +
-        '<option value="15 Seat">15 Seat</option>' +
-        '<option value="16 Seat">16 Seat</option>' +
-        '<option value="23 Seat">23 Seat</option>' +
-        '<option value="29 Seat">29 Seat</option>' +
-        '<option value="31 Seat">31 Seat</option>' +
-        '<option value="35 Seat">35 Seat</option>' +
-        '<option value="40 Seat">40 Seat</option>' +
-        '<option value="45 Seat">45 Seat</option>' +
-        '<option value="48 Seat">48 Seat</option>' +
-        '<option value="59 Seat">59 Seat</option>' +
-        '</select>' +
-        '<div class="invalid-feedback"></div>' +
-        '</div>' +
-        '</div>' +
-        '<div class="col">' +
-        '<div class="form-group">' +
-        '<label>Nomor Polisi</label>' +
-        '<input type="text" class="form-control" name="npl[]" placeholder="Masukkan Nomor Plat Polisi">' +
-        '<div class="invalid-feedback"></div>' +
-        '</div>' +
-        '</div>' +
-        '<div class="d-flex align-items-end form-group">' +
-        '<button type="button" class="btn btn-danger remove-item-btn"><i class="fa fa-trash"></i></button>' +
-        '</div>' +
-        '</div>';
-      var itemValue = 1;
-
-      $(addButton).click(function() {
-        if (itemValue < maxField) {
-          $(wrapper).append(fieldHtml);
-          itemValue++;
-        }
-      });
-
-      $(wrapper).on("click", ".remove-item-btn", function(e) {
-        e.preventDefault();
-        $(this).parent().parent("div").remove();
-        itemValue--;
-      });
-
-    });
   </script>
 </body>
 

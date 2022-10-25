@@ -34,8 +34,8 @@ class control_katbus extends CI_Controller{
             $sub_array[] = $row->type;
             $sub_array[] = $row->kategori;
             $sub_array[] = $row->seat;
-            $sub_array[] = '<a href="#" class="btn btn-warning pull-right btn-xs" style="padding-left: 10px; padding-right: 10px;" role="button"><i class="fas fa-edit"></i> <b>Edit</b></a>
-                            <a href="#" class="btn btn-danger pull-right btn-xs"><i class="fa fa-trash"></i> Hapus</a>';
+            $sub_array[] = '<a href="'.base_url('index.php/control_katbus/editBus/'.$row->id_unit).'" class="btn btn-warning pull-right btn-xs" style="padding-left: 10px; padding-right: 10px;" role="button"><i class="fas fa-edit"></i> <b>Edit</b></a>
+                            <a href="'.base_url('index.php/control_katbus/remove_data/'.$row->id_unit).'" class="btn btn-danger pull-right btn-xs"><i class="fa fa-trash"></i> Hapus</a>';
             $data[] = $sub_array;
         }
         $output = array(  
@@ -107,13 +107,12 @@ class control_katbus extends CI_Controller{
         $this->load->view('kategori-bus/v_add_katbus');
     }
 
-    public function getAddKatbus()
-    {
+    public function getAddKatbus(){
         $type_bus = $this->input->post('type');
         $kategori_bus = $this->input->post('ktgr');
         $seat_bus = $this->input->post('seat');
         $nopol_bus = $this->input->post('npl');
-
+        
         $data = array(
             'type' => $type_bus, 
             'kategori' => $kategori_bus, 
@@ -122,7 +121,13 @@ class control_katbus extends CI_Controller{
         );
 
         $this->m_katbus->add_data($data, 'sales_unit');
-        redirect('control_katbus/view_katbus');
+        redirect('control_katbus/view_katbus');     
+    }
+
+    public function editBus($id){
+        $where = array('id_unit' => $id);
+        $data['unit'] = $this->m_katbus->get_editBus($where, 'sales_unit')->result();
+        $this->load->view('kategori-bus/v_edt_katbus', $data);
     }
 
     public function remove_data($id)
