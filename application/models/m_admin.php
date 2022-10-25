@@ -91,12 +91,12 @@ class m_admin extends CI_Model
     public function validationForm()
     {
         return [
-            ['field' => 'rsv', 'label'      => 'Nomor Reservasi', 'rules'           => 'required|max_lenght[25]'],
-            ['field' => 'bko', 'label'      => 'Booking Order', 'rules'             => 'required|max_lenght[25]'],
-            ['field' => 'pic', 'label'      => 'PIC Sales', 'rules'                 => 'required|max_lenght[25]'],
+            ['field' => 'rsv', 'label'      => 'Nomor Reservasi', 'rules'           => 'required|max_length[25]'],
+            ['field' => 'bko', 'label'      => 'Booking Order', 'rules'             => 'required|max_length[25]'],
+            ['field' => 'pic', 'label'      => 'PIC Sales', 'rules'                 => 'required|max_length[25]'],
             ['field' => 'profit', 'label'   => 'Profit Center', 'rules'             => 'required|callback_check_default'],
-            ['field' => 'nama_cmd', 'label' => 'Nama Customer Master Data', 'rules' => 'required|min_lenght[2]'],
-            ['field' => 'ins', 'label'      => 'Nama Instansi', 'rules'             => 'required|min_lenght[2]'],
+            ['field' => 'nama_cmd', 'label' => 'Nama Customer Master Data', 'rules' => 'required'],
+            ['field' => 'ins', 'label'      => 'Nama Instansi', 'rules'             => 'required'],
             ['field' => 'ord', 'label'      => 'Tipe Order', 'rules'                => 'required|callback_check_default'],
             ['field' => 'jpm', 'label'      => 'Jenis Pembayaran', 'rules'          => 'required|callback_check_default'],
             ['field' => 'invo', 'label'     => 'Invoice', 'rules'                   => 'required|callback_check_default'],

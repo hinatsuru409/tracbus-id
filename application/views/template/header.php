@@ -8,7 +8,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TRAC BUS</title>
+    <title>TRAC BUS SERVICES</title>
     <link href="../../assets/AdminLTE/dist/img/traclogo.png" rel="icon" type="images">
 
     <!-- Google Font: Source Sans Pro -->
