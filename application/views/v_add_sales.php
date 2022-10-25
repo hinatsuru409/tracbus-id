@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tambah Data | Sales</title>
-  <link href="../../assets/AdminLTE/dist/img/tracnew.png" rel="icon" type="images">
+  <link href="../../assets/AdminLTE/dist/img/traclogo.png" rel="icon" type="images">
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -38,8 +38,8 @@
       <div class="container">
         <ul class="navbar-nav">
           <li class="nav-item d-none d-sm-inline-block">
-          <a href="<?php echo base_url() . "index.php/control_admin/view_sales"; ?>"  class="btn btn-primary">
-               Kembali</a>
+            <a href="<?php echo base_url() . "index.php/control_admin/view_sales"; ?>" class="btn btn-info">
+              < Kembali</a>
           </li>
         </ul>
       </div>
@@ -52,13 +52,12 @@
         <section class="content-header">
           <div class="container-fluid">
             <div class="row mb-2">
-              <div class="col-sm-6">
-              <img src="../../assets/AdminLTE/dist/img/tracnew.png" alt="AdminTrac" class="#" style="opacity: .8">
-              <h6><b>UNITED AUTOMOBIL SEMBILAN PULUH UTAMA. </b></h6>
+              <div class="col-sm-6 mt-2 mb-2">
+                <h1>Tambah Data Sales</h1>
               </div>
+
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
-                  <li class="breadcrumb-item"><a href="#">Keluar</a></li>
                   <li class="breadcrumb-item active">Sales</li>
                   <li class="breadcrumb-item">Tambah Data</li>
                 </ol>
@@ -313,7 +312,8 @@
                           <div class="col-md-6">
                             <div class="form-group">
                               <label>Alamat Tujuan</label>
-                              <textarea class="form-control" name="ket_addc" rows="4" placeholder="Enter ..."></textarea>
+                              <textarea class="form-control <?= form_error('address') ? 'is-invalid' : '' ?>" name="address" rows="4" placeholder="Enter ..."></textarea>
+                              <div class="invalid-feedback"><?= form_error('address')  ?></div>
                             </div>
                           </div>
                         </div>
@@ -350,10 +350,10 @@
                                   <div class="input-group-text"><i class="fa fa-clock"></i></div>
                                 </div>
                                 <input type="number" class="form-control <?= form_error('wkts') ? 'is-invalid' : '' ?>" autocomplete="off" id="countFromDate" min="0" name="wkts" placeholder="Masukkan durasi waktu sewa">
-                                <div class="invalid-feedback"><?= form_error('wkts')  ?></div>
                                 <span>
                                   <h6 class="col mt-2">Hari</h6>
                                 </span>
+                                <div class="invalid-feedback"><?= form_error('wkts')  ?></div>
                               </div>
                             </div>
                           </div>
@@ -456,11 +456,10 @@
                             <div class="form-group">
                               <label>Tanggal Pembayaran 1</label>
                               <div class="input-group date">
-                                <input type="text" class="form-control <?= form_error('tgl_mulai_p') ? 'is-invalid' : '' ?>" id="reservationdate" autocomplete="off" name="tgl_mulai_p" placeholder="Masukkan Tanggal mulai pemesanan" />
+                                <input type="text" class="form-control" id="reservationdate" autocomplete="off" name="tgl_py1" placeholder="Masukkan Tanggal mulai pemesanan" />
                                 <div class="input-group-append">
                                   <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                 </div>
-                                <div class="invalid-feedback"><?= form_error('tgl_mulai_p')  ?></div>
                               </div>
                             </div>
                           </div>
@@ -492,7 +491,7 @@
                               <div class="form-group">
                                 <label>Tanggal Payment 2</label>
                                 <div class="input-group date" id="paymentdate1" data-target-input="nearest">
-                                  <input type="text" class="form-control datetimepicker-input" name="tgl_py1" data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
+                                  <input type="text" class="form-control datetimepicker-input" name="tgl_py2" data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
                                   <div class="input-group-append" data-target="#paymentdate1" data-toggle="datetimepicker">
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                   </div>
@@ -927,12 +926,9 @@
     <!-- /.content-wrapper -->
     <footer class="main-footer">
       <div class="container">
-        <div class="float-right d-none d-sm-block">
-        </div>
-        <img src="<?php echo base_url(); ?>assets/AdminLTE/dist/img/tracnobg2.png">
-         &copy; <?php echo date('Y'); ?>.UNITED AUTOMOBIL SEMBILAN PULUH UTAMA.
+        <strong>&copy; <?php echo date('Y'); ?> UNITED AUTOMOBIL SEMBILAN PULUH UTAMA.</strong> All rights reserved.
       </div>
-    
+
     </footer>
 
 

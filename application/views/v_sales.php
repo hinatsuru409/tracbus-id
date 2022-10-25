@@ -40,7 +40,6 @@
                       <th class="text-center">No.</th>
                       <th class="text-center">Nomor Reservasi</th>
                       <th class="text-center">Booking Order</th>
-                      <th class="text-center">Check</th>
                       <th class="text-center">Profit Center</th>
                       <th class="text-center">PIC Sales</th>
                       <th class="text-center">Action</th>

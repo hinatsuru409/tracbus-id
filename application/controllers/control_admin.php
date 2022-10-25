@@ -97,7 +97,6 @@ class control_admin extends CI_Controller
             $sub_array[] = $no;
             $sub_array[] = $row->no_reservasi;
             $sub_array[] = $row->booking_order;
-            $sub_array[] = $row->booking_order;
             $sub_array[] = $row->profit_center;
             $sub_array[] = $row->pic_sales;
             $sub_array[] = '<a class="btn btn-primary pull-right btn-xs" id="salesModal" data-toggle="modal" data-target="#modal-lg"
@@ -225,15 +224,16 @@ class control_admin extends CI_Controller
             'nopol' => $postData['npl'],                        'seat' => $postData['seat'],
             'driver' => $postData['drv'],                       'maksud_sewa' => $postData['sw'],
             'rute' => $postData['rt'],                          'provinsi' => $postData['pr'],
+            'alamat' => $postData['address'],
             'order_start' => date("Y-m-d", strtotime($postData['tgl_mulai_p'])),
             'order_end' => date("Y-m-d", strtotime($postData['tgl_akhir_p'])),
             'order_day' => $postData['wkts'],                   'toll_parkir' => $postData['toll'],
             'revenue_unit' => $postData['rvnu'],                'addcharge' => $postData['addc'],
             'addcharge_ket' => $postData['ket_addc'],           'revenue_total' => $postData['total_rvnu'],
             'price_list' => $postData['prcl'],                  'diskon' => $postData['dsk'],
-            'total_payment' => $postData['total_py'],           'pph_23' => $postData['pph'],
-            'sel_payment' => $postData['slpy'],                 'ket_payment' => $postData['note'],
-            'id_upload' => $id_upload
+            'id_payment' => $id_payment,                        'total_payment' => $postData['total_py'],
+            'pph_23' => $postData['pph'],                       'sel_payment' => $postData['slpy'],
+            'ket_payment' => $postData['note'],                 'id_upload' => $id_upload
         );
 
         $this->m_admin->insert_data('sales', $data);
