@@ -37,8 +37,8 @@
                       <tr>
                         <th>No.</th>
                         <th>Nomor Reservasi</th>
-                        <th>Profit Center</th>
                         <th>Booking Order</th>
+                        <th>Profit Center</th>
                         <th>PIC Sales</th>
                         <th>Action</th>
                       </tr>

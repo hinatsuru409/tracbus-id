@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Tambah Data | Sales</title>
-  <link href="../../assets/AdminLTE/dist/img/traclogo.png" rel="icon" type="images">
+  <link href="../../assets/AdminLTE/dist/img/tracnew.png" rel="icon" type="images">
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -22,21 +22,24 @@
   <link rel="stylesheet" href="<?php echo base_url('assets/AdminLTE/') ?>plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
   <!-- Jquery UI -->
   <link rel="stylesheet" href="<?php echo base_url('assets/AdminLTE/') ?>plugins/jquery-ui/jquery-ui.min.css">
+  <!-- BS Stepper -->
+  <link rel="stylesheet" href="<?php echo base_url('assets/AdminLTE/') ?>plugins/bs-stepper/css/bs-stepper.min.css">
+  <!-- dropzonejs -->
+  <link rel="stylesheet" href="<?php echo base_url('assets/AdminLTE/') ?>plugins/dropzone/min/dropzone.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo base_url('assets/AdminLTE/') ?>dist/css/adminlte.min.css">
 </head>
 
 <body class="hold-transition layout-top-nav">
-<div class="wrapper">
+  <div class="wrapper">
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
       <!-- Left navbar links -->
       <div class="container">
         <ul class="navbar-nav">
           <li class="nav-item d-none d-sm-inline-block">
-            <a href="<?php echo base_url() . "index.php/control_admin/view_sales"; ?>" class="nav-link">
-              <b>
-                < Kembali</b></a>
+          <a href="<?php echo base_url() . "index.php/control_admin/view_sales"; ?>"  class="btn btn-primary">
+               Kembali</a>
           </li>
         </ul>
       </div>
@@ -49,11 +52,13 @@
         <section class="content-header">
           <div class="container-fluid">
             <div class="row mb-2">
-              <div class="col-sm-6 mt-2 mb-2">
-                <h1>Tambah Data Sales</h1>
+              <div class="col-sm-6">
+              <img src="../../assets/AdminLTE/dist/img/tracnew.png" alt="AdminTrac" class="#" style="opacity: .8">
+              <h6><b>UNITED AUTOMOBIL SEMBILAN PULUH UTAMA. </b></h6>
               </div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
+                  <li class="breadcrumb-item"><a href="#">Keluar</a></li>
                   <li class="breadcrumb-item active">Sales</li>
                   <li class="breadcrumb-item">Tambah Data</li>
                 </ol>
@@ -443,24 +448,25 @@
                         <div class="row">
                           <div class="col">
                             <div class="form-group">
-                              <label>Payment 1</label>
+                              <label>Pembayaran 1</label>
                               <input type="text" class="form-control" name="py1" placeholder="Masukkan jenis akun bank">
                             </div>
                           </div>
                           <div class="col">
                             <div class="form-group">
-                              <label>Tanggal Payment 1</label>
-                              <div class="input-group date" id="paymentdate1" data-target-input="nearest">
-                                <input type="text" class="form-control datetimepicker-input" name="tgl_py1" data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
-                                <div class="input-group-append" data-target="#paymentdate1" data-toggle="datetimepicker">
+                              <label>Tanggal Pembayaran 1</label>
+                              <div class="input-group date">
+                                <input type="text" class="form-control <?= form_error('tgl_mulai_p') ? 'is-invalid' : '' ?>" id="reservationdate" autocomplete="off" name="tgl_mulai_p" placeholder="Masukkan Tanggal mulai pemesanan" />
+                                <div class="input-group-append">
                                   <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                 </div>
+                                <div class="invalid-feedback"><?= form_error('tgl_mulai_p')  ?></div>
                               </div>
                             </div>
                           </div>
                           <div class="col">
                             <div class="form-group">
-                              <label>Nominal Payment 1</label>
+                              <label>Nominal Pembayaran 1</label>
                               <input type="number" class="form-control" placeholder="Masukkan nominal uang" name="nom_py1">
                             </div>
                           </div>
@@ -479,7 +485,7 @@
                             <div class="col">
                               <div class="form-group">
                                 <label>Payment 2</label>
-                                <input type="text" class="form-control" name="py1" placeholder="Masukkan jenis akun bank">
+                                <input type="text" class="form-control" name="py2" placeholder="Masukkan jenis akun bank">
                               </div>
                             </div>
                             <div class="col">
@@ -496,7 +502,7 @@
                             <div class="col">
                               <div class="form-group">
                                 <label>Nominal Payment 2</label>
-                                <input type="number" class="form-control" placeholder="Masukkan nominal uang" name="nom_py1">
+                                <input type="number" class="form-control" placeholder="Masukkan nominal uang" name="nom_py2">
                               </div>
                             </div>
                             <div class="col-sm-2 align-self-end">
@@ -515,14 +521,14 @@
                             <div class="col">
                               <div class="form-group">
                                 <label>Payment 3</label>
-                                <input type="text" class="form-control" name="py1" placeholder="Masukkan jenis akun bank">
+                                <input type="text" class="form-control" name="py3" placeholder="Masukkan jenis akun bank">
                               </div>
                             </div>
                             <div class="col">
                               <div class="form-group">
                                 <label>Tanggal Payment 3</label>
                                 <div class="input-group date" id="paymentdate1" data-target-input="nearest">
-                                  <input type="text" class="form-control datetimepicker-input" name="tgl_py1" data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
+                                  <input type="text" class="form-control datetimepicker-input" name="tgl_py3" data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
                                   <div class="input-group-append" data-target="#paymentdate1" data-toggle="datetimepicker">
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                   </div>
@@ -532,7 +538,7 @@
                             <div class="col">
                               <div class="form-group">
                                 <label>Nominal Payment 3</label>
-                                <input type="number" class="form-control" placeholder="Masukkan nominal uang" name="nom_py1">
+                                <input type="number" class="form-control" placeholder="Masukkan nominal uang" name="nom_py3">
                               </div>
                             </div>
                             <div class="col-sm-2 align-self-end">
@@ -551,14 +557,14 @@
                             <div class="col">
                               <div class="form-group">
                                 <label>Payment 4</label>
-                                <input type="text" class="form-control" name="py1" placeholder="Masukkan jenis akun bank">
+                                <input type="text" class="form-control" name="py4" placeholder="Masukkan jenis akun bank">
                               </div>
                             </div>
                             <div class="col">
                               <div class="form-group">
                                 <label>Tanggal Payment 4</label>
                                 <div class="input-group date" id="paymentdate1" data-target-input="nearest">
-                                  <input type="text" class="form-control datetimepicker-input" name="tgl_py1" data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
+                                  <input type="text" class="form-control datetimepicker-input" name="tgl_py4" data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
                                   <div class="input-group-append" data-target="#paymentdate1" data-toggle="datetimepicker">
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                   </div>
@@ -568,7 +574,7 @@
                             <div class="col">
                               <div class="form-group">
                                 <label>Nominal Payment 4</label>
-                                <input type="number" class="form-control" placeholder="Masukkan nominal uang" name="nom_py1">
+                                <input type="number" class="form-control" placeholder="Masukkan nominal uang" name="nom_py4">
                               </div>
                             </div>
                             <div class="col-sm-2 align-self-end">
@@ -587,14 +593,14 @@
                             <div class="col">
                               <div class="form-group">
                                 <label>Payment 5</label>
-                                <input type="text" class="form-control" name="py1" placeholder="Masukkan jenis akun bank">
+                                <input type="text" class="form-control" name="py5" placeholder="Masukkan jenis akun bank">
                               </div>
                             </div>
                             <div class="col">
                               <div class="form-group">
                                 <label>Tanggal Payment 5</label>
                                 <div class="input-group date" id="paymentdate1" data-target-input="nearest">
-                                  <input type="text" class="form-control datetimepicker-input" name="tgl_py1" data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
+                                  <input type="text" class="form-control datetimepicker-input" name="tgl_py5" data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
                                   <div class="input-group-append" data-target="#paymentdate1" data-toggle="datetimepicker">
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                   </div>
@@ -604,7 +610,7 @@
                             <div class="col">
                               <div class="form-group">
                                 <label>Nominal Payment 5</label>
-                                <input type="number" class="form-control" placeholder="Masukkan nominal uang" name="nom_py1">
+                                <input type="number" class="form-control" placeholder="Masukkan nominal uang" name="nom_py5">
                               </div>
                             </div>
                             <div class="col-sm-2 align-self-end">
@@ -623,14 +629,14 @@
                             <div class="col">
                               <div class="form-group">
                                 <label>Payment 6</label>
-                                <input type="text" class="form-control" name="py1" placeholder="Masukkan jenis akun bank">
+                                <input type="text" class="form-control" name="py6" placeholder="Masukkan jenis akun bank">
                               </div>
                             </div>
                             <div class="col">
                               <div class="form-group">
                                 <label>Tanggal Payment 6</label>
                                 <div class="input-group date" id="paymentdate1" data-target-input="nearest">
-                                  <input type="text" class="form-control datetimepicker-input" name="tgl_py1" data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
+                                  <input type="text" class="form-control datetimepicker-input" name="tgl_py6" data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
                                   <div class="input-group-append" data-target="#paymentdate1" data-toggle="datetimepicker">
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                   </div>
@@ -659,14 +665,14 @@
                             <div class="col">
                               <div class="form-group">
                                 <label>Payment 7</label>
-                                <input type="text" class="form-control" name="py1" placeholder="Masukkan jenis akun bank">
+                                <input type="text" class="form-control" name="py7" placeholder="Masukkan jenis akun bank">
                               </div>
                             </div>
                             <div class="col">
                               <div class="form-group">
                                 <label>Tanggal Payment 7</label>
                                 <div class="input-group date" id="paymentdate1" data-target-input="nearest">
-                                  <input type="text" class="form-control datetimepicker-input" name="tgl_py1" data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
+                                  <input type="text" class="form-control datetimepicker-input" name="tgl_py7" data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
                                   <div class="input-group-append" data-target="#paymentdate1" data-toggle="datetimepicker">
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                   </div>
@@ -676,7 +682,7 @@
                             <div class="col">
                               <div class="form-group">
                                 <label>Nominal Payment 7</label>
-                                <input type="number" class="form-control" placeholder="Masukkan nominal uang" name="nom_py1">
+                                <input type="number" class="form-control" placeholder="Masukkan nominal uang" name="nom_py7">
                               </div>
                             </div>
                             <div class="col-sm-2 align-self-end">
@@ -695,14 +701,14 @@
                             <div class="col">
                               <div class="form-group">
                                 <label>Payment 8</label>
-                                <input type="text" class="form-control" name="py1" placeholder="Masukkan jenis akun bank">
+                                <input type="text" class="form-control" name="py8" placeholder="Masukkan jenis akun bank">
                               </div>
                             </div>
                             <div class="col">
                               <div class="form-group">
                                 <label>Tanggal Payment 8</label>
                                 <div class="input-group date" id="paymentdate1" data-target-input="nearest">
-                                  <input type="text" class="form-control datetimepicker-input" name="tgl_py1" data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
+                                  <input type="text" class="form-control datetimepicker-input" name="tgl_py8" data-target="#paymentdate1" placeholder="Masukkan tanggal pembayaran" />
                                   <div class="input-group-append" data-target="#paymentdate1" data-toggle="datetimepicker">
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                   </div>
@@ -712,7 +718,7 @@
                             <div class="col">
                               <div class="form-group">
                                 <label>Nominal Payment 8</label>
-                                <input type="number" class="form-control" placeholder="Masukkan nominal uang" name="nom_py1">
+                                <input type="number" class="form-control" placeholder="Masukkan nominal uang" name="nom_py8">
                               </div>
                             </div>
                             <div class="col-sm-2 align-self-end">
@@ -923,9 +929,10 @@
       <div class="container">
         <div class="float-right d-none d-sm-block">
         </div>
-        &copy; <?php echo date('Y'); ?> UNITED AUTOMOBIL SEMBILANPULUH UTAMA.
+        <img src="<?php echo base_url(); ?>assets/AdminLTE/dist/img/tracnobg2.png">
+         &copy; <?php echo date('Y'); ?>.UNITED AUTOMOBIL SEMBILAN PULUH UTAMA.
       </div>
-
+    
     </footer>
 
 
@@ -946,7 +953,10 @@
   <!-- Bootstrap Switch -->
   <script src="<?php echo base_url('assets/AdminLTE/') ?>plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
   <!-- BS-Stepper -->
-  <!-- <script src="<?php echo base_url('assets/AdminLTE/') ?>plugins/bs-stepper/js/bs-stepper.min.js"></script> -->  <!-- Page specific script -->
+  <script src="<?php echo base_url('assets/AdminLTE/') ?>plugins/bs-stepper/js/bs-stepper.min.js"></script>
+  <!-- dropzonejs -->
+  <script src="<?php echo base_url('assets/AdminLTE/') ?>plugins/dropzone/min/dropzone.min.js"></script>
+  <!-- Page specific script -->
   <script>
     $(document).ready(function() {
       $("#drop-npl").autocomplete({

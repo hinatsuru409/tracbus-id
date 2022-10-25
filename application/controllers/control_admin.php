@@ -33,6 +33,59 @@ class control_admin extends CI_Controller
         $this->load->view('template/footer');
     }
 
+    public function view_send_mail()
+    {
+        $this->load->view('template/header');
+        $this->load->view('template/sidebar');
+        $this->load->view('v_send_mail');
+        $this->load->view('template/footer');
+    }
+
+    public function view_approval()
+    {
+        $this->load->view('template/header');
+        $this->load->view('template/sidebar');
+        $this->load->view('v_approval');
+        $this->load->view('template/footer');
+    }
+
+    public function view_app_aprove()
+    {
+        $this->load->view('template/header');
+        $this->load->view('template/sidebar');
+        $this->load->view('v_app_aprove');
+        $this->load->view('template/footer');
+    }
+
+    public function view_app_all()
+    {
+        $this->load->view('template/header');
+        $this->load->view('template/sidebar');
+        $this->load->view('v_app_all');
+        $this->load->view('template/footer');
+    }
+
+    public function view_laporan()
+    {
+        $this->load->view('template/header');
+        $this->load->view('template/sidebar');
+        $this->load->view('v_laporan');
+        $this->load->view('template/footer');
+    }
+
+    public function view_login()
+    {
+        $this->load->view('v_login');
+    }
+
+    public function view_pengaturan()
+    {
+        $this->load->view('template/header');
+        $this->load->view('template/sidebar');
+        $this->load->view('v_pengaturan');
+        $this->load->view('template/footer');
+    }
+
     public function jsonSales()
     {
         $fetch_data = $this->m_admin->useDatatables();
@@ -43,6 +96,7 @@ class control_admin extends CI_Controller
             $sub_array = array();
             $sub_array[] = $no;
             $sub_array[] = $row->no_reservasi;
+            $sub_array[] = $row->booking_order;
             $sub_array[] = $row->booking_order;
             $sub_array[] = $row->profit_center;
             $sub_array[] = $row->pic_sales;
@@ -56,6 +110,7 @@ class control_admin extends CI_Controller
                                       data-kategori="' . $row->kategori . '" data-nopol="' . $row->nopol . '"
                                       data-seat="' . $row->seat . '" data-driver="' . $row->driver . '"
                                       data-maksudsewa="' . $row->maksud_sewa . '" data-rute="' . $row->rute . '"
+                                      data-alamat="' . $row->alamat . '"
                                       data-provinsi="' . $row->provinsi . '" data-ord-start="' . $row->order_start . '"
                                       data-ord-end="' . $row->order_end . '" data-day="' . $row->order_day . '"
                                       data-toll="' . $row->toll_parkir . '" data-revenueunit="' . $row->revenue_unit . '"
@@ -68,7 +123,14 @@ class control_admin extends CI_Controller
                                       data-upload4="' . $row->upload_4 . '" data-upload5="' . $row->upload_5 . '"
                                       data-upload7="' . $row->upload_7 . '" data-upload7="' . $row->upload_7 . '"
                                       data-upload8="' . $row->upload_8 . '" data-upload9="' . $row->upload_9 . '"
-                                      data-upload10="' . $row->upload_10 . '"
+                                      data-upload10="' . $row->upload_10 . '" data-payment1="' . $row->pay_1 . '"
+                                      data-tglpay1="' . $row->pay_tgl_1 . '" data-nompay1="' . $row->pay_nom_1 . '"
+                                      data-payment2="' . $row->pay_2 . '" data-tglpay2="' . $row->pay_tgl_2 . '" 
+                                      data-nompay2="' . $row->pay_nom_2 . '" data-payment3="' . $row->pay_3 . '"
+                                      data-tglpay3="' . $row->pay_tgl_3 . '" data-nompay3="' . $row->pay_nom_3 . '"
+                                      data-payment4="' . $row->pay_4 . '" data-tglpay4= "' . $row->pay_tgl_4 . '"
+                                      data-nompay4="' . $row->pay_nom_4 . '" data-payment5= "' . $row->pay_5 . '" 
+                                      data-tglpay5="' . $row->pay_tgl_5 . '" data-nompay5= "' . $row->pay_nom_5 . '" 
                                       ><i class="fa fa-eye"></i> View Data</a>
                             <a href="'.base_url().'index.php/control_admin/edit_sales/'.$row->id.'" class="btn btn-warning pull-right btn-xs" style="padding-left: 10px; padding-right: 10px;" role="button"><i class="fas fa-edit"></i> <b>Edit</b></a>
                             <a href="#" class="btn btn-danger pull-right btn-xs delete-record" data-toggle="modal" data-target="#DeleteModal" data-id="'.$row->id.'"><i class="fa fa-trash"></i> Hapus</a>'; 
@@ -133,10 +195,22 @@ class control_admin extends CI_Controller
             'upload_3' => $postData['upl-3'],                   'upload_4' => $postData['upl-4'],
             'upload_5' => $postData['upl-5'],                   'upload_6' => $postData['upl-6'],
             'upload_7' => $postData['upl-7'],                   'upload_8' => $postData['upl-8'],
-            'upload_9' => $postData['upl-9'],                   'upload_10' => $postData['upl-10']
+            'upload_9' => $postData['upl-9'],                   'upload_10' => $postData['upl-10'],
+        );
+        $id_upload = $this->m_admin->insert_data('sales_upload', $data1);
+
+        $data2 = array(
+            'pay_1' => $postData['py1'],            'pay_tgl_1'=> $postData['tgl_py1'],
+            'pay_nom_1' => $postData['nom_py1'],         'pay_2' => $postData['py2'],
+            'pay_tgl_2' => $postData['tgl_py2'],         'pay_nom_2' => $postData['nom_py2'],
+            'pay_3' => $postData['py3'],            'pay_tgl_3' => $postData['tgl_py3'],
+            'pay_nom_3' => $postData['nom_py3'],         'pay_4' => $postData['py4'],
+            'pay_tgl_4' => $postData['tgl_py4'],         'pay_nom_4' => $postData['nom_py4'],
+            'pay_5' => $postData['py5'],            'pay_tgl_5' => $postData['tgl_py5'],
+            'pay_nom_5' => $postData['nom_py5'],             
         );
 
-        $id_upload = $this->m_admin->insert_data('sales_upload', $data1);
+        $id_payment = $this->m_admin->insert_data('sales_payment', $data2);
 
         $data = array(
             'no_reservasi' => $postData['rsv'],                 'booking_order' => $postData['bko'],
@@ -209,9 +283,9 @@ class control_admin extends CI_Controller
         redirect('control_admin/view_sales');
     }
     
-    public function add_bookingnew()
+    public function add_sales_more()
     {
-        $this->load->view("v_add_bookingnew");
+        $this->load->view("v_add_bookingorder");
     }
 
 }
