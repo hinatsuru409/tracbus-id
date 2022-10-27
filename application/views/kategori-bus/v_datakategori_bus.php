@@ -87,7 +87,7 @@
                   <div class="row mt-2">
                     <a href="<?= base_url('index.php/control_katbus/remove_allData'); ?>" class="btn btn-danger"><i class="fa fa-trash"></i>&nbsp;Hapus Semua Data</a>
                     <div class="col d-flex justify-content-end">
-                      <a href="<?= base_url('index.php/control_katbus/addBus') ?>" class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp;Tambah Data Baru</a>
+                      <a href="<?= base_url('index.php/control_katbus/view_addBus') ?>" class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp;Tambah Data Baru</a>
                     </div>
                   </div>
                 </div>

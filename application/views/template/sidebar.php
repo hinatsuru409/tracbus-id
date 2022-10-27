@@ -61,7 +61,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?php echo base_url() . 'index.php/control_admin/view_sales' ?>" <?php if ($this->uri->uri_string() == 'control_admin/view_sales') {
+          <a href="<?php echo base_url() . 'index.php/control_sales/view_sales' ?>" <?php if ($this->uri->uri_string() == 'control_sales/view_sales') {
                                                                                       echo 'class="nav-link active" style="background-color: #28a745"';
                                                                                     } else {
                                                                                       echo 'class="nav-link"';

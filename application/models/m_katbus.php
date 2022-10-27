@@ -5,7 +5,7 @@ class m_katbus extends CI_Model{
     var $select_column = array("id_unit", "nopol", "type", "kategori", "seat" );  //sesuaikan dengan nama field table
     var $order_column = array(null, "nopol", "type", "kategori", "seat");
 
-    public function getData($postData=null){
+    public function getDatatables($postData=null){
         $this->db->select($this->select_column);  
         $this->db->from($this->table);  
         if(isset($_POST["search"]["value"])){  
@@ -24,7 +24,7 @@ class m_katbus extends CI_Model{
     }
 
     public function useDatatables(){  
-        $this->getData();  
+        $this->getDatatables();  
         if($_POST["length"] != -1)  
         {  
              $this->db->limit($_POST['length'], $_POST['start']);  
@@ -33,19 +33,19 @@ class m_katbus extends CI_Model{
         return $query->result();  
     }
       
-    public function get_filtered_data(){  
-        $this->getData();  
+    public function get_filtered_datatables(){  
+        $this->getDatatables();  
         $query = $this->db->get();  
         return $query->num_rows();  
     }
           
-    public function get_all_data(){  
+    public function get_all_datatables(){  
         $this->db->select("*");  
         $this->db->from($this->table);  
         return $this->db->count_all_results();  
     }
 
-    public function add_batch($data) {
+    public function insertExcel_batch($data) {
         $this->db->insert_batch($this->table, $data);
         if ($this->db->affected_rows() > 0) {
             return 1;
@@ -54,8 +54,16 @@ class m_katbus extends CI_Model{
         }
     }
 
-    public function add_data($data, $table){
-        $this->db->insert($table,$data);
+    public function add_data($data){
+        /*for ($i=0; $i < count($type_bus); $i++) {         
+            $data = array(
+                'type' => $type_bus[$i],
+                'kategori' => $kategori_bus[$i],
+                'seat' => $seat_bus[$i],
+                'nopol' => $nopol_bus[$i],
+            );
+        }*/
+        $this->db->insert_batch($this->table, $data);
     }
 
     public function get_editBus($where, $table){

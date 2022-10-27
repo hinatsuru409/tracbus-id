@@ -74,12 +74,13 @@
                     <div class="row">
                       <!-- /.col -->
                       <div class="col-md-12">
+
                         <div class="item-group">
                           <div class="row">
                             <div class="col">
                               <div class="form-group">
                                 <label>Tipe Kendaraan</label>
-                                <select class="form-control" name="type[]">
+                                <select class="form-control" name="type[]" id="type-1">
                                   <option value="">-- Pilih Tipe Kendaraan --</option>
                                   <option value="Small">Small</option>
                                   <option value="Medium">Medium</option>
@@ -91,14 +92,14 @@
                             <div class="col">
                               <div class="form-group">
                                 <label>Kategori Kendaraan</label>
-                                <input type="text" class="form-control" name="ktgr[]" placeholder="Masukkan Jenis Kategori Kendaraan">
+                                <input type="text" class="form-control" name="ktgr[]" id="ktgr-1" placeholder="Masukkan Jenis Kategori Kendaraan">
                                 <div class="invalid-feedback"></div>
                               </div>
                             </div>
                             <div class="col">
                               <div class="form-group">
                                 <label>Jumlah Kursi (Seat)</label>
-                                <select class="form-control" name="seat[]">
+                                <select class="form-control" name="seat[]" id="seat-1">
                                   <option value="">-- Pilih Jumlah Kursi --</option>
                                   <option value="11 Seat">11 Seat</option>
                                   <option value="13 Seat">13 Seat</option>
@@ -119,24 +120,22 @@
                             <div class="col">
                               <div class="form-group">
                                 <label>Nomor Polisi</label>
-                                <input type="text" class="form-control" name="npl[]" placeholder="Masukkan Nomor Plat Polisi">
+                                <input type="text" class="form-control" name="npl[]" id="npl-1" placeholder="Masukkan Nomor Plat Polisi">
                                 <div class="invalid-feedback"></div>
                               </div>
                             </div>
                             <div class="d-flex align-items-end form-group">
                               <button type="button" class="btn btn-success add-item-btn"><i class="fa fa-plus"></i></a>
                             </div>
-                            <!-- /.col -->
                           </div>
+                          <div class="item-append"></div>
                         </div>
-
                         <!-- /.col -->
+
                       </div>
                       <!-- /.row -->
                     </div>
                     <!-- /.card-body -->
-                    <div id="show-item">
-                    </div>
                   </div>
                   <div class="card-footer">
                     <button type="submit" class="btn btn-primary btn-block">Submit</button>
@@ -180,13 +179,16 @@
   <script>
     $(document).ready(function() {
       var maxField = 10;
-      var addButton = $('.add-item-btn');
-      var wrapper = $('.item-group');
-      var fieldHtml = '<div class="row">' +
+      var itemValue = 2;
+      var addButton = $(".add-item-btn"); // button add
+      var wrappers = $(".item-append")
+
+      $(addButton).click(function() {
+        var fieldHtml = '<div class="row">' +
         '<div class="col">' +
         '<div class="form-group">' +
-        '<label>Tipe Kendaraan</label>' +
-        '<select class="form-control" name="type[]">' +
+        '<label>Tipe Kendaraan '+itemValue+'</label>' +
+        '<select class="form-control" name="type[]" id="type-'+itemValue+'">' +
         '<option value="">-- Pilih Tipe Kendaraan --</option>' +
         '<option value="Small">Small</option>' +
         '<option value="Medium">Medium</option>' +
@@ -198,14 +200,14 @@
         '<div class="col">' +
         '<div class="form-group">' +
         '<label>Kategori Kendaraan</label>' +
-        '<input type="text" class="form-control" name="ktgr[]" placeholder="Masukkan Jenis Kategori Kendaraan">' +
+        '<input type="text" class="form-control" name="ktgr[]" id="ktgr-'+itemValue+'" placeholder="Masukkan Jenis Kategori Kendaraan">' +
         '<div class="invalid-feedback"></div>' +
         '</div>' +
         '</div>' +
         '<div class="col">' +
         '<div class="form-group">' +
         '<label>Jumlah Kursi (Seat)</label>' +
-        '<select class="form-control" name="seat[]">' +
+        '<select class="form-control" name="seat[]" id="seat-'+itemValue+'">' +
         '<option value="">-- Pilih Jumlah Kursi --</option>' +
         '<option value="11 Seat">11 Seat</option>' +
         '<option value="13 Seat">13 Seat</option>' +
@@ -226,7 +228,7 @@
         '<div class="col">' +
         '<div class="form-group">' +
         '<label>Nomor Polisi</label>' +
-        '<input type="text" class="form-control" name="npl[]" placeholder="Masukkan Nomor Plat Polisi">' +
+        '<input type="text" class="form-control" name="npl[]" id="npl-'+itemValue+'" placeholder="Masukkan Nomor Plat Polisi">' +
         '<div class="invalid-feedback"></div>' +
         '</div>' +
         '</div>' +
@@ -234,19 +236,17 @@
         '<button type="button" class="btn btn-danger remove-item-btn"><i class="fa fa-trash"></i></button>' +
         '</div>' +
         '</div>';
-      var itemValue = 1;
 
-      $(addButton).click(function() {
         if (itemValue < maxField) {
-          $(wrapper).append(fieldHtml);
+          $(fieldHtml).insertBefore(wrappers);
           itemValue++;
         }
       });
 
-      $(wrapper).on("click", ".remove-item-btn", function(e) {
+      $(document).on("click", ".remove-item-btn", function(e) {
         e.preventDefault();
-        $(this).parent().parent("div").remove();
         itemValue--;
+        $(this).parent().parent(".row").remove();
       });
 
     });

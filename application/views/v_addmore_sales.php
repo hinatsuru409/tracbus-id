@@ -67,7 +67,6 @@
           <!-- Main content -->
           <section class="content">
             <div class="container-fluid">
-
               <form role="form" action="<?php echo base_url() . 'index.php/control_sales/getAddSales'; ?>" method="POST">
                 <div class="card card-default">
                   <div class="card-header align-self-center">
@@ -80,13 +79,15 @@
                       <!-- /.col -->
                       <div class="col-md-12">
                         <div class="row">
+                        <?php foreach ($fetch_data as $row): ?>
                           <div class="col-md-6">
                             <div class="form-group">
                               <label>Nomor Reservasi</label>
-                              <input type="text" class="form-control <?= form_error('rsv') ? 'is-invalid' : '' ?>" name="rsv" placeholder="Masukkan Nomor Reservasi">
+                              <input type="text" class="form-control <?= form_error('rsv') ? 'is-invalid' : '' ?>" name="rsv" placeholder="Masukkan Nomor Reservasi" value="<?= $row->no_reservasi ?>">
                               <div class="invalid-feedback"><?= form_error('rsv')  ?></div>
                             </div>
                           </div>
+                        <?php endforeach; ?>
                           <div class="col-md-6">
                             <div class="form-group">
                               <label>Booking Order</label>
