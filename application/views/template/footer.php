@@ -1,5 +1,8 @@
 <footer class="main-footer">
-        <strong>&copy; <?php echo date('Y'); ?> UNITED AUTOMOBIL SEMBILAN PULUH UTAMA.</strong> All rights reserved.
+    <div class="float-right d-none d-sm-block">
+    </div>
+    <img src="<?php echo base_url(); ?>assets/AdminLTE/dist/img/tracnobg2.png">
+         &copy; <?php echo date('Y'); ?>. UNITED AUTOMOBIL SEMBILAN PULUH UTAMA.
 </footer>
 
 <!-- Control Sidebar -->

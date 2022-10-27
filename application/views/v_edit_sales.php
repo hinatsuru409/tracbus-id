@@ -39,7 +39,7 @@
       <div class="container">
         <ul class="navbar-nav">
           <li class="nav-item d-none d-sm-inline-block">
-          <a href="<?php echo base_url() . "index.php/control_admin/view_sales"; ?>"  class="btn btn-primary">
+          <a href="<?php echo base_url() . "index.php/control_sales/view_sales"; ?>"  class="btn btn-primary">
           <b>
                Kembali</b></a>
           </li>
@@ -57,7 +57,6 @@
           <div class="container-fluid">
             <div class="row mb-2">
               <div class="col-sm-6">
-              <img src="../../assets/AdminLTE/dist/img/tracnew.png" alt="AdminTrac" class="#" style="opacity: .8">
               <h6><b>UNITED AUTOMOBIL SEMBILAN PULUH UTAMA. </b></h6>
               </div>
               <div class="col-sm-6">
@@ -329,7 +328,7 @@
                           <div class="col-md-6">
                             <div class="form-group">
                               <label>Alamat Tujuan</label>
-                              <textarea class="form-control" name="alamat" rows="4" placeholder="Enter ..." value="<?php echo $row->alamat ?>"></textarea>
+                              <textarea class="form-control" name="alamat" rows="4" value="<?php echo $row->alamat ?>"></textarea>
                             </div>
                           </div>
                         </div>

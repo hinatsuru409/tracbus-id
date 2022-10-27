@@ -34,9 +34,9 @@
       <div class="container">
         <ul class="navbar-nav">
           <li class="nav-item d-none d-sm-inline-block">
-            <a href="<?php echo base_url() . "index.php/control_katbus/view_katbus"; ?>" class="nav-link">
-              <b>
-                < Kembali</b></a>
+            <a href="<?php echo base_url() . "index.php/control_katbus/view_katbus"; ?>" class="nav-link btn btn-secondary" >
+               <b> 
+            Kembali</b> </a>
           </li>
         </ul>
       </div>

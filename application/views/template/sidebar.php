@@ -26,7 +26,7 @@
                with font-awesome or any other icon font library -->
         <li class="nav-item">
           <a href="<?php echo base_url() . 'index.php/control_admin/dashboard' ?>" <?php if ($this->uri->uri_string() == 'control_admin/dashboard') {
-                                                                                      echo 'class="nav-link active" style="background-color: #28a745"';
+                                                                                      echo 'class="nav-link active" style="background-color: #4d4dff"';
                                                                                     } else {
                                                                                       echo 'class="nav-link"';
                                                                                     } ?>>
@@ -38,7 +38,7 @@
         </li>
         <li class="nav-item">
           <a href="<?php echo base_url() . 'index.php/control_admin/view_billing' ?>" <?php if ($this->uri->uri_string() == 'control_admin/view_billing') {
-                                                                                        echo 'class="nav-link active" style="background-color: #28a745"';
+                                                                                        echo 'class="nav-link active" style="background-color: #4d4dff"';
                                                                                       } else {
                                                                                         echo 'class="nav-link"';
                                                                                       } ?>>
@@ -50,7 +50,7 @@
         </li>
         <li class="nav-item">
           <a href="<?php echo base_url() . 'index.php/control_katbus/view_katbus' ?>" <?php if ($this->uri->uri_string() == 'control_katbus/view_katbus') {
-                                                                                        echo 'class="nav-link active" style="background-color: #28a745"';
+                                                                                        echo 'class="nav-link active" style="background-color: #4d4dff"';
                                                                                       } else {
                                                                                         echo 'class="nav-link"';
                                                                                       } ?>>
@@ -62,7 +62,7 @@
         </li>
         <li class="nav-item">
           <a href="<?php echo base_url() . 'index.php/control_sales/view_sales' ?>" <?php if ($this->uri->uri_string() == 'control_sales/view_sales') {
-                                                                                      echo 'class="nav-link active" style="background-color: #28a745"';
+                                                                                      echo 'class="nav-link active" style="background-color: #4d4dff"';
                                                                                     } else {
                                                                                       echo 'class="nav-link"';
                                                                                     } ?>>
@@ -74,7 +74,7 @@
         </li>
         <li class="nav-item">
           <a href="<?php echo base_url() . 'index.php/control_admin/send_mail' ?>" <?php if ($this->uri->uri_string() == 'control_admin/send_mail') {
-                                                                                      echo 'class="nav-link active" style="background-color: #28a745"';
+                                                                                      echo 'class="nav-link active" style="background-color: #4d4dff"';
                                                                                     } else {
                                                                                       echo 'class="nav-link"';
                                                                                     } ?>>

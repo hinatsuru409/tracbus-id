@@ -58,7 +58,7 @@
                   <div class="modal-title">
                     <div class="row">
                       <img src="../../assets/AdminLTE/dist/img/traclogo.png" alt="AdminTrac" class="brand-image" style="opacity: .8" width="70" height="40">
-                      <h5 class="modal-title align-self-center"><b>&nbsp;UNITED AUTOMOBIL SEMBILANPULUH UTAMA</b></h5>
+                      <h5 class="modal-title align-self-center"><b>&nbsp;UNITED AUTOMOBIL SEMBILAN PULUH UTAMA</b></h5>
                     </div>
 
                   </div>
