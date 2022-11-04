@@ -2,127 +2,79 @@
 
 class m_admin extends CI_Model
 {
-
     var $sales_table = "sales";
     var $payment_table = "sales_payment";
     var $upload_table = "sales_upload";
     var $unit_table = "sales_unit";
-    var $order_column = array(null, "no_reservasi", 'booking_order', "pic_sales", 'profit_center');
 
-    public function getData()
+    var $order_column = array(null, "no_reservasi", 'booking_order', "pic_sales", "profit_center", "date_created");
+    var $search_column = array("no_reservasi", "booking_order", "pic_sales", "profit_center", "date_created");
+    var $order_date = array("date_created" => 'DESC');
+
+    // Initialize Datatables
+    public function getDatatables()
     {
         $this->db->select("*");
         $this->db->from($this->sales_table);
-        $this->db->join($this->upload_table, 'sales_upload.id_sales=sales.id', 'left');
-        $this->db->join($this->payment_table, 'sales_payment.id_sales=sales.id', 'left');
-        if (isset($_POST["search"]["value"])) {
-            $this->db->like("no_reservasi", $_POST["search"]["value"]);
-            $this->db->or_like("booking_order", $_POST["search"]["value"]);
-            $this->db->or_like("pic_sales", $_POST["search"]["value"]);
-            $this->db->or_like("profit_center", $_POST["search"]["value"]);
+        $this->db->join($this->upload_table, 'sales_upload.id_upload=sales.id_upload', 'left');
+        $this->db->join($this->payment_table, 'sales_payment.id_payment=sales.id_payment', 'left');
+        if ($this->input->post('tgl_awal')) {
+            $tgl_awal = $this->input->post('tgl_awal');
+            $tgl_akhir = $this->input->post('tgl_akhir');
+            $tgl_a = substr($tgl_awal, 0, 10);
+            $tgl_b = substr($tgl_akhir, 14, 11);
+            //echo $tgl_awal;
+            $this->db->where('date_created >=', $tgl_a);
+            $this->db->where('date_created <=', $tgl_b);
         }
 
-        if (isset($_POST["order"])) {
+        $i = 0;
+        foreach ($this->search_column as $item) // loop column 
+        {
+            if ($_POST['search']['value']) // if datatable send POST for search
+            {
+                if ($i === 0) // first loop
+                {
+                    $this->db->group_start(); // open bracket. query Where with OR clause better with bracket. because maybe can combine with other WHERE with AND.
+                    $this->db->like($item, $_POST['search']['value']);
+                } else {
+                    $this->db->or_like($item, $_POST['search']['value']);
+                }
+
+                if (count($this->search_column) - 1 == $i) //last loop
+                    $this->db->group_end(); //close bracket
+            }
+            $i++;
+        }
+
+        if (isset($_POST['order'])) // here order processing
+        {
             $this->db->order_by($this->order_column[$_POST['order']['0']['column']], $_POST['order']['0']['dir']);
-        } else {
-            $this->db->order_by('id', 'DESC');
+        } else if (isset($this->order_date)) {
+            $order = $this->order_date;
+            $this->db->order_by(key($order), $order[key($order)]);
         }
     }
 
     public function useDatatables()
     {
-        $this->getData();
+        $this->getDatatables();
         if ($_POST["length"] != -1) {
             $this->db->limit($_POST['length'], $_POST['start']);
         }
         $query = $this->db->get();
         return $query->result();
     }
-    public function get_filtered_data()
+    public function get_filtered_datatables()
     {
         $query = $this->db->get($this->sales_table);
         return $query->num_rows();
     }
 
-    public function get_all_data()
+    public function get_all_datatables()
     {
         $this->db->select("*");
         $this->db->from($this->sales_table);
         return $this->db->count_all_results();
-    }
-
-    // Get tables for Select2
-    public function getUnit_all_data($searchTerm)
-    {
-        $this->db->like('nopol', $searchTerm, 'both');
-        $this->db->order_by('nopol', 'ASC');
-        $this->db->limit(10);
-        return $this->db->get($this->unit_table)->result();
-    }
-
-    public function getUnit($postData)
-    {
-        $result = $this->db->query("SELECT * FROM sales_unit WHERE nopol='$postData'");
-        if ($result->num_rows() > 0) {
-            foreach ($result->result() as $row) {
-                $data = array(
-                    'nopol' => $row->nopol,
-                    'type' => $row->type,
-                    'kategori' => $row->kategori,
-                    'seat' => $row->seat
-                );
-            }
-        }
-        return $data;
-    }
-
-    public function getSewa_data()
-    {
-        return $this->db->get('maksud_sewa');
-    }
-
-    public function getSc_data()
-    {
-        return $this->db->get('source_data');
-    }
-
-    public function getSpec_data()
-    {
-        return $this->db->get('spesifikasi');
-    }
-
-    public function getProvinsi_data()
-    {
-        return $this->db->get('provinsi');
-    }
-
-    public function getTujuan_data()
-    {
-        return $this->db->get('rute_tujuan');
-    }
-    // END
-    public function insert_data($table, $data)
-    {
-        $query = $this->db->insert($table, $data);
-        return $this->db->insert_id();
-    }
-
-    public function delete_data($id)
-    {
-        $this->db->from($this->sales_table);
-        $this->db->join($this->upload_table, "sales_upload.id_sales = sales.id", "left");
-        $this->db->where("sales_upload.id_upload", $id);
-        return $this->db->delete($this->sales_table);
-    }
-
-    public function edit_data($where, $table)
-    {
-        return $this->db->get_where($table, $where);
-    }
-
-    public function update_data($where, $data, $table)
-    {
-        $this->db->where($where);
-        $this->db->update($table, $data);
     }
 }

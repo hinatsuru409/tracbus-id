@@ -2,7 +2,7 @@
 <aside class="main-sidebar sidebar-light-primary elevation-4">
   <!-- Brand Logo -->
   <a href="../../index3.html" class="brand-link">
-    <img src="../../assets/AdminLTE/dist/img/traclogo.png" alt="AdminTrac" class="brand-image img-circle elevation-3" style="opacity: .8">
+    <img src="../../assets/AdminLTE/dist/img/traclogo.png" alt="AdminTrac" class="brand-image" style="opacity: .8">
     <span class="brand-text font-weight-dark"><b>TRAC BUS UAS</span></b>
   </a>
 
@@ -61,7 +61,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?php echo base_url() . 'index.php/control_admin/view_sales' ?>" <?php if ($this->uri->uri_string() == 'control_admin/view_sales') {
+          <a href="<?php echo base_url() . 'index.php/control_sales/view_sales' ?>" <?php if ($this->uri->uri_string() == 'control_sales/view_sales') {
                                                                                       echo 'class="nav-link active" style="background-color: #28a745"';
                                                                                     } else {
                                                                                       echo 'class="nav-link"';
@@ -73,7 +73,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="<?php echo base_url() . 'index.php/control_admin/send_mail' ?>" <?php if ($this->uri->uri_string() == 'control_admin/send_mail') {
+          <a href="<?php echo base_url() . 'index.php/control_admin/view_sendmail' ?>" <?php if ($this->uri->uri_string() == 'control_admin/send_mail') {
                                                                                       echo 'class="nav-link active" style="background-color: #28a745"';
                                                                                     } else {
                                                                                       echo 'class="nav-link"';
@@ -81,6 +81,18 @@
             <i class="nav-icon fas fa-envelope"></i>
             <p>
               Send Mail
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="<?php echo base_url() . 'index.php/control_admin/view_laporan' ?>" <?php if ($this->uri->uri_string() == 'control_admin/view_laporan') {
+                                                                                      echo 'class="nav-link active" style="background-color: #28a745"';
+                                                                                    } else {
+                                                                                      echo 'class="nav-link"';
+                                                                                    } ?>>
+            <i class="nav-icon fas fa-folder"></i>
+            <p>
+              Laporan
             </p>
           </a>
         </li>

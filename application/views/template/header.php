@@ -1,6 +1,6 @@
-<?php 
-    $this->load->helper('date'); 
-    date_default_timezone_set('Asia/Jakarta');
+<?php
+$this->load->helper('date');
+date_default_timezone_set('Asia/Jakarta');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -8,7 +8,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>TRAC BUS</title>
+    <title>TRAC BUS SERVICES</title>
     <link href="../../assets/AdminLTE/dist/img/traclogo.png" rel="icon" type="images">
 
     <!-- Google Font: Source Sans Pro -->
@@ -23,6 +23,8 @@
     <link rel="stylesheet" href="<?php echo base_url('assets/AdminLTE/') ?>dist/css/adminlte.min.css">
 
     <!-- INDEX ONLY -->
+    <!-- daterange picker -->
+    <link rel="stylesheet" href="<?php echo base_url('assets/AdminLTE/') ?>plugins/daterangepicker/daterangepicker.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
@@ -43,9 +45,9 @@
 
 <!-- Codeigniter Date -->
 <?php
-    $datestring = '%D: %d-%M-%Y';
-    $timestring = '%h:%i %A';
-    $time = time();
+$datestring = '%D: %d-%M-%Y';
+$timestring = '%h:%i %A';
+$time = time();
 ?>
 <!-- End -->
 
@@ -59,7 +61,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a class="text-muted nav-link"><i class="fa fa-calendar fa-fw"></i> <?php echo mdate($datestring, $time); ?> <?php echo mdate($timestring, $time); ?></a>
+                    <a class="text-muted nav-link"><i class="fa fa-calendar fa-fw"></i> <?php echo mdate($datestring, $time); ?></a>
                 </li>
             </ul>
 

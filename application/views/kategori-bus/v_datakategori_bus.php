@@ -69,21 +69,27 @@
                 <!-- Modal End -->
 
                 <div class="card-body">
-                  <?php if ($this->session->flashdata('message')):
+                  <?php if ($this->session->flashdata('message')) :
                     echo $this->session->flashdata('message');
-                  endif;?>
+                  endif; ?>
                   <table id="table2" class="table table-bordered table-striped">
                     <thead>
                       <tr>
                         <th>No.</th>
+                        <th>No. Polisi</th>
                         <th>Tipe Unit</th>
                         <th>Kategori Bus</th>
                         <th>Jumlah Seat/Bangku</th>
-                        <th>No. Polisi</th>
+                        <th>Action</th>
                       </tr>
                     </thead>
                   </table>
-                  <a href="<?= base_url('index.php/control_katbus/remove_allData'); ?>" class="btn btn-danger"><i class="fa fa-trash"></i>&nbsp;Hapus Semua Data</a>
+                  <div class="row mt-2">
+                    <a href="<?= base_url('index.php/control_katbus/remove_allData'); ?>" class="btn btn-danger"><i class="fa fa-trash"></i>&nbsp;Hapus Semua Data</a>
+                    <div class="col d-flex justify-content-end">
+                      <a href="<?= base_url('index.php/control_katbus/view_addBus') ?>" class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp;Tambah Data Baru</a>
+                    </div>
+                  </div>
                 </div>
                 <!-- /.card-body -->
               </div>
@@ -141,10 +147,16 @@
             type: "POST"
           },
           "columnDefs": [{
-            //"targets": 4,
-            //"className": "text-center",
+            "targets": 0,
+            "className": "text-center",
             "orderable": false,
-          }, ],
+          },
+          {
+            "targets": 5,
+            "className": "text-center",
+            "orderable": false,
+          },
+        ],
         }).buttons().container().appendTo('#example1_wrapper .col-md-5:eq(0)');
       });
     </script>
