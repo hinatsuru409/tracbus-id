@@ -5,7 +5,6 @@ class control_sales extends CI_Controller{
     function __construct(){
         parent::__construct();
         $this->load->model('m_sales');
-        $this->load->helper('url', 'date');
     }
 
     public function view_sales()
@@ -76,6 +75,7 @@ class control_sales extends CI_Controller{
         echo json_encode($output);
     }
 
+    // Dynamic Autocomplete
     function jsonUnitAutocomplete()
     {
         if (isset($_GET['term'])) {
@@ -96,6 +96,8 @@ class control_sales extends CI_Controller{
         }
         
     }
+
+    // Insert
     public function add_sales()
     {
         $data = $this->m_sales->getSelect_data();
@@ -120,14 +122,17 @@ class control_sales extends CI_Controller{
         }
 
         $postData = $this->input->post();
+        $postDateStrUpl = $this->input->post();
 
-        $data1 = array(
-            'upload_1' => date("Y-m-d", strtotime($postData['upl-1'])),   'upload_2' => date("Y-m-d", strtotime($postData['upl-2'])),
-            'upload_3' => date("Y-m-d", strtotime($postData['upl-3'])),   'upload_4' => date("Y-m-d", strtotime($postData['upl-4'])),
-            'upload_5' => date("Y-m-d", strtotime($postData['upl-5'])),   'upload_6' => date("Y-m-d", strtotime($postData['upl-6'])),
-            'upload_7' => date("Y-m-d", strtotime($postData['upl-7'])),   'upload_8' => date("Y-m-d", strtotime($postData['upl-8'])),
-            'upload_9' => date("Y-m-d", strtotime($postData['upl-9'])),   'upload_10' => date("Y-m-d", strtotime($postData['upl-10'])),
-        );
+        if ($postDateStrUpl) {
+            $data1 = array(
+                'upload_1' => date("Y-m-d", strtotime($postDateStrUpl['upl-1'])),   'upload_2' => date("Y-m-d", strtotime($postDateStrUpl['upl-2'])),
+                'upload_3' => date("Y-m-d", strtotime($postDateStrUpl['upl-3'])),   'upload_4' => date("Y-m-d", strtotime($postDateStrUpl['upl-4'])),
+                'upload_5' => date("Y-m-d", strtotime($postDateStrUpl['upl-5'])),   'upload_6' => date("Y-m-d", strtotime($postDateStrUpl['upl-6'])),
+                'upload_7' => date("Y-m-d", strtotime($postDateStrUpl['upl-7'])),   'upload_8' => date("Y-m-d", strtotime($postDateStrUpl['upl-8'])),
+                'upload_9' => date("Y-m-d", strtotime($postDateStrUpl['upl-9'])),   'upload_10' => date("Y-m-d", strtotime($postDateStrUpl['upl-10'])),
+            );
+        }
         $id_upload = $this->m_sales->insert_data('sales_upload', $data1);
 
         $data2 = array(
@@ -171,6 +176,7 @@ class control_sales extends CI_Controller{
             'addcharge_ket' => $postData['ket_addc'],           'revenue_total' => $postData['total_rvnu'],
             'price_list' => $postData['prcl'],                  'diskon' => $postData['dsk'],
             'id_payment' => $id_payment,                        'total_payment' => $postData['total_py'],
+            'col_pph23' => $postData['colpph23'],
             'pph_23' => $postData['pph'],                       'sel_payment' => $postData['slpy'],
             'ket_payment' => $postData['note'],                 'id_upload' => $id_upload,
             'date_created' => date("Y-m-d H:i:s"),              'date_modified' => date("Y-m-d H:i:s")
@@ -180,6 +186,7 @@ class control_sales extends CI_Controller{
         redirect('control_sales/view_sales');
     }
 
+    // Select Option Validation (including Select2)
     public function check_default($data)
     {
         if ($data == "") {
@@ -190,6 +197,7 @@ class control_sales extends CI_Controller{
         }
     }
 
+    // Delete
     public function delete_sales()
     {
         $id = $this->input->post('delete_id', TRUE);
@@ -197,24 +205,30 @@ class control_sales extends CI_Controller{
         redirect('control_sales/view_sales');
     }
 
-    public function edit_sales($id)
+    // Update
+    public function edit_sales($id_sales)
     {
-        $where = array('id' => $id);
-        $data['sales'] = $this->m_sales->edit_data($where, 'sales')->result();
+        $data = $this->m_sales->getSelect_data();
+        $data['sales'] = $this->m_sales->edit_data($id_sales);
         $this->load->view('sales/v_edit_sales', $data);
     }
 
-    public function updateSales($id)
+    public function updateSales()
     {
+        $id_upload = $this->input->post('id-upload');
+        $id_payment = $this->input->post('id-payment');
+        $id_sales = $this->input->post('id-sales');
         $postData = $this->input->post();
+        $postDateStrUpl = $this->input->post();
 
         $data1 = array(
-            'upload_1' => date("Y-m-d", strtotime($postData['upl-1'])),   'upload_2' => date("Y-m-d", strtotime($postData['upl-2'])),
-            'upload_3' => date("Y-m-d", strtotime($postData['upl-3'])),   'upload_4' => date("Y-m-d", strtotime($postData['upl-4'])),
-            'upload_5' => date("Y-m-d", strtotime($postData['upl-5'])),   'upload_6' => date("Y-m-d", strtotime($postData['upl-6'])),
-            'upload_7' => date("Y-m-d", strtotime($postData['upl-7'])),   'upload_8' => date("Y-m-d", strtotime($postData['upl-8'])),
-            'upload_9' => date("Y-m-d", strtotime($postData['upl-9'])),   'upload_10' => date("Y-m-d", strtotime($postData['upl-10'])),
-        );
+            'upload_1' => date("Y-m-d", strtotime($postDateStrUpl['upl-1'])),   'upload_2' => date("Y-m-d", strtotime($postDateStrUpl['upl-2'])),
+            'upload_3' => date("Y-m-d", strtotime($postDateStrUpl['upl-3'])),   'upload_4' => date("Y-m-d", strtotime($postDateStrUpl['upl-4'])),
+            'upload_5' => date("Y-m-d", strtotime($postDateStrUpl['upl-5'])),   'upload_6' => date("Y-m-d", strtotime($postDateStrUpl['upl-6'])),
+            'upload_7' => date("Y-m-d", strtotime($postDateStrUpl['upl-7'])),   'upload_8' => date("Y-m-d", strtotime($postDateStrUpl['upl-8'])),
+            'upload_9' => date("Y-m-d", strtotime($postDateStrUpl['upl-9'])),   'upload_10' => date("Y-m-d", strtotime($postDateStrUpl['upl-10'])),
+            );
+
         $id_upload = $this->m_sales->update_data('sales_upload', $data1);
 
         $data2 = array(
@@ -234,7 +248,6 @@ class control_sales extends CI_Controller{
             'pay_tgl_5' => date("Y-m-d", strtotime($postData['tgl_py5'])),
             'pay_nom_5' => $postData['nom_py5'],             
         );
-
         $id_payment = $this->m_sales->update_data('sales_payment', $data2);
 
         $data = array(
@@ -257,19 +270,23 @@ class control_sales extends CI_Controller{
             'revenue_unit' => $postData['rvnu'],                'addcharge' => $postData['addc'],
             'addcharge_ket' => $postData['ket_addc'],           'revenue_total' => $postData['total_rvnu'],
             'price_list' => $postData['prcl'],                  'diskon' => $postData['dsk'],
-            'id_payment' => $id_payment,                        'total_payment' => $postData['total_py'],
+            //'id_payment' => $id_payment,                        
+            'total_payment' => $postData['total_py'],
+            'col_pph23' => $postData['colpph23'],
             'pph_23' => $postData['pph'],                       'sel_payment' => $postData['slpy'],
-            'ket_payment' => $postData['note'],                 'id_upload' => $id_upload,
+            'ket_payment' => $postData['note'],                 
+            //'id_upload' => $id_upload,
             'date_created' => date("Y-m-d H:i:s"),              'date_modified' => date("Y-m-d H:i:s")
         );
 
-        $where = array('id' => $id);
+        $where = array(
+            'id' => $id_sales,
+            'id_payment' => $id_payment,
+            'id_upload' => $id_upload
+        );
 
-        $this->m_sales->update_data($where, $data, 'sales');
+        $this->m_sales->update_data('sales', $data, $where);
         redirect('control_sales/view_sales');
     }
 
 }
-
-
-?>

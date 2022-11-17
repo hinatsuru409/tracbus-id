@@ -77,4 +77,8 @@ class m_admin extends CI_Model
         $this->db->from($this->sales_table);
         return $this->db->count_all_results();
     }
+
+    public function getTables(){
+        return $this->db->get($this->sales_table);
+    }
 }

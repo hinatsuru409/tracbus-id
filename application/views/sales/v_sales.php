@@ -268,9 +268,6 @@
                 <div class="modal-footer justify-content-between">
                   <button type="button" class="btn btn-info" data-dismiss="modal">Close</button>
                   <div class="card-tools">
-                    <?php foreach ($sales as $row): ?>
-                    <a href="<?php echo base_url().'index.php/control_sales/add_sales_more/'.$row->id ?>" class="btn btn-primary pull-right" role="button">New Booking Order</a></i>
-                    <?php endforeach; ?>
                   </div>
                 </div>
                 <!-- /.modal-content -->

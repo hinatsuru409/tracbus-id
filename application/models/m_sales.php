@@ -24,7 +24,7 @@ class m_sales extends CI_Model{
         if (isset($_POST["order"])) {
             $this->db->order_by($this->order_column[$_POST['order']['0']['column']], $_POST['order']['0']['dir']);
         } else {
-            $this->db->order_by('id', 'DESC');
+            $this->db->order_by('id', 'ASC');
         }
     }
 
@@ -135,17 +135,25 @@ class m_sales extends CI_Model{
         $this->db->trans_complete();
     }
 
-    public function edit_data($where, $table)
+    public function edit_data($id_sales)
     {
         $this->db->trans_start();
-        return $this->db->get_where($table, $where);
+        $this->db->select("*");
+        $this->db->from($this->sales_table);
+        $this->db->join($this->upload_table, 'sales_upload.id_upload=sales.id_upload', 'left');
+        $this->db->join($this->payment_table, 'sales_payment.id_payment=sales.id_payment', 'left');
+        $this->db->where('id', $id_sales);
+        $query = $this->db->get();
+        return $query->result();
         $this->db->trans_complete();
     }
 
     public function update_data($where, $data, $table)
     {
+        $this->db->trans_start();
         $this->db->where($where);
         $this->db->update($table, $data);
+        $this->db->trans_complete();
     }
 
     public function useSales_bookOrd($where, $table){

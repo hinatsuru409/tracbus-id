@@ -457,7 +457,7 @@
                             <div class="form-group">
                               <label>Tanggal Pembayaran 1</label>
                               <div class="input-group">
-                                <input type="text" class="form-control" id="paymentdate" autocomplete="off" name="tgl_py1" placeholder="Masukkan Tanggal mulai pemesanan" />
+                                <input type="text" class="form-control payment-date" id="paymentdate" autocomplete="off" name="tgl_py1" placeholder="Masukkan Tanggal mulai pemesanan" />
                                 <div class="input-group-append">
                                   <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                 </div>
@@ -492,7 +492,7 @@
                               <div class="form-group">
                                 <label>Tanggal Payment 2</label>
                                 <div class="input-group">
-                                  <input type="text" class="form-control" id="paymentdate2" autocomplete="off" name="tgl_py2" placeholder="Masukkan Tanggal mulai pemesanan" />
+                                  <input type="text" class="form-control payment-date" id="paymentdate2" autocomplete="off" name="tgl_py2" placeholder="Masukkan Tanggal mulai pemesanan" />
                                   <div class="input-group-append">
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                   </div>
@@ -528,7 +528,7 @@
                               <div class="form-group">
                                 <label>Tanggal Payment 3</label>
                                 <div class="input-group">
-                                  <input type="text" class="form-control" id="paymentdate3" autocomplete="off" name="tgl_py3" placeholder="Masukkan Tanggal mulai pemesanan" />
+                                  <input type="text" class="form-control payment-date" id="paymentdate3" autocomplete="off" name="tgl_py3" placeholder="Masukkan Tanggal mulai pemesanan" />
                                   <div class="input-group-append">
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                   </div>
@@ -564,7 +564,7 @@
                               <div class="form-group">
                                 <label>Tanggal Payment 4</label>
                                 <div class="input-group">
-                                  <input type="text" class="form-control" id="paymentdate4" autocomplete="off" name="tgl_py4" placeholder="Masukkan Tanggal mulai pemesanan" />
+                                  <input type="text" class="form-control payment-date" id="paymentdate4" autocomplete="off" name="tgl_py4" placeholder="Masukkan Tanggal mulai pemesanan" />
                                   <div class="input-group-append">
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                   </div>
@@ -600,7 +600,7 @@
                               <div class="form-group">
                                 <label>Tanggal Payment 5</label>
                                 <div class="input-group">
-                                  <input type="text" class="form-control" id="paymentdate5" autocomplete="off" name="tgl_py5" placeholder="Masukkan Tanggal mulai pemesanan" />
+                                  <input type="text" class="form-control payment-date" id="paymentdate5" autocomplete="off" name="tgl_py5" placeholder="Masukkan Tanggal mulai pemesanan" />
                                   <div class="input-group-append">
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                   </div>
@@ -636,7 +636,7 @@
                               <div class="form-group">
                                 <label>Tanggal Payment 6</label>
                                 <div class="input-group">
-                                  <input type="text" class="form-control" id="paymentdate6" autocomplete="off" name="tgl_py6" placeholder="Masukkan Tanggal mulai pemesanan" />
+                                  <input type="text" class="form-control payment-date" id="paymentdate6" autocomplete="off" name="tgl_py6" placeholder="Masukkan Tanggal mulai pemesanan" />
                                   <div class="input-group-append">
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                   </div>
@@ -672,7 +672,7 @@
                               <div class="form-group">
                                 <label>Tanggal Payment 7</label>
                                 <div class="input-group">
-                                  <input type="text" class="form-control" id="paymentdate7" autocomplete="off" name="tgl_py7" placeholder="Masukkan Tanggal mulai pemesanan" />
+                                  <input type="text" class="form-control payment-date" id="paymentdate7" autocomplete="off" name="tgl_py7" placeholder="Masukkan Tanggal mulai pemesanan" />
                                   <div class="input-group-append">
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                   </div>
@@ -708,7 +708,7 @@
                               <div class="form-group">
                                 <label>Tanggal Payment 8</label>
                                 <div class="input-group">
-                                  <input type="text" class="form-control" id="paymentdate8" autocomplete="off" name="tgl_py8" placeholder="Masukkan Tanggal mulai pemesanan" />
+                                  <input type="text" class="form-control payment-date" id="paymentdate8" autocomplete="off" name="tgl_py8" placeholder="Masukkan Tanggal mulai pemesanan" />
                                   <div class="input-group-append">
                                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                   </div>
@@ -975,28 +975,6 @@
           }
         },
       });
-
-      /*$('#drop-npl').on('keyup', function() {
-        var postData = $(this).val();
-        $.ajax({
-          type: "POST",
-          url: "<?php echo base_url('index.php/control_sales/jsonUnitOnChange') ?>",
-          dataType: "JSON",
-          data: {
-            postData: postData
-          },
-          cache: false,
-          success: function(data) {
-            $.each(data, function(nopol, type, kategori, seat) {
-              $('[name="npl"]').val(data.nopol);
-              $('[name="tyunit"]').val(data.type);
-              $('[name="kg"]').val(data.kategori);
-              $('[name="seat"]').val(data.seat);
-            });
-          }
-        });
-        return false;
-      });*/
     });
 
     $(document).ready(function() {
@@ -1080,14 +1058,18 @@
       // Initialize Select2 Elements for Maksud Sewa
       $('.sewa-select').select2({
         placeholder: "-- Pilih kebutuhan sewa --"
-      })
+      });
+
+      $('[name="sw"]').on('change', function() {
+        $(".source-select option:selected").text();
+      });
 
       // Initialize Select2 Elements for Source Data
       $('.source-select').select2({
         placeholder: "-- Pilih Source Data --"
       });
 
-      $('.source-select').on('change', function() {
+      $('[name="sd"]').on('change', function() {
         $(".source-select option:selected").text();
       });
 
@@ -1096,7 +1078,7 @@
         placeholder: " -- Pilih Spesifikasi -- "
       });
 
-      $('.spek-select').on('change', function() {
+      $('[name="sp"]').on('change', function() {
         $(".spek-select option:selected").text();
       })
 
@@ -1128,46 +1110,9 @@
         $("#countFromDate").val(days);
       }
 
-      $('#paymentdate').datepicker({
-        minDate: '0',
-        maxDate: '+1Y+6M'
+      $('.payment-date').datepicker({
+        dateFormat: 'yy-mm-dd'
       });
-
-      $('#paymentdate2').datepicker({
-        minDate: '0',
-        maxDate: '+1Y+6M'
-      });
-
-      $('#paymentdate3').datepicker({
-        minDate: '0',
-        maxDate: '+1Y+6M'
-      });
-
-      $('#paymentdate4').datepicker({
-        minDate: '0',
-        maxDate: '+1Y+6M'
-      });
-
-      $('#paymentdate5').datepicker({
-        minDate: '0',
-        maxDate: '+1Y+6M'
-      });
-
-      $('#paymentdate6').datepicker({
-        minDate: '0',
-        maxDate: '+1Y+6M'
-      });
-
-      $('#paymentdate7').datepicker({
-        minDate: '0',
-        maxDate: '+1Y+6M'
-      });
-
-      $('#paymentdate8').datepicker({
-        minDate: '0',
-        maxDate: '+1Y+6M'
-      });
-
     });
 
     var r = document.getElementById("revenueunit");
